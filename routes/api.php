@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get("/user", function (){
-   die("ASDFB");
-});
+Route::get("/user", [UserController::class, "obterDadosPorIds"]);
