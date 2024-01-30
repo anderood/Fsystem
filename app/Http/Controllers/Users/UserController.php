@@ -3,23 +3,20 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UsersRequest;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
-class UserController implements UserControllerInterface
+class UserController extends Controller
 {
-    //
-    private UserControllerInterface $userServico;
 
-    public function __construct(UserControllerInterface $userServico)
+    private $userSerivce;
+    public function __construct(UserService $userService)
     {
-        $this->userServico = $userServico;
+        $this->userSerivce = $userService;
     }
-    public function obterDadosPorIds(UsersRequest $request): UserControllerInterface
+    public function obterDadosPorIds(Request $request)
     {
-        // TODO: Implement obterDadosPorIds() method.
-        $ids = $request->ids;
-
-        return $this->userServico;
+        $userData = $this->userSerivce->getUserData($request->id);
+        return $userData;
     }
 }
