@@ -16,7 +16,7 @@ class UserController extends Controller
     }
     public function obterDadosPorIds(Request $request)
     {
-        $userData = $this->userSerivce->getUserData($request->id);
+        $userData = $this->userSerivce->getId($request->id);
         return $userData;
     }
 }
