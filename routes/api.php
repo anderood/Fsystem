@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get("/user", [UserController::class, "obterDadosPorIds"]);
+Route::post("/user", [UserController::class, "obterDadosBasicosPorIds"]);
