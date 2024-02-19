@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Requests\UsersRequest;
-
 interface UserControllerInterface
 {
-    public function obterDadosPorIds(UsersRequest $request);
+    public function index();
+
+    public function show($id);
 }

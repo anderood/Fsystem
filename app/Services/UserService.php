@@ -2,15 +2,31 @@
 
 namespace App\Services;
 
+use App\Repositories\UserRepositoryInterface;
+
 class UserService implements UserServiceInterface
 {
+    protected UserRepositoryInterface $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
 
     /**
-     * @param $ids
      * @return mixed
      */
-    public function obterDadosBasicosPorIds(array $ids)
+    public function getAllUsers()
     {
-        return "cheguei no UserService";
+        return $this->userRepository->getAll();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getUserById($id)
+    {
+        return $this->userRepository->getById($id);
     }
 }
