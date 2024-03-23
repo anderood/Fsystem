@@ -15,4 +15,16 @@ class UserRepository implements UserRepositoryInterface
     {
         return User::findOrFail($id);
     }
+
+    public function createUser($userData)
+    {
+        $user = new User();
+        $user->name = $userData['name'];
+        $user->phone = $userData['phone'];
+        $user->dateOfBird = $userData['dateOfBird'];
+        $user->observations = $userData['observations'];
+        $user->email = $userData['email'];
+        $user->password = $userData['password'];
+        $user->save();
+    }
 }

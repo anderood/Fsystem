@@ -6,4 +6,5 @@ interface UserServiceInterface
 {
     public function getAllUsers();
     public function getUserById($id);
+    public function createUser($userData);
 }

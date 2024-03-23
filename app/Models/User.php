@@ -23,7 +23,7 @@ class User extends Authenticatable
         'dateOfBird',
         'observations',
         'email',
-        'password',
+        'password'
     ];
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Services\UserServiceInterface;
+use Illuminate\Http\Request;
 
 class UserController implements UserControllerInterface
 {
@@ -21,5 +22,11 @@ class UserController implements UserControllerInterface
     public function show($id)
     {
         return $this->userService->getUserById($id);
+    }
+
+    public function createUser(Request $request)
+    {
+        $userData = $request->all();
+        return $this->userService->createUser($userData);
     }
 }

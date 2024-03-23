@@ -29,4 +29,9 @@ class UserService implements UserServiceInterface
     {
         return $this->userRepository->getById($id);
     }
+
+    public function createUser($userData)
+    {
+        return $this->userRepository->createUser($userData);
+    }
 }
