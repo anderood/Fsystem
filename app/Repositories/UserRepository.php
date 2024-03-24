@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Http\Requests\UsersRequest;
 use App\Models\User;
 class UserRepository implements UserRepositoryInterface
 {
@@ -18,13 +19,16 @@ class UserRepository implements UserRepositoryInterface
 
     public function createUser($userData)
     {
-        $user = new User();
-        $user->name = $userData['name'];
-        $user->phone = $userData['phone'];
-        $user->dateOfBird = $userData['dateOfBird'];
-        $user->observations = $userData['observations'];
-        $user->email = $userData['email'];
-        $user->password = $userData['password'];
-        $user->save();
+        $validator = UsersRequest::validate($userData);
+
+        // Verifique se a validação falhou
+        if ($validator->fails()) {
+            // Se a validação falhar, lance uma exceção com os erros
+            throw new \InvalidArgumentException($validator->errors()->first());
+        }
+
+        $user = User::create($userData);
+
+        return $user;
     }
 }
