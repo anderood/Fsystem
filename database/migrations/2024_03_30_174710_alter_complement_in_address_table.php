@@ -26,7 +26,8 @@ class AlterComplementInAddressTable extends Migration
     public function down()
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->dropIfExists();
+            $table->dropColumn('complement');
+            $table->string('complement');
         });
     }
 }
