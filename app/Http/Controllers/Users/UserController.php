@@ -16,7 +16,8 @@ class UserController implements UserControllerInterface
 
     public function index()
     {
-        return $this->userService->getAllUsers();
+        $cadastros = $this->userService->getAllUsers();
+        return view("admin.cadastros_admin", ['cadastros' => $cadastros]);
     }
 
     public function show($id)
