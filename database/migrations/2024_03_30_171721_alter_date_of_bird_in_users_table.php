@@ -26,7 +26,9 @@ class AlterDateOfBirdInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropIfExists();
+            $table->dropColumn('dateOfBird');
+            $table->dropColumn('dateOfBirth');
+            $table->string('dateOfBird');
         });
     }
 }
