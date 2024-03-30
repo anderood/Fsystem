@@ -19,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('cadastros')->group(function () {
-    Route::post("/create", [UserController::class, 'createUser']);
+    Route::get("/create", [UserController::class, 'show']);
+    Route::post("/create", [UserController::class, 'createUser'])->name('admin.create');
     Route::get("/users", [UserController::class, 'index']);
     Route::get("/users/{id}", [UserController::class, 'show']);
 });

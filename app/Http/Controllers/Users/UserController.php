@@ -20,9 +20,9 @@ class UserController implements UserControllerInterface
         return view("admin.cadastros_admin", ['cadastros' => $cadastros]);
     }
 
-    public function show($id)
+    public function show()
     {
-        return $this->userService->getUserById($id);
+        return view('admin.create_admin');
     }
 
     public function createUser(Request $request)

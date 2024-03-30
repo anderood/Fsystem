@@ -8,6 +8,6 @@ interface UserControllerInterface
 {
     public function index();
 
-    public function show($id);
+    public function show();
     public function createUser(Request $request);
 }

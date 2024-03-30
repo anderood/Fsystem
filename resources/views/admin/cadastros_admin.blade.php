@@ -8,8 +8,10 @@
     <title>Cadastrados</title>
 </head>
 <body>
+    <h1>Usuarios Cadastrados</h1>
+
     <ul>
-        <label>Cadastros</label>
+
         @foreach($cadastros as $cadastro)
             <li>{{ $cadastro->name }} - {{ $cadastro->phone }} - {{ $cadastro->email }} - {{ $cadastro->observations }}</li>
         @endforeach
