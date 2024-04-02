@@ -9,4 +9,9 @@ class MemberRepository implements MemberRepositoryInterface
     {
 
     }
+
+    public function getMemberById($id)
+    {
+        // TODO: Implement getMemberById() method.
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Members;
 
-use App\Http\Controllers\Controller;
 use App\Services\Members\MemberServiceInterface;
 use Illuminate\Http\Request;
 
@@ -17,5 +16,10 @@ class MemberController implements MemberControllerInterface
     public function index()
     {
         return $this->memberService->getAllMembers();
+    }
+
+    public function getMemberById($id)
+    {
+        // TODO: Implement getMemberById() method.
     }
 }
