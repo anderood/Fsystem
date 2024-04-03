@@ -33,13 +33,24 @@
             <input type="text" name="email" id="">
         </div>
         <div>
-            <label>Observação</label>
-            <input type="text" name="observations" id="">
+            <label>Ativo:</label>
+            <select name="isActive">
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
         </div>
         <div>
-            <label>Senha:</label>
-            <input type="password" name="password" id="">
+            <label>Membro Ativo:</label>
+            <select name="isMember">
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
         </div>
+        <div>
+            <label>Observação</label>
+            <textarea name="observations" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+        </div>
+
         <h2>Endereço</h2>
         <div>
             <label>CEP: </label>

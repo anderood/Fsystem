@@ -33,4 +33,5 @@ Route::prefix("members")->group(function (){
     Route::get("/", [MemberController::class, 'index'])->name('members.list_members');
     Route::get("/create", [MemberController::class, 'show'])->name('members.create_members');
     Route::get("/{id}", [MemberController::class, 'getMemberById']);
+    Route::post("/create", [MemberController::class, 'createMember']);
 });

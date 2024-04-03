@@ -6,5 +6,5 @@ interface MemberRepositoryInterface
 {
     public function allMembers();
     public function getMemberById($id);
-    public function create(Array $memberData);
+    public function createMember(Array $memberData);
 }

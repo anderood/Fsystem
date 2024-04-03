@@ -17,8 +17,19 @@ class MemberRepository implements MemberRepositoryInterface
         return Member::findOrFail($id);
     }
 
-    public function create(array $memberData)
+    public function createMember(array $memberData)
     {
-        return Member::create($memberData);
+        $member = Member::create([
+            'first_name' => $memberData['first_name'],
+            'last_name' => $memberData['first_name'],
+            'phone' => $memberData['phone'],
+            'dateOfBirth' => $memberData['dateOfBirth'],
+            'email' => $memberData['email'],
+            'isActive' => $memberData['isActive'],
+            'isMember' => $memberData['isMember'],
+            'observations' => $memberData['observations'],
+        ]);
+
+        return Member::find($member->id);
     }
 }

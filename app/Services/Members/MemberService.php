@@ -22,8 +22,8 @@ class MemberService implements MemberServiceInterface
         return $this->memberRepository->getMemberById($id);
     }
 
-    public function create(array $memberData)
+    public function createMember(array $memberData)
     {
-        return $this->memberRepository->create($memberData);
+        return $this->memberRepository->createMember($memberData);
     }
 }

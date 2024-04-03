@@ -29,8 +29,9 @@ class MemberController implements MemberControllerInterface
         return view('members.create_members');
     }
 
-    public function create(Request $request)
+    public function createMember(Request $request)
     {
-        // TODO: Implement create() method.
+        $memberData = $request->all();
+        return $this->memberService->createMember($memberData);
     }
 }

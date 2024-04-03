@@ -6,5 +6,5 @@ interface MemberServiceInterface
 {
     public function getAllMembers();
     public function getMemberById($id);
-    public function create(Array $memberData);
+    public function createMember(Array $memberData);
 }
