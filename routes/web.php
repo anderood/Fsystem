@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("/ping", function (){
+    return "pong";
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +29,6 @@ Route::prefix('cadastros')->group(function () {
     Route::get("/users/{id}", [UserController::class, 'show']);
 });
 
+Route::prefix("members")->group(function (){
+    Route::post("/create", [MemberController::class, 'create']);
+});

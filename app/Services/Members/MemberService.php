@@ -19,6 +19,11 @@ class MemberService implements MemberServiceInterface
 
     public function getMemberById($id)
     {
-        // TODO: Implement getMemberById() method.
+        return $this->memberRepository->getMemberById($id);
+    }
+
+    public function create(array $memberData)
+    {
+        return $this->memberRepository->create($memberData);
     }
 }

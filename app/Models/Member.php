@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Membro extends Model
+class Member extends Model
 {
     use HasFactory;
     protected $fillable = [
         'first_name',
         'last_name',
         'phone',
-        'dateOfBird',
-        'email'
+        'dateOfBirth',
+        'email',
+        'email_verified_at',
+        'isActive',
+        'isMember',
+        'observations'
     ];
 
 }

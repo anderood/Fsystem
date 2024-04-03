@@ -20,6 +20,12 @@ class MemberController implements MemberControllerInterface
 
     public function getMemberById($id)
     {
-        // TODO: Implement getMemberById() method.
+        return $this->memberService->getMemberById($id);
+    }
+
+    public function create(Request $request)
+    {
+        $membersData = $request->all();
+        return $this->memberService->create($membersData);
     }
 }
