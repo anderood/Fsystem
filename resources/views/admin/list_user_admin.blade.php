@@ -10,7 +10,7 @@
 <body>
     <h1>Perfil do Usuario</h1>
     <ul>
-        <li></li>
+        <li>{{ $user->name }} - {{ $user->phone }} - {{ $user->email }} - {{ $user->observations }}</li>
     </ul>
 </body>
 </html>

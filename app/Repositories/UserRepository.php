@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Http\Requests\CreateUsersRequest;
 use App\Models\User;
 use App\Models\Address;
+use Illuminate\Support\Facades\Hash;
+
 class UserRepository implements UserRepositoryInterface
 {
 
@@ -26,17 +28,13 @@ class UserRepository implements UserRepositoryInterface
             throw new \InvalidArgumentException($validator->errors()->first());
         }
 
-        $user = User::create($userData);
-
-        $address = Address::create([
-            'zipcode' => $userData['zipcode'],
-            'street' => $userData['street'],
-            'number' => $userData['number'],
-            'complement' => $userData['complement'],
-            'district' => $userData['district'],
-            'city' => $userData['city'],
-            'state' => $userData['state'],
-            'user_id' => $user->id
+        $user = User::create([
+            'name' => $userData['name'],
+            'phone' => $userData['phone'],
+            'dateOfBirth' => $userData['dateOfBirth'],
+            'observations' => $userData['observations'],
+            'email' => $userData['email'],
+            'password' => Hash::make($userData['password']),
         ]);
 
         return User::find($user->id);

@@ -10,7 +10,7 @@
 <body>
     <h1>Cadastrar Usuario</h1>
 
-    <form method="post" action="{{ route('admin.create') }}">
+    <form method="post">
         @csrf
         <div>
             <label>Nome Completo:</label>
@@ -22,7 +22,7 @@
         </div>
         <div>
             <label>Data de Nascimento</label>
-            <input type="text" name="dateOfBird" id="">
+            <input type="text" name="dateOfBirth" id="">
         </div>
         <div>
             <label>E-mail</label>

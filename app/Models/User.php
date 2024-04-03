@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'phone',
-        'dateOfBird',
+        'dateOfBirth',
         'observations',
         'email',
         'password'
@@ -45,14 +45,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
-
-    public function Address()
-    {
-        return $this->hasOne("Address", "user_id");
-    }
 }

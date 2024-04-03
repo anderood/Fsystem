@@ -22,11 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('cadastros')->group(function () {
-    Route::get("/create", [UserController::class, 'show']);
-    Route::post("/create", [UserController::class, 'createUser'])->name('admin.create');
-    Route::get("/users", [UserController::class, 'index']);
-    Route::get("/users/{id}", [UserController::class, 'show']);
+Route::prefix('admin')->group(function () {
+    Route::get("/", [UserController::class, 'index']);
+    Route::get("/create", [UserController::class, 'show'])->name('admin.create_admin');
+    Route::get("/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
+    Route::post("/create", [UserController::class, 'createUser']);
 });
 
 Route::prefix("members")->group(function (){

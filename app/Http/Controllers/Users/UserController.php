@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Models\User;
 use App\Services\UserServiceInterface;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,14 @@ class UserController implements UserControllerInterface
 
     public function index()
     {
-        $cadastros = $this->userService->getAllUsers();
-        return view("admin.cadastros_admin", ['cadastros' => $cadastros]);
+        $users = $this->userService->getAllUsers();
+        return view("admin.list_users_admin", ['users' => $users]);
+    }
+
+    public function obterUserById($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.list_user_admin', ['user' => $user]);
     }
 
     public function show()

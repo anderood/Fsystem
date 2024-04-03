@@ -11,15 +11,9 @@ class CreateUsersRequest
         $regras = [
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'dateOfBird' => 'required|date',
+            'dateOfBirth' => 'required|date',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'zipcode' => 'required|string|min:9|max:9',
-            'street' => 'required|string|max:255',
-            'number' => 'required|string|max:10',
-            'district' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
+            'password' => 'required|string|min:8'
         ];
 
         return Validator::make($userData, $regras);
