@@ -15,7 +15,8 @@ class MemberController implements MemberControllerInterface
 
     public function index()
     {
-        return $this->memberService->getAllMembers();
+        $members =  $this->memberService->getAllMembers();
+        return view('members.list_users_members', ['members' => $members]);
     }
 
     public function getMemberById($id)

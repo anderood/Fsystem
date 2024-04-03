@@ -30,5 +30,7 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix("members")->group(function (){
+    Route::get("/", [MemberController::class, 'index'])->name('members.list_members');
     Route::post("/create", [MemberController::class, 'create']);
+    Route::get("/{id}", [MemberController::class, 'getMemberById']);
 });
