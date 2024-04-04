@@ -36,36 +36,6 @@
             <label>Senha:</label>
             <input type="password" name="password" id="">
         </div>
-        <h2>Endereço</h2>
-        <div>
-            <label>CEP: </label>
-            <input type="text" name="zipcode" id="">
-        </div>
-        <div>
-            <label>Rua: </label>
-            <input type="text" name="street" id="">
-        </div>
-        <div>
-            <label>Numero</label>
-            <input type="text" name="number" id="">
-        </div>
-        <div>
-            <label>Complemento</label>
-            <input type="text" name="complement" id="">
-        </div>
-        <div>
-            <label>Bairro: </label>
-            <input type="text" name="district" id="">
-        </div>
-        <div>
-            <label>Cidade: </label>
-            <input type="text" name="city" id="">
-        </div>
-        <div>
-            <label>Estado</label>
-            <input type="text" name="state" id="">
-        </div>
-
         <button type="submit">Cadastrar</button>
     </form>
 </body>
