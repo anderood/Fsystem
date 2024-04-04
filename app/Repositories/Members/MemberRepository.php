@@ -21,7 +21,7 @@ class MemberRepository implements MemberRepositoryInterface
     {
         $member = Member::create([
             'first_name' => $memberData['first_name'],
-            'last_name' => $memberData['first_name'],
+            'last_name' => $memberData['last_name'],
             'phone' => $memberData['phone'],
             'dateOfBirth' => $memberData['dateOfBirth'],
             'email' => $memberData['email'],
