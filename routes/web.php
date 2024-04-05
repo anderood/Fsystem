@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,9 @@ Route::prefix("members")->group(function (){
     Route::get("/create", [MemberController::class, 'show'])->name('members.create_members');
     Route::get("/{id}", [MemberController::class, 'getMemberById']);
     Route::post("/create", [MemberController::class, 'createMember']);
+});
+
+Route::prefix("categories")->group(function(){
+    Route::get("/", [CategoryController::class, 'index'])->name('categories.list_categories');
+    Route::get("/create", [CategoryController::class, 'show'])->name('categories.create_category');
 });
