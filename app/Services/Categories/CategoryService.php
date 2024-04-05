@@ -17,9 +17,9 @@ class CategoryService implements CategoryServiceInterface
         return $this->categoryRespository->getAllCategories();
     }
 
-    public function getCategoryById()
+    public function getCategoryById($id)
     {
-        // TODO: Implement getCategoryById() method.
+        return $this->categoryRespository->getCategoryById($id);
     }
 
     public function createCategory(array $categoryData)

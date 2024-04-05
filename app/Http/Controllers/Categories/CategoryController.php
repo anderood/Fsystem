@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Categories;
 
-use App\Http\Controllers\Controller;
 use App\Services\Categories\CategoryServiceInterface;
 use Illuminate\Http\Request;
 
@@ -33,6 +32,6 @@ class CategoryController implements CategoryControllerInterface
 
     public function getCategoryById($id)
     {
-        // TODO: Implement getCategoryById() method.
+        return $this->categoryService->getCategoryById($id);
     }
 }

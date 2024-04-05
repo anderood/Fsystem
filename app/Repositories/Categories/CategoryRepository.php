@@ -12,9 +12,9 @@ class CategoryRepository implements CategoryRepositoryInterface
         return Category::all();
     }
 
-    public function getCategoryById()
+    public function getCategoryById($id)
     {
-        // TODO: Implement getCategoryById() method.
+        return Category::find($id);
     }
 
     public function createCategory(array $categoryData)
