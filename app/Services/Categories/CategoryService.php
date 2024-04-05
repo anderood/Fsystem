@@ -2,12 +2,19 @@
 
 namespace App\Services\Categories;
 
+use App\Repositories\Categories\CategoryRepositoryInterface;
+
 class CategoryService implements CategoryServiceInterface
 {
+    protected CategoryRepositoryInterface $categoryRespository;
+    public function __construct(CategoryRepositoryInterface $categoryRespository)
+    {
+        $this->categoryRespository = $categoryRespository;
+    }
 
     public function getAllCategories()
     {
-        // TODO: Implement getAllCategories() method.
+        return $this->categoryRespository->getAllCategories();
     }
 
     public function getCategoryById()

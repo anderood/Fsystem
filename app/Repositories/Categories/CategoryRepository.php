@@ -2,12 +2,14 @@
 
 namespace App\Repositories\Categories;
 
+use App\Models\Category\Category;
+
 class CategoryRepository implements CategoryRepositoryInterface
 {
 
     public function getAllCategories()
     {
-        // TODO: Implement getAllCategories() method.
+        return Category::all();
     }
 
     public function getCategoryById()

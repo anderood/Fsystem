@@ -8,18 +8,24 @@ use Illuminate\Http\Request;
 
 class CategoryController implements CategoryControllerInterface
 {
+    protected CategoryServiceInterface $categoryService;
+    public function __construct(CategoryServiceInterface $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
 
     public function index()
     {
-        return view('categories.list_categories');
+        $allCategories = $this->categoryService->getAllCategories();
+        return view('categories.list_categories', ['categories' => $allCategories]);
     }
 
-    public function show()
+    public function show($id)
     {
         return view('categories.create_category');
     }
 
-    public function createCategory(array $categoryData)
+    public function createCategory(Request $request)
     {
         // TODO: Implement createCategory() method.
     }

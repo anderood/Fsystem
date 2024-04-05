@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Categories;
 
+use Illuminate\Http\Request;
+
 interface CategoryControllerInterface
 {
     public function index();
-    public function show();
-    public function createCategory(Array $categoryData);
+    public function show($id);
+    public function createCategory(Request $request);
 }
