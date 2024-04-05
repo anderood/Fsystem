@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\CreateUsersRequest;
+use App\Http\Requests\Users\CreateUsersRequest;
 use App\Models\User;
-use App\Models\Address;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements UserRepositoryInterface

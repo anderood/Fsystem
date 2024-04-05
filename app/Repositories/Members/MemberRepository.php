@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Members;
 
+use App\Http\Requests\Members\CreateMemberRequest;
+use App\Models\Address;
 use App\Models\Member;
 
 class MemberRepository implements MemberRepositoryInterface
@@ -19,17 +21,34 @@ class MemberRepository implements MemberRepositoryInterface
 
     public function createMember(array $memberData)
     {
+        $validator = CreateMemberRequest::validate($memberData);
+
+        if ($validator->fails()) {
+            throw new \InvalidArgumentException($validator->errors()->first());
+        }
+
         $member = Member::create([
-            'first_name' => $memberData['first_name'],
-            'last_name' => $memberData['last_name'],
-            'phone' => $memberData['phone'],
-            'dateOfBirth' => $memberData['dateOfBirth'],
-            'email' => $memberData['email'],
-            'isActive' => $memberData['isActive'],
-            'isMember' => $memberData['isMember'],
-            'observations' => $memberData['observations'],
+            "first_name" => $memberData["first_name"],
+            "last_name" => $memberData["last_name"],
+            "phone" => $memberData["phone"],
+            "dateOfBirth" => $memberData["dateOfBirth"],
+            "email" => $memberData["email"],
+            "isActive" => $memberData["isActive"],
+            "isMember" => $memberData["isMember"],
+            "observations" => $memberData["observations"],
         ]);
 
-        return Member::find($member->id);
+        Address::create([
+            "zipcode" => $memberData["zipcode"],
+            "street" => $memberData["street"],
+            "number" => $memberData["number"],
+            "complement" => $memberData["complement"],
+            "district" => $memberData["district"],
+            "city" => $memberData["city"],
+            "state" => $memberData["state"],
+            "member_id" => $member->id,
+        ]);
+
+        return Member::with('address')->find($member->id);
     }
 }
