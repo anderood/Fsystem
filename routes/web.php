@@ -40,4 +40,5 @@ Route::prefix("members")->group(function (){
 Route::prefix("categories")->group(function(){
     Route::get("/", [CategoryController::class, 'index'])->name('categories.list_categories');
     Route::get("/create", [CategoryController::class, 'show'])->name('categories.create_category');
+    Route::post("/create", [CategoryController::class, 'createCategory']);
 });

@@ -19,6 +19,8 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     public function createCategory(array $categoryData)
     {
-        // TODO: Implement createCategory() method.
+        $category = Category::create($categoryData);
+
+        return Category::find($category->id);
     }
 }

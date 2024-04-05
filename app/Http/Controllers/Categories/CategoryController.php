@@ -20,13 +20,19 @@ class CategoryController implements CategoryControllerInterface
         return view('categories.list_categories', ['categories' => $allCategories]);
     }
 
-    public function show($id)
+    public function show()
     {
         return view('categories.create_category');
     }
 
     public function createCategory(Request $request)
     {
-        // TODO: Implement createCategory() method.
+        $newCategory = $request->all();
+        return $this->categoryService->createCategory($newCategory);
+    }
+
+    public function getCategoryById($id)
+    {
+        // TODO: Implement getCategoryById() method.
     }
 }
