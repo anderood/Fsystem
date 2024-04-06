@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Types;
 
 use App\Http\Controllers\Controller;
 use App\Models\Types;
+use App\Services\Types\TypeServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -12,6 +13,11 @@ use Illuminate\Http\Response;
 
 class TypeController extends Controller
 {
+    private TypeServiceInterface $typeService;
+    public function __construct()
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,11 +31,11 @@ class TypeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        //
+        return view('types.create_types');
     }
 
     /**
@@ -40,7 +46,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->typeService->getAllTypes();
     }
 
     /**
@@ -50,7 +56,7 @@ class TypeController extends Controller
      */
     public function show()
     {
-        return view('types.create_types');
+
     }
 
     /**
@@ -61,7 +67,7 @@ class TypeController extends Controller
      */
     public function edit(Types $types)
     {
-        //
+
     }
 
     /**
