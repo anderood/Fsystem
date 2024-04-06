@@ -46,12 +46,11 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Types  $types
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function show(Types $types)
+    public function show()
     {
-        //
+        return view('types.create_types');
     }
 
     /**

@@ -45,5 +45,6 @@ Route::prefix("categories")->group(function(){
 });
 
 Route::prefix("types")->group(function (){
-    Route::get("/", [App\Http\Controllers\Types\TypeController::class, 'index'])->name('types.');
+    Route::get("/", [App\Http\Controllers\Types\TypeController::class, 'index'])->name('types.list_types');
+    Route::get("/create", [App\Http\Controllers\Types\TypeController::class, 'show'])->name('types.create_types');
 });
