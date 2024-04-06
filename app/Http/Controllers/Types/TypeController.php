@@ -14,8 +14,9 @@ use Illuminate\Http\Response;
 class TypeController extends Controller
 {
     private TypeServiceInterface $typeService;
-    public function __construct()
+    public function __construct(TypeServiceInterface $typeService)
     {
+        $this->typeService = $typeService;
     }
 
     /**
@@ -25,7 +26,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        return View('types.list_types');
+        $types = $this->typeService->getAllTypes();
+        return View('types.list_types', ['types' => $types]);
     }
 
     /**
@@ -46,7 +48,8 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->typeService->getAllTypes();
+        $newType = $request->all();
+        return $this->typeService->createType($newType);
     }
 
     /**
@@ -56,7 +59,7 @@ class TypeController extends Controller
      */
     public function show()
     {
-
+        return view('types.create_types');
     }
 
     /**

@@ -25,6 +25,6 @@ class TypeService implements TypeServiceInterface
 
     public function createType(array $typeData)
     {
-        // TODO: Implement createType() method.
+        return $this->typeRepository->createType($typeData);
     }
 }

@@ -20,6 +20,6 @@ class TypeRepository implements TypeRepositoryInterface
 
     public function createType(array $typeData)
     {
-        // TODO: Implement createType() method.
+        return Types::create($typeData);
     }
 }
