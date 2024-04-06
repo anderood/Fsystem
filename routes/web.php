@@ -43,3 +43,7 @@ Route::prefix("categories")->group(function(){
     Route::post("/create", [CategoryController::class, 'createCategory']);
     Route::get("/{id}", [CategoryController::class, 'getCategoryById']);
 });
+
+Route::prefix("types")->group(function (){
+    Route::get("/", [App\Http\Controllers\Types\TypeController::class, 'index'])->name('types.');
+});
