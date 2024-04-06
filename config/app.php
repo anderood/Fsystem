@@ -177,6 +177,7 @@ return [
         App\Providers\UserServiceProvider::class,
         App\Providers\MemberServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
+        App\Providers\OrignServiceProvider::class
 
     ],
 
