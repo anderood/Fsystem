@@ -48,5 +48,5 @@ Route::prefix("types")->group(function (){
     Route::get("/", [App\Http\Controllers\Types\TypeController::class, 'index'])->name('types.list_types');
     Route::get("/create", [App\Http\Controllers\Types\TypeController::class, 'show'])->name('types.create_types');
     Route::post("/create", [App\Http\Controllers\Types\TypeController::class, 'store']);
-    Route::post("/{id}", [App\Http\Controllers\Types\TypeController::class, 'edit']);
+    Route::get("/{id}", [App\Http\Controllers\Types\TypeController::class, 'edit']);
 });

@@ -15,7 +15,7 @@ class TypeRepository implements TypeRepositoryInterface
 
     public function getTypeId($id)
     {
-        // TODO: Implement getTypeId() method.
+        return Types::find($id);
     }
 
     public function createType(array $typeData)

@@ -68,9 +68,9 @@ class TypeController extends Controller
      * @param  \App\Models\Types  $types
      * @return Response
      */
-    public function edit(Types $types)
+    public function edit($id)
     {
-
+        return $this->typeService->getTypeId($id);
     }
 
     /**

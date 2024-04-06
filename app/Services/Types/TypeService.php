@@ -20,7 +20,7 @@ class TypeService implements TypeServiceInterface
 
     public function getTypeId($id)
     {
-        // TODO: Implement getTypeId() method.
+        return $this->typeRepository->getTypeId($id);
     }
 
     public function createType(array $typeData)
