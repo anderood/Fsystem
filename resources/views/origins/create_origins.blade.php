@@ -14,13 +14,17 @@
         <div>
             <label>Origem</label>
             <div>
-                <input type="text" name="name">
+                <label>
+                    <input type="text" name="name">
+                </label>
             </div>
         </div>
         <div>
             <label>Descrição</label>
             <div>
-                <textarea name="description" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+                <label>
+                    <textarea name="description" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+                </label>
             </div>
         </div>
         <button type="submit">Cadastrar</button>

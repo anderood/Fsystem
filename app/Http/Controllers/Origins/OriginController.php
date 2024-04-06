@@ -48,7 +48,8 @@ class OriginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $allOrigins = $request->all();
+        return $this->originService->createOrigin($allOrigins);
     }
 
     /**
