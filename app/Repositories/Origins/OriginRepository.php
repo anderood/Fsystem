@@ -14,7 +14,7 @@ class OriginRepository implements OriginRepositoryInterface
 
     public function getOriginById($id)
     {
-        // TODO: Implement getOriginById() method.
+        return Origin::find($id);
     }
 
     public function createOrigin(array $originData)

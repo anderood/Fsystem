@@ -71,7 +71,7 @@ class OriginController extends Controller
      */
     public function edit(Origin $origin)
     {
-        //
+        return $this->originService->getOriginById($origin);
     }
 
     /**

@@ -49,4 +49,5 @@ Route::prefix("origins")->group(function(){
     Route::get("/", [OriginController::class, 'index'])->name('origins.list_origins');
     Route::get("/create", [OriginController::class, 'create'])->name('origins.create_origins');
     Route::post("/create", [OriginController::class, 'store']);
+    Route::get("/{id}", [OriginController::class, 'edit']);
 });

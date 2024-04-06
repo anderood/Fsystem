@@ -20,7 +20,7 @@ class OriginService implements OriginServiceInterface
 
     public function getOriginById($id)
     {
-        // TODO: Implement getOriginById() method.
+        $this->originRepository->getOriginById($id);
     }
 
     public function createOrigin(array $originData)
