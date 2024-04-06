@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Members\MemberController;
+use App\Http\Controllers\Origins\OriginController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,13 @@ Route::prefix("categories")->group(function(){
     Route::get("/create", [CategoryController::class, 'show'])->name('categories.create_category');
     Route::post("/create", [CategoryController::class, 'createCategory']);
     Route::get("/{id}", [CategoryController::class, 'getCategoryById']);
+});
+
+Route::prefix("origins")->group(function(){
+    Route::get("/", [OriginController::class, 'index'])->name('origins.list_origins');
+    Route::get("/create", [OriginController::class, 'create'])->name('origins.create_origins');
+    Route::post("/create", [OriginController::class, 'store']);
+    Route::get("/{id}", [OriginController::class, 'edit']);
 });
 
 Route::prefix("types")->group(function (){
