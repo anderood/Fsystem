@@ -20,7 +20,7 @@ class TransactionService implements TransactionServiceInterface
 
     public function getTransactionsById($id)
     {
-        // TODO: Implement getTransactionsById() method.
+        return $this->transactionRepository->getTransactionsById($id);
     }
 
     public function createTransaction(array $transactionData)

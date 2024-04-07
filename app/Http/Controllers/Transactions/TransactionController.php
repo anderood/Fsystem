@@ -68,9 +68,9 @@ class TransactionController extends Controller
      * @param Transactions $transactions
      * @return Response
      */
-    public function edit(Transactions $transactions)
+    public function edit($id)
     {
-        //
+        return $this->transactionService->getTransactionsById($id);
     }
 
     /**

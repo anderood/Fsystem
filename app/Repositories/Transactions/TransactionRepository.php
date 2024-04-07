@@ -13,7 +13,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function getTransactionsById($id)
     {
-        // TODO: Implement getTransactionsById() method.
+        return $transactionId = Transactions::find($id);
     }
 
     public function createTransaction(array $transactionData)
