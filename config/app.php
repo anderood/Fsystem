@@ -178,7 +178,8 @@ return [
         App\Providers\MemberServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
         App\Providers\OrignServiceProvider::class,
-        App\Providers\TypeServiceProvider::class
+        App\Providers\TypeServiceProvider::class,
+        App\Providers\TransactionServiceProvider::class
 
     ],
 

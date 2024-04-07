@@ -3,6 +3,8 @@
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Origins\OriginController;
+use App\Http\Controllers\Transactions\TransactionController;
+use App\Http\Controllers\Transactions\TransactionsController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +60,9 @@ Route::prefix("types")->group(function (){
     Route::post("/create", [App\Http\Controllers\Types\TypeController::class, 'store']);
     Route::get("/{id}", [App\Http\Controllers\Types\TypeController::class, 'edit']);
 });
+
+Route::prefix("transactions")->group(function (){
+    Route::get("/", [TransactionController::class, 'index'])->name('transactions.list_transactions');
+});
+
+
