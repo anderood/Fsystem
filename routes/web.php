@@ -63,6 +63,9 @@ Route::prefix("types")->group(function (){
 
 Route::prefix("transactions")->group(function (){
     Route::get("/", [TransactionController::class, 'index'])->name('transactions.list_transactions');
+    Route::get("/create", [TransactionController::class, 'show'])->name('transactions.create_transactions');
+    Route::post("/create", [TransactionController::class, 'store']);
+//    Route::get("/{id}", [TransactionsController::class, 'edit']);
 });
 
 

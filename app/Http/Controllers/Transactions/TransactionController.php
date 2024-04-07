@@ -48,24 +48,24 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newTransaction = $request->all();
+        return $this->transactionService->createTransaction($newTransaction);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transaction\Transactions  $transactions
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function show(Transactions $transactions)
+    public function show()
     {
-        //
+        return view('transactions.create_transactions');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Transaction\Transactions  $transactions
+     * @param Transactions $transactions
      * @return Response
      */
     public function edit(Transactions $transactions)
@@ -77,7 +77,7 @@ class TransactionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction\Transactions  $transactions
+     * @param Transactions $transactions
      * @return Response
      */
     public function update(Request $request, Transactions $transactions)
@@ -88,7 +88,7 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transaction\Transactions  $transactions
+     * @param Transactions $transactions
      * @return Response
      */
     public function destroy(Transactions $transactions)

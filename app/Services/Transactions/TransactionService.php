@@ -25,6 +25,6 @@ class TransactionService implements TransactionServiceInterface
 
     public function createTransaction(array $transactionData)
     {
-        // TODO: Implement createTransaction() method.
+        return $this->transactionRepository->createTransaction($transactionData);
     }
 }

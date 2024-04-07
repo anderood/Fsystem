@@ -18,6 +18,6 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function createTransaction(array $transactionData)
     {
-        // TODO: Implement createTransaction() method.
+        return Transactions::create($transactionData);
     }
 }
