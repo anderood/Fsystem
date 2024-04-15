@@ -52,7 +52,7 @@ class LoginController extends Controller
             return redirect()->route('login')->withErrors(['error' => 'Invalid Email or Password']);
         }
 
-        return redirect()->route('login')->with('success', 'Welcome Back');
+        return redirect()->route('admin.list_users_admin')->with('success', 'Welcome Back');
 
     }
 
