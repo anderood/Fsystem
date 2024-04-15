@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Categories\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Origins\OriginController;
 use App\Http\Controllers\Transactions\TransactionController;
@@ -22,16 +23,13 @@ Route::get("/ping", function (){
     return "pong";
 });
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(LoginController::class)->group(function () {
+    Route::get("login", 'index')->name("login");
+    Route::post("login", 'store')->name("login.store");
+    Route::get("logout", 'destroy')->name("login.destroy");
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get("/", [UserController::class, 'index']);
-    Route::get("/create", [UserController::class, 'show'])->name('admin.create_admin');
-    Route::get("/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
-    Route::post("/create", [UserController::class, 'createUser']);
-});
+
 
 Route::prefix("members")->group(function (){
     Route::get("/", [MemberController::class, 'index'])->name('members.list_members');
