@@ -23,6 +23,10 @@ Route::get("/ping", function (){
     return "pong";
 });
 
+Route::get("/", function () {
+    return view('dashboard.dashboard');
+});
+
 Route::controller(LoginController::class)->group(function () {
     Route::get("login", 'index')->name("login");
     Route::post("login", 'store')->name("login.store");
