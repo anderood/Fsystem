@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Categories\CategoryController;
+use App\Http\Controllers\Controls\ControlController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Origins\OriginController;
@@ -75,6 +76,13 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/transactions/create", [TransactionController::class, 'show'])->name('transactions.create_transactions');
         Route::post("/transactions/create", [TransactionController::class, 'store']);
         Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
+    });
+
+    Route::namespace("controls")->group(function () {
+        Route::get("/controls/", [ControlController::class, 'index'])->name('controls.list_controls');
+        Route::get("/controls/create", [ControlController::class, 'show'])->name('controls.create_controls');
+        Route::post("/controls/create", [ControlController::class, 'store']);
+        Route::get("/controls/{id}", [ControlController::class, 'edit']);
     });
 });
 
