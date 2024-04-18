@@ -17,13 +17,13 @@ class ControlService implements ControlServiceInterface
         return $this->controlRepository->getAllControls();
     }
 
-    public function getControl($id)
+    public function getControlById($id)
     {
-        // TODO: Implement getControl() method.
+        return $this->controlRepository->getControlById($id);
     }
 
     public function createControl(array $controlData)
     {
-        // TODO: Implement createControl() method.
+        return $this->controlRepository->createControl($controlData);
     }
 }

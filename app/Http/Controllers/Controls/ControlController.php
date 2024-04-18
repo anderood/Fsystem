@@ -24,7 +24,8 @@ class ControlController extends Controller
      */
     public function index()
     {
-        return view('controls.list_controls');
+        $allControls = $this->controlService->getAllControls();
+        return view('controls.list_controls', ['allControls' => $allControls]);
     }
 
     /**
@@ -45,7 +46,8 @@ class ControlController extends Controller
      */
     public function store(Request $request)
     {
-        return $controlData = $this->controlService->getAllControls();
+        $controlData = $request->all();
+        return $this->controlService->createControl($controlData);
     }
 
     /**
@@ -66,7 +68,7 @@ class ControlController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $this->controlService->getControlById($id);
     }
 
     /**

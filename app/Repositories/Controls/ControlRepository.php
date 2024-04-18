@@ -2,17 +2,19 @@
 
 namespace App\Repositories\Controls;
 
+use App\Models\Control;
+
 class ControlRepository implements ControlRepositoryInterface
 {
 
     public function getAllControls()
     {
-        return Controll::all();
+        return Control::all();
     }
 
     public function getControlById($id)
     {
-        // TODO: Implement getControlById() method.
+        return Control::findById($id);
     }
 
     public function getControlByName(string $name)
@@ -20,8 +22,8 @@ class ControlRepository implements ControlRepositoryInterface
         // TODO: Implement getControlByName() method.
     }
 
-    public function createControl(array $data)
+    public function createControl(array $controlData)
     {
-        // TODO: Implement createControl() method.
+        return Control::create($controlData);
     }
 }
