@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Controls;
 
 use App\Http\Controllers\Controller;
 use App\Services\Controls\ControlServiceInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ControlController extends Controller
 {
-
     protected ControlServiceInterface $controlService;
     public function __construct(ControlServiceInterface $controlService)
     {
@@ -18,22 +20,21 @@ class ControlController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        $controlData = $this->controlService->getAllControls();
-        return view('controls.index', compact('controlData'));
+        return view('controls.list_controls');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -44,19 +45,17 @@ class ControlController extends Controller
      */
     public function store(Request $request)
     {
-        $controlData = $request->all();
-        return $this->controlService->createControl($controlData);
+        return $controlData = $this->controlService->getAllControls();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function show($id)
+    public function show()
     {
-        return $this->controlService->getControl($id);
+        return view('controls.create_controls');
     }
 
     /**

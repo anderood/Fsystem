@@ -79,7 +79,7 @@ Route::prefix('fsystem')->group(function () {
     });
 
     Route::namespace("controls")->group(function () {
-        Route::get("/controls/", [ControlController::class, 'index'])->name('controls.list_controls');
+        Route::get("/controls", [ControlController::class, 'index'])->name('controls.list_controls');
         Route::get("/controls/create", [ControlController::class, 'show'])->name('controls.create_controls');
         Route::post("/controls/create", [ControlController::class, 'store']);
         Route::get("/controls/{id}", [ControlController::class, 'edit']);
