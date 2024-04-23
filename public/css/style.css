@@ -1,185 +1,169 @@
-/* Estilos adicionais personalizados */
 
-/* Define a altura completa do menu lateral */
-.menu-lateral {
+.container {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-between; /* Coloca os itens no início e no final do contêiner, com espaço entre eles */
-}
-
-/* Defina a fonte para o corpo do documento */
-body {
-    font-family: 'Roboto', serif;
-}
-
-/* Estilo para o nome da instituição */
-.instituicao {
-    padding: 20px;
-    padding-bottom: 10px; /* Adiciona espaçamento na parte inferior */
-    font-weight: bold;
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-}
-
-/* Estilo para os itens do menu */
-.menu-item {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Adiciona espaçamento entre ícones e textos */
-.menu-item i {
-    margin-right: 10px; /* Adicione o espaçamento desejado aqui */
-}
-
-/* Estilo para os itens ativos do menu */
-.menu-item.active {
-    background-color: #f8f9fa;
-}
-
-.menu-item a{
-    text-decoration: none;
-}
-
-/* Estilo para o rodapé do menu */
-.menu-rodape {
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-    border-top: 1px solid #ddd;
-    margin-bottom: 20px; /* Adiciona uma margem inferior */
-}
-
-.menu-rodape a {
-    display: inline-flex; /* Para alinhar o ícone e o texto horizontalmente */
-    align-items: center; /* Para alinhar o ícone e o texto verticalmente */
-}
-
-.menu-rodape a i {
-    margin-right: 10px; /* Adicione o espaçamento desejado aqui */
-}
-
-.menu-item:hover {
-    background-color: #f0f0f0; /* Adiciona cor de fundo ao passar o mouse */
-}
-
-.list-unstyled {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Alinha os itens ao centro verticalmente */
-}
-.nome-usuario {
-    font-weight: bold;
-    font-size: 24px; /* Exemplo de tamanho de fonte */
-}
-.bem-vindo {
-    margin-top: 20px; /* Adiciona um espaçamento de 20px no topo */
-    margin-left: 20px; /* Adiciona um espaçamento de 20px à esquerda */
-}
-
-.conteudo-principal {
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f0f0f0;
 }
 
-.caixas {
-    display: flex; /* Faz com que as caixas fiquem lado a lado */
-    justify-content: center; /* Centraliza as caixas horizontalmente */
-}
-
-
-.caixa {
+.container-esquerdo {
+    width: 30%;
     padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
-}
-.caixa h3,
-.caixa p.valor {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
     margin: 0;
 }
 
-
-.caixa i {
-    float: left;
-    margin-right: 15px;
+.container-esquerdo-logo {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
-
-.caixa h3 {
-    font-size: 18px;
+.container-esquerdo-menu {
+    padding: 36px;
+    flex: 1;
 }
 
-.caixa p.valor {
-    font-size: 24px;
-    font-weight: bold;
+.container-esquerdo-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container-esquerdo-menu li {
+    padding: 10px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.container-esquerdo-menu li.active,
+.container-esquerdo-menu li:hover {
+    background-color: #555;
+}
+
+.container-esquerdo-menu li:hover a {
+    text-decoration: none;
+}
+
+.container-esquerdo-menu li a {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.container-esquerdo-menu li a i {
+    margin-right: 10px;
+}
+
+.container-esquerdo-rodape ul {
+    list-style: none;
+    text-align: center;
+}
+
+.container-central {
+    width: 70%;
+    margin-top: 70px;
+    padding: 40px;
+}
+
+.container-central-topo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-central-topo h2 {
+    margin-bottom: 5px;
+}
+
+.container-central-topo span {
     color: #007bff;
 }
 
-.valor {
+.container-central-search-div {
+    width: 100%;
+}
+.container-central-search {
+    margin-bottom: 20px;
+}
+
+.container-central-balance-div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.central-balance-entrada {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #e0f7fa;
+    color: #333;
+    border-radius: 5px;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.central-balance-saida {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #ffccbc;
+    color: #333;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.central-balance-entrada i,
+.central-balance-saida i {
     font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.central-balance-entrada span,
+.central-balance-saida span {
+    font-size: 20px;
     font-weight: bold;
-    color: #007bff; /* Cor azul para destacar o valor */
+    display: block;
 }
 
-.transacoes {
-    background-color: #f8f9fa; /* Cor de fundo */
-    padding: 20px; /* Espaçamento interno */
-    border: 1px solid #ccc; /* Borda */
-    border-radius: 5px; /* Borda arredondada */
+.container-central-transacoes-div {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.transacoes h3 {
-    margin-top: 0; /* Remove margem superior do título */
-    color: #333; /* Cor do texto */
+.container-central-transacoes-div h3 {
+    padding: 10px;
+    text-align: center;
 }
 
-.transacoes ul {
-    padding: 0; /* Remove o espaçamento interno padrão da lista */
+.transacoes table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.transacoes ul li {
-    list-style: none; /* Remove os bullets da lista */
-    padding: 5px 0; /* Espaçamento entre as transações */
-    border-bottom: 1px solid #ddd; /* Borda inferior entre as transações */
+.transacoes th,
+.transacoes td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
-.transacoes ul li:last-child {
-    border-bottom: none; /* Remove a borda inferior da última transação */
+.transacoes th {
+    background-color: #f2f2f2;
 }
 
-.entrada {
-    background-color: #d4edda; /* Cor de fundo para entrada */
+.transacoes tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
-
-.saida {
-    background-color: #f8d7da; /* Cor de fundo para saída */
-}
-
-.conteudo-direito {
-    float: right;
-    margin-left: 20px; /* Adicione margem esquerda para separação */
-}
-
-.conteudo-direito {
-    /*background-color: #007bff; !* Cor de fundo igual ao menu-lateral *!*/
-    height: 100%; /* Altura igual ao menu-lateral */
-    padding: 20px; /* Espaçamento interno */
-}
-
-.conteudo-direito section {
-    height: 100%; /* Altura igual ao menu-lateral */
-}
-
-.conteudo-direito .row {
-    margin-right: -15px; /* Corrige a margem negativa */
-    margin-left: -15px; /* Corrige a margem negativa */
-}
-
-
-
