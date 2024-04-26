@@ -46,24 +46,13 @@
         <section class="container-central">
             <div class="row">
                 <div class="container-central-topo-div">
+                    <p>Hoje é dia 01 de Janeiro de 2024</p>
                     <div class="container-central-topo">
                         <h2>Seja Bem vindo <span>Fulano!</span></h2>
-                        <p>Hoje é dia 01 de Janeiro de 2024</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="container-central-search-div">
-                    <div class="container-central-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar...">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="container-central-balance-div">
                     <div class="central-balance-entrada">
@@ -74,6 +63,7 @@
                         <h3>Saida</h3>
                         <span>R$1000,00</span>
                     </div>
+
                 </div>
             </div>
             <div class="row">
@@ -94,7 +84,15 @@
                             <tbody>
                             <tr>
                                 <td>Fulano de tal</td>
-                                <td>R$ 300</td>
+                                <td>R$ 300,00</td>
+                                <td>01/01/2022</td>
+                                <td>Dízimo</td>
+                                <td>Banco</td>
+                                <td>Entrada</td>
+                            </tr>
+                            <tr>
+                                <td>Fulano de tal</td>
+                                <td>R$ 300,00</td>
                                 <td>01/01/2022</td>
                                 <td>Dízimo</td>
                                 <td>Banco</td>
@@ -132,14 +130,7 @@
                                 <td>Banco</td>
                                 <td>Entrada</td>
                             </tr>
-                            <tr>
-                                <td>Fulano de tal</td>
-                                <td>R$ 300</td>
-                                <td>01/01/2022</td>
-                                <td>Dízimo</td>
-                                <td>Banco</td>
-                                <td>Entrada</td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
