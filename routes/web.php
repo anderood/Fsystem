@@ -24,7 +24,7 @@ Route::get("/ping", function (){
 });
 
 Route::get("/", function () {
-    return view('dashboard.dashboard');
+    return view('home');
 });
 
 Route::controller(LoginController::class)->group(function () {
