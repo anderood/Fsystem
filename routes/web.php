@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Origins\OriginController;
 use App\Http\Controllers\Transactions\TransactionController;
+use App\Http\Controllers\Types\TypeController;
 use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::prefix('fsystem')->group(function () {
 
     Route::namespace("admin")->group(function () {
-        Route::get("/", [UserController::class, 'index'])->name('admin.home_admin');
+        Route::get("/admin/", [UserController::class, 'index'])->name('admin.home_admin');
         Route::get("/admin/create", [UserController::class, 'show'])->name('admin.create_admin');
         Route::get("/admin/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
         Route::post("/admin/create", [UserController::class, 'createUser']);
@@ -50,36 +51,35 @@ Route::prefix('fsystem')->group(function () {
     });
 
     Route::namespace("categories")->group(function () {
-        Route::get("/categories/", [CategoryController::class, 'index'])->name('categories.list_categories');
+        Route::get("/categories/", [CategoryController::class, 'index'])->name('categories.home_categories');
         Route::get("/categories/create", [CategoryController::class, 'show'])->name('categories.create_category');
         Route::post("/categories/create", [CategoryController::class, 'createCategory']);
         Route::get("/categories/{id}", [CategoryController::class, 'getCategoryById']);
     });
 
     Route::namespace("origins")->group(function () {
-
-        Route::get("/origins/", [OriginController::class, 'index'])->name('origins.list_origins');
+        Route::get("/origins/", [OriginController::class, 'index'])->name('origins.home_origins');
         Route::get("/origins/create", [OriginController::class, 'create'])->name('origins.create_origins');
         Route::post("/origins/create", [OriginController::class, 'store']);
         Route::get("/origins/{id}", [OriginController::class, 'edit']);
     });
 
     Route::namespace("types")->group(function () {
-        Route::get("/types/", [App\Http\Controllers\Types\TypeController::class, 'index'])->name('types.list_types');
-        Route::get("/types/create", [App\Http\Controllers\Types\TypeController::class, 'show'])->name('types.create_types');
-        Route::post("/types/create", [App\Http\Controllers\Types\TypeController::class, 'store']);
-        Route::get("/types/{id}", [App\Http\Controllers\Types\TypeController::class, 'edit']);
+        Route::get("/types/", [TypeController::class, 'index'])->name('types.home_types');
+        Route::get("/types/create", [TypeController::class, 'show'])->name('types.create_types');
+        Route::post("/types/create", [TypeController::class, 'store']);
+        Route::get("/types/{id}", [TypeController::class, 'edit']);
     });
 
     Route::namespace("transactions")->group(function () {
-        Route::get("/transactions/", [TransactionController::class, 'index'])->name('transactions.list_transactions');
+        Route::get("/transactions/", [TransactionController::class, 'index'])->name('transactions.home_transactions');
         Route::get("/transactions/create", [TransactionController::class, 'show'])->name('transactions.create_transactions');
         Route::post("/transactions/create", [TransactionController::class, 'store']);
         Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
     });
 
     Route::namespace("controls")->group(function () {
-        Route::get("/controls", [ControlController::class, 'index'])->name('controls.list_controls');
+        Route::get("/controls", [ControlController::class, 'index'])->name('controls.home_controls');
         Route::get("/controls/create", [ControlController::class, 'show'])->name('controls.create_controls');
         Route::post("/controls/create", [ControlController::class, 'store']);
         Route::get("/controls/{id}", [ControlController::class, 'edit']);

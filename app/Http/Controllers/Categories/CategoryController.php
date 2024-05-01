@@ -16,7 +16,7 @@ class CategoryController implements CategoryControllerInterface
     public function index()
     {
         $allCategories = $this->categoryService->getAllCategories();
-        return view('categories.list_categories', ['categories' => $allCategories]);
+        return view('categories.home_categories', ['categories' => $allCategories]);
     }
 
     public function show()

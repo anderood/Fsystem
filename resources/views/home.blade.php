@@ -36,9 +36,9 @@
 
         @include('components.central-header')
 
-{{--        @include('components.central-balance')--}}
+        @include('components.central-balance')
 
-        @include('transactions.create_transactions')
+        @include('components.central')
 
     </section>
 @endsection

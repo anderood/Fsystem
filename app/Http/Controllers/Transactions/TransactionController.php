@@ -27,7 +27,7 @@ class TransactionController extends Controller
     public function index()
     {
         $allTransactions = $this->transactionService->getAllTransactions();
-        return view('transactions.list_transactions', ['transactions' => $allTransactions]);
+        return view('transactions.home_transactions', ['transactions' => $allTransactions]);
     }
 
     /**

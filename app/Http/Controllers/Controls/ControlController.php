@@ -25,7 +25,7 @@ class ControlController extends Controller
     public function index()
     {
         $allControls = $this->controlService->getAllControls();
-        return view('controls.list_controls', ['allControls' => $allControls]);
+        return view('controls.home_controls', ['allControls' => $allControls]);
     }
 
     /**

@@ -27,7 +27,7 @@ class OriginController extends Controller
     public function index()
     {
         $allOrigins = $this->originService->getAllOrigins();
-        return view('origins.list_origins', ['origins' => $allOrigins]);
+        return view('origins.home_origins', ['origins' => $allOrigins]);
     }
 
     /**

@@ -27,7 +27,7 @@ class TypeController extends Controller
     public function index()
     {
         $types = $this->typeService->getAllTypes();
-        return View('types.list_types', ['types' => $types]);
+        return View('types.home_types', ['types' => $types]);
     }
 
     /**
