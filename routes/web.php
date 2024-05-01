@@ -37,10 +37,10 @@ Route::prefix('fsystem')->group(function () {
     });
 
     Route::namespace("admin")->group(function () {
-        Route::get("/admin/", [UserController::class, 'index'])->name('admin.home_admin');
-        Route::get("/admin/create", [UserController::class, 'show'])->name('admin.create_admin');
-        Route::get("/admin/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
-        Route::post("/admin/create", [UserController::class, 'createUser']);
+        Route::get("/users/", [UserController::class, 'index'])->name('admin.home_admin');
+        Route::get("/users/create", [UserController::class, 'show'])->name('admin.create_admin');
+        Route::get("/users/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
+        Route::post("/users/create", [UserController::class, 'createUser']);
     });
 
     Route::namespace("members")->group(function () {
