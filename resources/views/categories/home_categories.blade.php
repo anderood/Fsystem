@@ -6,7 +6,6 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.central-header')
         @include('components.categories.list_categories')
     </section>
 @endsection

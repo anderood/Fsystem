@@ -6,7 +6,6 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.central-header')
         @include('components.controls.list_controls')
     </section>
 @endsection
