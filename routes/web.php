@@ -24,10 +24,6 @@ Route::get("/ping", function (){
     return "pong";
 });
 
-Route::get("/", function () {
-    return view('home');
-});
-
 Route::controller(LoginController::class)->group(function () {
     Route::get("login", 'index')->name("login");
     Route::post("login", 'store')->name("login.store");
@@ -35,6 +31,10 @@ Route::controller(LoginController::class)->group(function () {
 });
 
 Route::prefix('fsystem')->group(function () {
+
+    Route::get("/", function () {
+        return view('home');
+    });
 
     Route::namespace("admin")->group(function () {
         Route::get("/admin/", [UserController::class, 'index'])->name('admin.home_admin');
