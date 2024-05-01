@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
     margin: 0;
 }
 
@@ -69,6 +68,18 @@
     width: 70%;
     /*margin-top: 70px;*/
     padding: 40px;
+}
+
+.container-central-header-botao {
+    display: flex;
+    justify-content: end;
+}
+
+.container-central-header-botao a {
+    padding: 10px 10px;
+    background-color: #007bff;
+    border-radius: 5px;
+    color: #fff
 }
 
 .container-central-topo {

@@ -6,6 +6,11 @@
 
 @section('container-central')
     <section class="container-central">
+        <section class="container-central-header-botao">
+            <div class="row">
+                <a href="{{ route('categories.create_category') }}">Nova Transação</a>
+            </div>
+        </section>
         @include('components.categories.list_categories')
     </section>
 @endsection
