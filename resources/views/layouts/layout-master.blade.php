@@ -16,7 +16,10 @@
 </head>
 <body>
     <div class="container">
-        @yield('content')
+        @section('container-esquerdo')
+        @show
+        @section('container-central')
+        @show
     </div>
 </body>
 </html>

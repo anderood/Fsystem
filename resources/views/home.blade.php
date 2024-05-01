@@ -1,6 +1,6 @@
 @extends('layouts.layout-master')
 
-@section('content')
+@section('container-esquerdo')
     <section class="container-esquerdo">
         <div class="row">
             <div class="container-esquerdo-logo">
@@ -28,98 +28,17 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('container-central')
+
     <section class="container-central">
-        <div class="row">
-            <div class="container-central-topo-div">
-                <p>Hoje é dia 01 de Janeiro de 2024</p>
-                <div class="container-central-topo">
-                    <h2>Seja Bem vindo <span>Fulano!</span></h2>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="container-central-balance-div">
-                <div class="central-balance-entrada">
-                    <h3>Entrada</h3>
-                    <span>R$1000,00</span>
-                </div>
-                <div class="central-balance-saida">
-                    <h3>Saida</h3>
-                    <span>R$1000,00</span>
-                </div>
+        @include('components.central-header')
 
-            </div>
-        </div>
-        <div class="row">
-            <div class="container-central-transacoes-div">
-                <div class="transacoes">
-                    <h3>Últimas Transações</h3>
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Valor</th>
-                            <th>Data</th>
-                            <th>Tipo</th>
-                            <th>Origem</th>
-                            <th>Movimentação</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300,00</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300,00</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
-                        <tr>
-                            <td>Fulano de tal</td>
-                            <td>R$ 300</td>
-                            <td>01/01/2022</td>
-                            <td>Dízimo</td>
-                            <td>Banco</td>
-                            <td>Entrada</td>
-                        </tr>
+{{--        @include('components.central-balance')--}}
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        @include('transactions.create_transactions')
+
     </section>
 @endsection
