@@ -36,7 +36,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::prefix('fsystem')->group(function () {
 
     Route::namespace("admin")->group(function () {
-        Route::get("/", [UserController::class, 'index'])->name('admin.list_users_admin');
+        Route::get("/", [UserController::class, 'index'])->name('admin.home_admin');
         Route::get("/admin/create", [UserController::class, 'show'])->name('admin.create_admin');
         Route::get("/admin/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
         Route::post("/admin/create", [UserController::class, 'createUser']);
