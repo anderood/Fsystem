@@ -1,4 +1,5 @@
-    <h1>Cadastro de Membros</h1>
+<section class="container-central">
+    <h3>Cadastro de Membros</h3>
     <form method="post">
         @csrf
         <div>
@@ -71,4 +72,5 @@
         </div>
 
         <button type="submit">Cadastrar</button>
-</form>
+    </form>
+</section>

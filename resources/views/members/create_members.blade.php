@@ -5,7 +5,5 @@
 @endsection
 
 @section('container-central')
-    <section class="container-central">
-        <h1>Cria Controles</h1>
-    </section>
+    @include('components.members.create_members')
 @endsection

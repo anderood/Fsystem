@@ -8,7 +8,7 @@
     <section class="container-central">
         <section class="container-central-header-botao">
             <div class="row">
-                <a href="{{ route('categories.create_category') }}">Nova Transação</a>
+                <a href="{{ route('categories.create_category') }}">Nova Categoria</a>
             </div>
         </section>
         @include('components.categories.list_categories')

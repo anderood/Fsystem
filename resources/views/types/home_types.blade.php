@@ -8,7 +8,7 @@
     <section class="container-central">
         <section class="container-central-header-botao">
             <div class="row">
-                <a href="{{ route('types.create_types') }}">Nova Transação</a>
+                <a href="{{ route('types.create_types') }}">Novo Tipo</a>
             </div>
         </section>
         @include('components.types.list_types')
