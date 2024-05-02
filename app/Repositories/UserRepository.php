@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Http\Requests\Users\CreateUsersRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -24,7 +25,7 @@ class UserRepository implements UserRepositoryInterface
         $validator = CreateUsersRequest::validate($userData);
 
         if ($validator->fails()) {
-            throw new \InvalidArgumentException($validator->errors()->first());
+            throw new ValidationException($validator);
         }
 
         $user = User::create([

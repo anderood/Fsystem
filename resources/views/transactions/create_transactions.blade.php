@@ -7,6 +7,7 @@
 @section('container-central')
     <section class="container-central">
         <h3>Cria Transações</h3>
+        @include('components.errors.error')
         <form action="" method="post">
             @csrf
             <input type="hidden" name="member_id" value="1">

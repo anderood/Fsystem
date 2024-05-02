@@ -1,5 +1,6 @@
 <section class="container-central">
     <h3>Cadastro de Membros</h3>
+    @include('components.errors.error')
     <form method="post">
         @csrf
         <div>

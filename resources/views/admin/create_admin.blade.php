@@ -7,6 +7,7 @@
 @section('container-central')
     <section class="container-central">
         <h1>Cadastrar Usuario</h1>
+        @include('components.errors.error')
         <form method="post">
             @csrf
             <div>

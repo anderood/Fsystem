@@ -5,6 +5,7 @@ namespace App\Repositories\Members;
 use App\Http\Requests\Members\CreateMemberRequest;
 use App\Models\Address;
 use App\Models\Member;
+use Illuminate\Validation\ValidationException;
 
 class MemberRepository implements MemberRepositoryInterface
 {
@@ -24,7 +25,7 @@ class MemberRepository implements MemberRepositoryInterface
         $validator = CreateMemberRequest::validate($memberData);
 
         if ($validator->fails()) {
-            throw new \InvalidArgumentException($validator->errors()->first());
+            throw new ValidationException($validator);
         }
 
         $member = Member::create([

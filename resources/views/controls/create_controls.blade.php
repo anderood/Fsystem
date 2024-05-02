@@ -7,5 +7,6 @@
 @section('container-central')
     <section class="container-central">
         <h1>Cria Controles</h1>
+        @include('components.errors.error')
     </section>
 @endsection

@@ -7,6 +7,7 @@
 @section('container-central')
     <section class="container-central">
         <h1>Criar a Categoria</h1>
+        @include('components.errors.error')
         <form action="" method="post">
             @csrf
             <div>
