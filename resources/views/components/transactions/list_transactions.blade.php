@@ -1,6 +1,35 @@
-<h2>Transações</h2>
-<ul>
-    @foreach($transactions as $transaction)
-        <li>{{$transaction->title}} - {{$transaction->description}}</li>
-    @endforeach
-</ul>
+<div>
+    <h3>Transações</h3>
+</div>
+<div>
+    <input type="search" name="" id="">
+    <button type="submit">Pesqsuisar</button>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Origem</th>
+            <th>Movimentação</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        @foreach($transactions as $transaction)
+            <tr>
+                <td> {{ $transaction->title }}</td>
+                <td> {{ $transaction->amount }}</td>
+                <td> {{ $transaction->date }}</td>
+                <td> {{ $transaction->member_id }}</td>
+                <td> {{ $transaction->origin_id }}</td>
+                <td> {{ $transaction->category_id }}</td>
+                <td><a href="#">Editar</a></td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>

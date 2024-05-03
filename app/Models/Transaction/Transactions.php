@@ -19,4 +19,6 @@ class Transactions extends Model
         'category_id',
         'type_id'
     ];
+
+
 }
