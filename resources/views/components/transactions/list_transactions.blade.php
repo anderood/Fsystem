@@ -3,7 +3,7 @@
 </div>
 <div>
     <input type="search" name="" id="">
-    <button type="submit">Pesqsuisar</button>
+    <button type="submit">Pesquisar</button>
 </div>
 <div>
     <table class="table table-striped">
@@ -15,6 +15,7 @@
             <th>Tipo</th>
             <th>Origem</th>
             <th>Movimentação</th>
+            <th>Editar</th>
         </tr>
         </thead>
         <tbody>
@@ -24,8 +25,8 @@
                 <td> {{ $transaction->title }}</td>
                 <td> {{ $transaction->amount }}</td>
                 <td> {{ $transaction->date }}</td>
-                <td> {{ $transaction->member_id }}</td>
-                <td> </td>
+                <td> {{ $transaction->types->name }}</td>
+                <td> {{ $transaction->origins->name }}</td>
                 <td> {{ $transaction->categories->name }}</td>
                 <td><a href="#">Editar</a></td>
             </tr>

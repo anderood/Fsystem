@@ -12,7 +12,6 @@
             @csrf
             <input type="hidden" name="member_id" value="1">
             <input type="hidden" name="origin_id" value="1">
-            <input type="hidden" name="origin_id" value="1">
             <input type="hidden" name="category_id" value="1">
             <div>
                 <label>Titulo</label>
