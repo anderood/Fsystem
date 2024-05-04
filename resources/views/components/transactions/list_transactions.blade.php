@@ -25,7 +25,7 @@
                 <td> {{ $transaction->amount }}</td>
                 <td> {{ $transaction->date }}</td>
                 <td> {{ $transaction->member_id }}</td>
-                <td> {{ $transaction->origin_id }}</td>
+                <td> </td>
                 <td> {{ $transaction->categories->name }}</td>
                 <td><a href="#">Editar</a></td>
             </tr>

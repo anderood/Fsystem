@@ -26,17 +26,17 @@ class Transactions extends Model
     ];
 
 
-    public function origin()
+    public function origins()
     {
         return $this->hasOne(Origin::class, 'id', 'origin_id');
     }
 
-    public function type()
+    public function types()
     {
         return $this->hasOne(Types::class, 'id', 'type_id');
     }
 
-    public function member()
+    public function members()
     {
         return $this->hasOne(Member::class, 'id', 'member_id');
     }
