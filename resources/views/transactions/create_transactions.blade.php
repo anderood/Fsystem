@@ -10,9 +10,7 @@
         @include('components.errors.error')
         <form action="" method="post">
             @csrf
-            <input type="hidden" name="member_id" value="1">
-            <input type="hidden" name="origin_id" value="1">
-            <input type="hidden" name="category_id" value="1">
+
             <div>
                 <label>Titulo</label>
                 <div>
@@ -43,6 +41,48 @@
                     <label>
                         <input type="text" name="date">
                     </label>
+                </div>
+            </div>
+
+            <div>
+                <label>Membros</label>
+                <div>
+                    <select name="member_id">
+                        <option value="0">Nenhum</option>
+                        @foreach($members as $member)
+                            <option value="{{ $member->id }}">{{ $member->first_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label>Origem</label>
+                <div>
+                    <select name="origin_id">
+                        @foreach($origins as $origin)
+                            <option value="{{ $origin->id }}">{{ $origin->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label>Categoria</label>
+                <div>
+                    <select name="category_id">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label>Tipo</label>
+                <div>
+                    <select name="type_id">
+                        @foreach($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <button type="submit">Cadastrar</button>

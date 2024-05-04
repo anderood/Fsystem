@@ -49,6 +49,7 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $newTransaction = $request->all();
+//        var_dump($newTransaction);
         return $this->transactionService->createTransaction($newTransaction);
     }
 
@@ -59,7 +60,17 @@ class TransactionController extends Controller
      */
     public function show()
     {
-        return view('transactions.create_transactions');
+        $allMembers = $this->transactionService->getAllMembers();
+        $allOrigins = $this->transactionService->getAllOrigins();
+        $allTypes = $this->transactionService->getAllTypes();
+        $allCategories = $this->transactionService->getAllCategories();
+
+        return view('transactions.create_transactions', [
+            'members' => $allMembers,
+            'origins' => $allOrigins,
+            'types' => $allTypes,
+            'categories' => $allCategories,
+        ]);
     }
 
     /**

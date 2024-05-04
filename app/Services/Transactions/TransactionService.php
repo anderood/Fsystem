@@ -27,4 +27,24 @@ class TransactionService implements TransactionServiceInterface
     {
         return $this->transactionRepository->createTransaction($transactionData);
     }
+
+    public function getAllMembers()
+    {
+        return $this->transactionRepository->getAllMembers();
+    }
+
+    public function getAllOrigins()
+    {
+        return $this->transactionRepository->getAllOrigins();
+    }
+
+    public function getAllCategories()
+    {
+        return $this->transactionRepository->getAllCategories();
+    }
+
+    public function getAllTypes()
+    {
+        return $this->transactionRepository->getAllTypes();
+    }
 }
