@@ -49,7 +49,6 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $newTransaction = $request->all();
-//        var_dump($newTransaction);
         return $this->transactionService->createTransaction($newTransaction);
     }
 
