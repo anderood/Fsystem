@@ -75,7 +75,8 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/transactions/", [TransactionController::class, 'index'])->name('transactions.home_transactions');
         Route::get("/transactions/create", [TransactionController::class, 'show'])->name('transactions.create_transactions');
         Route::post("/transactions/create", [TransactionController::class, 'store']);
-        Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
+        Route::get("/transactions/{id}", [TransactionController::class, 'edit'])->name('transactions.edit_transactions');
+        Route::put("/transactions/{id}", [TransactionController::class, 'update'])->name('transactions.update');
     });
 
     Route::namespace("controls")->group(function () {

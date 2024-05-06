@@ -17,7 +17,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function getTransactionsById($id)
     {
-        return $transactionId = Transactions::find($id);
+        return Transactions::find($id);
     }
 
     public function createTransaction(array $transactionData)
@@ -43,5 +43,16 @@ class TransactionRepository implements TransactionRepositoryInterface
     public function getAllTypes()
     {
         return Types::all();
+    }
+
+    public function updateTransaction(int $id, array $transactionData)
+    {
+        $transaction = Transactions::findOrFail($id);
+
+        $transaction->fill($transactionData);
+
+        $transaction->save();
+
+        return $transaction;
     }
 }

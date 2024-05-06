@@ -76,11 +76,23 @@ class TransactionController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Transactions $transactions
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function edit($id)
     {
-        return $this->transactionService->getTransactionsById($id);
+        $transaction = $this->transactionService->getTransactionsById($id);
+        $allMembers = $this->transactionService->getAllMembers();
+        $allOrigins = $this->transactionService->getAllOrigins();
+        $allTypes = $this->transactionService->getAllTypes();
+        $allCategories = $this->transactionService->getAllCategories();
+
+        return view('transactions.edit_transactions', [
+            'transaction' => $transaction,
+            'members' => $allMembers,
+            'origins' => $allOrigins,
+            'types' => $allTypes,
+            'categories' => $allCategories,
+        ]);
     }
 
     /**
@@ -90,9 +102,10 @@ class TransactionController extends Controller
      * @param Transactions $transactions
      * @return Response
      */
-    public function update(Request $request, Transactions $transactions)
+    public function update($id, Request $request)
     {
-        //
+        $transactionData = $request->all();
+        return $this->transactionService->updateTransaction($id, $transactionData);
     }
 
     /**

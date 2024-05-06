@@ -3,6 +3,7 @@
 namespace App\Services\Transactions;
 
 use App\Repositories\Transactions\TransactionRepositoryInterface;
+use Illuminate\Http\Request;
 
 class TransactionService implements TransactionServiceInterface
 {
@@ -46,5 +47,10 @@ class TransactionService implements TransactionServiceInterface
     public function getAllTypes()
     {
         return $this->transactionRepository->getAllTypes();
+    }
+
+    public function updateTransaction(int $id, array $transactionData)
+    {
+        return $this->transactionRepository->updateTransaction($id, $transactionData);
     }
 }

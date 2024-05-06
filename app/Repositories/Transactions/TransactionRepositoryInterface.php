@@ -11,4 +11,5 @@ interface TransactionRepositoryInterface
     public function getAllTypes();
     public function getTransactionsById($id);
     public function createTransaction(Array $transactionData);
+    public function updateTransaction(int $id, Array $transactionData);
 }
