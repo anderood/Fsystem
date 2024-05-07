@@ -3,7 +3,6 @@
 namespace App\Services\Transactions;
 
 use App\Repositories\Transactions\TransactionRepositoryInterface;
-use Illuminate\Http\Request;
 
 class TransactionService implements TransactionServiceInterface
 {
@@ -52,5 +51,10 @@ class TransactionService implements TransactionServiceInterface
     public function updateTransaction(int $id, array $transactionData)
     {
         return $this->transactionRepository->updateTransaction($id, $transactionData);
+    }
+
+    public function destroyTransaction(int $id)
+    {
+        return $this->transactionRepository->destroyTransaction($id);
     }
 }

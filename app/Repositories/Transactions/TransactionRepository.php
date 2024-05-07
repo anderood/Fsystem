@@ -55,4 +55,9 @@ class TransactionRepository implements TransactionRepositoryInterface
 
         return $transaction;
     }
+
+    public function destroyTransaction(int $id): int
+    {
+        return Transactions::destroy($id);
+    }
 }

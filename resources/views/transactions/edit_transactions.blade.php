@@ -92,8 +92,16 @@
                     </label>
                 </div>
             </div>
-            <button type="submit">Atualizar</button>
-            <button type="submit">Deletar</button>
+            <div class="btn-atualizar">
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+        <form action="/fsystem/transactions/{{$transaction->id}}/delete" method="post">
+            @csrf
+            @method('delete')
+            <div class="btn-delete">
+                <button type="submit">Deletar</button>
+            </div>
         </form>
     </section>
 @endsection

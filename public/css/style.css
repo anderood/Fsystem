@@ -178,3 +178,15 @@
 .transacoes tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.btn-atualizar {
+    display: flex;
+    position: absolute;
+    width: 50%;
+}
+
+.btn-delete {
+    display: flex;
+    position: relative;
+    right: -85px;
+}

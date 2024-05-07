@@ -12,4 +12,5 @@ interface TransactionServiceInterface
     public function getTransactionsById($id);
     public function createTransaction(Array $transactionData);
     public function updateTransaction(int $id, Array $transactionData);
+    public function destroyTransaction(int $id);
 }

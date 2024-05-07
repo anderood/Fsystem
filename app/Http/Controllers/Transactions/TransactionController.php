@@ -8,6 +8,7 @@ use App\Services\Transactions\TransactionServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -111,11 +112,12 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Transactions $transactions
-     * @return Response
+     * @param $id
+     * @return RedirectResponse
      */
-    public function destroy(Transactions $transactions)
+    public function destroy($id): RedirectResponse
     {
-        //
+        $this->transactionService->destroyTransaction($id);
+        return redirect()->route('transactions.home_transactions');
     }
 }
