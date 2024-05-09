@@ -20,14 +20,6 @@
                 </div>
             </div>
             <div>
-                <label>Descrição</label>
-                <div>
-                    <label>
-                        <textarea name="description" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
-                    </label>
-                </div>
-            </div>
-            <div>
                 <label>Valor</label>
                 <div>
                     <label>
@@ -43,7 +35,6 @@
                     </label>
                 </div>
             </div>
-
             <div>
                 <label>Membros</label>
                 <div>
@@ -83,6 +74,14 @@
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+            <div>
+                <label>Descrição</label>
+                <div>
+                    <label>
+                        <textarea name="observations" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+                    </label>
                 </div>
             </div>
             <button type="submit">Cadastrar</button>

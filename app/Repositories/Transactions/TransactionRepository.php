@@ -22,7 +22,17 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function createTransaction(array $transactionData)
     {
-        return Transactions::create($transactionData);
+        $data = [
+          'title' => $transactionData['title'],
+          'amount' => $transactionData['amount'],
+          'date' => $transactionData['date'],
+          'member_id' => $transactionData['member_id'] != 0 ? $transactionData['member_id'] : null,
+          'origin_id' => $transactionData['origin_id'],
+          'category_id' => $transactionData['category_id'],
+          'type_id' => $transactionData['type_id'],
+          'observations' => $transactionData['observations'],
+        ];
+        return Transactions::create($data);
     }
 
     public function getAllMembers()

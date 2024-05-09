@@ -40,7 +40,7 @@
                 <label>Membros</label>
                 <div>
                     <select name="member_id">
-                        <option value="{{ $transaction->members->id }}" selected>{{ $transaction->members->first_name }}</option>
+                        <option value="{{ isset($transaction->members) ? $transaction->members->id : 0 }}" selected>{{ isset($transaction->members) ? $transaction->members->first_name : 'Nenhum' }}</option>
                         @foreach($members as $member)
                             <option value="{{ $member->id }}">{{ $member->first_name }}</option>
                         @endforeach
@@ -81,11 +81,11 @@
                 </div>
             </div>
             <div>
-                <label>Descrição</label>
+                <label>Observação</label>
                 <div>
                     <label>
                         <textarea
-                            name="description"
+                            name="observations"
                             rows="4" cols="50">
                             {{ $transaction->description }}
                         </textarea>
