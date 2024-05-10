@@ -70,7 +70,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
         $transaction->save();
 
-        return $transaction;
+        return redirect()->route('transactions.update', ['id' => $id])->with('success', 'Os dados da transação foram atualizados com sucesso!');
     }
 
     public function destroyTransaction(int $id): int
