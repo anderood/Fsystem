@@ -42,19 +42,16 @@
                 <label>Membros</label>
                 <div>
                     <select name="member_id">
-                        @if(isset($transaction->members))
+                        <option value="">Nenhum</option>
+                        @if ( $transaction->member_id )
                             @foreach($members as $member)
-                                <option value="{{ $transaction->members->id == $member->id ?? $member->id }}" {{ $transaction->members->id == $member->id ? 'selected' : ''}}>
+                                <option value="{{ $transaction->members->id == $member->id ? $transaction->members->id : $member->id }}" {{ $transaction->members->id == $member->id ? 'selected' : ''}}>
                                     {{ $transaction->members->id == $member->id ? $transaction->members->first_name : $member->first_name }}
                                 </option>
                             @endforeach
-                            <option value="" >NenhumX</option>
                         @else
-                            <option value="" {{ isset($transaction->members) ? 'selected' : '' }}>Nenhum Membro Selecionado</option>
                             @foreach($members as $member)
-                                <option value="{{ $member->id }}">
-                                    {{ $member->first_name }}
-                                </option>
+                                <option value="{{ $member->id }}">{{ $member->first_name }}</option>
                             @endforeach
                         @endif
                     </select>
