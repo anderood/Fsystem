@@ -6,8 +6,10 @@
 
 @section('container-central')
     <section class="container-central">
-        <h3>Editar Transação</h3>
         @include('components.errors.error')
+        @include('components.successes.success')
+
+        <h3>Editar Transação</h3>
         <form action="/fsystem/transactions/{{$transaction->id}}" method="post">
             @method('put')
             @csrf
