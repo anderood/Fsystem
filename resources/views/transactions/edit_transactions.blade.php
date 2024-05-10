@@ -43,7 +43,7 @@
                 <div>
                     <select name="member_id">
                         <option value="">Nenhum</option>
-                        @if ( $transaction->member_id )
+                        @if ( $transaction->member_id != null )
                             @foreach($members as $member)
                                 <option value="{{ $transaction->members->id == $member->id ? $transaction->members->id : $member->id }}" {{ $transaction->members->id == $member->id ? 'selected' : ''}}>
                                     {{ $transaction->members->id == $member->id ? $transaction->members->first_name : $member->first_name }}
