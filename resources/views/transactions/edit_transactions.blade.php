@@ -61,10 +61,18 @@
                 <label>Origem</label>
                 <div>
                     <select name="origin_id">
-                        <option value="{{ $transaction->origins->id }}" selected>{{ $transaction->origins->name }}</option>
-                        @foreach($origins as $origin)
-                            <option value="{{ $origin->id }}">{{ $origin->name }}</option>
-                        @endforeach
+                        @if($transaction->origin_id != null)
+                            @foreach($origins as $origin)
+                                <option value="{{ $transaction->origin_id  == $origin->id ? $transaction->origin_id : $origin->id }}"
+                                {{ $transaction->origin_id  == $origin->id ? 'selected' : '' }}>
+                                    {{  $transaction->origin_id == $origin->id ? $transaction->origins->name : $origin->name  }}
+                                </option>
+                            @endforeach
+                        @else
+                            @foreach($origins as $origin)
+                                <option value="{{ $origin->id }}">{{ $origin->name }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
