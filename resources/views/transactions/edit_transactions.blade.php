@@ -72,10 +72,18 @@
                 <label>Categoria</label>
                 <div>
                     <select name="category_id">
-                        <option value="{{ $transaction->categories->id }}" selected>{{ $transaction->categories->name }}</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
+                        @if ($transaction->category_id != null)
+                            @foreach($categories as $category)
+                                <option value="{{ $transaction->category_id == $category->id ? $transaction->category_id : $category->id }}"
+                                    {{ $transaction->category_id == $category->id ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        @else
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
