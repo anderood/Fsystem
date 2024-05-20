@@ -99,10 +99,14 @@
                 <label>Tipo</label>
                 <div>
                     <select name="type_id">
-                        <option value="{{ $transaction->types->id }}" selected >{{ $transaction->types->name }}</option>
-                        @foreach($types as $type)
-                            <option value="{{ $type->id }}">{{ $type->name }}</option>
-                        @endforeach
+                        @if($transaction->type_id != null)
+                            @foreach($types as $type)
+                                <option value="{{ $transaction->type_id == $type->id ? $transaction->type_id : $type->id }}"
+                                {{ $transaction->type_id == $type->id ? 'selected' : '' }}>
+                                    {{ $transaction->type_id == $type->id ? $transaction->types->name : $type->name  }}
+                                </option>
+                            @endforeach
+                        @endif
                     </select>
                 </div>
             </div>
