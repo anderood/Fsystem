@@ -1,12 +1,26 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
+<div>
+    <h3>Usuarios</h3>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Editar</th>
+        </tr>
+        </thead>
+        <tbody>
 
-<h1>Usuarios Cadastrados</h1>
-@if(session()->has('success'))
-    Seja Bem vindo | {{ Auth::user()->name }}
-@endif
-<a href="{{ route('login.destroy') }}">Logout</a>
-<ul>
-    @foreach($users as $user)
-        <li>{{ $user->name }} - {{ $user->name }} - {{ $user->name }}</li>
-    @endforeach
-</ul>
+        @foreach($users as $user)
+            <tr>
+                <td> {{ $user->name }}</td>
+                <td> {{ $user->phone }}</td>
+                <td> {{ $user->email }}</td>
+                <td><a href="/fsystem/users/{{$user->id}}">Editar</a></td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
