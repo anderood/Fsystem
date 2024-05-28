@@ -21,10 +21,10 @@ class UserController implements UserControllerInterface
         return view("admin.home_admin", ['users' => $users]);
     }
 
-    public function obterUserById($id)
+    public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.list_user_admin', ['user' => $user]);
+        return view('admin.edit_admin', ['user' => $user]);
     }
 
     public function show()
@@ -36,5 +36,11 @@ class UserController implements UserControllerInterface
     {
         $userData = $request->all();
         return $this->userService->createUser($userData);
+    }
+
+    public function update($id, Request $request)
+    {
+        $userData = $request->all();
+        return $this->userService->updateUser($id, $userData);
     }
 }

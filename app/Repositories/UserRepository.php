@@ -39,4 +39,15 @@ class UserRepository implements UserRepositoryInterface
 
         return User::find($user->id);
     }
+
+    public function updateUser($userId, $userData)
+    {
+        $user = User::findOrFail($userId);
+
+        $user->fill($userData);
+
+        $user->save();
+
+        return redirect()->route('admin.update', ['id' => $userId])->with('success', 'Os dados do Usuario foram atualizados com sucesso!');
+    }
 }
