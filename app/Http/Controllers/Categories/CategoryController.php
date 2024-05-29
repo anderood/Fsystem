@@ -30,8 +30,15 @@ class CategoryController implements CategoryControllerInterface
         return $this->categoryService->createCategory($newCategory);
     }
 
-    public function getCategoryById($id)
+    public function edit($id)
     {
-        return $this->categoryService->getCategoryById($id);
+        $category = $this->categoryService->getCategoryById($id);
+        return view('categories.edit_category', ['category' => $category]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $categoryData = $request->all();
+        return $this->categoryService->updateCategory($id, $categoryData);
     }
 }

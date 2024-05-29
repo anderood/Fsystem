@@ -23,4 +23,15 @@ class CategoryRepository implements CategoryRepositoryInterface
 
         return Category::find($category->id);
     }
+
+    public function updateCategory(int $id, array $categoryData)
+    {
+        $category = Category::findOrFail($id);
+
+        $category->update($categoryData);
+
+        $category->save();
+
+        return redirect()->route('categories.update', ['id' => $id])->with('success', 'Categoria atualizada com Sucesso!');
+    }
 }

@@ -55,7 +55,8 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/categories/", [CategoryController::class, 'index'])->name('categories.home_categories');
         Route::get("/categories/create", [CategoryController::class, 'show'])->name('categories.create_category');
         Route::post("/categories/create", [CategoryController::class, 'createCategory']);
-        Route::get("/categories/{id}", [CategoryController::class, 'getCategoryById']);
+        Route::get("/categories/{id}", [CategoryController::class, 'edit'])->name('categories.edit_category');
+        Route::put("/categories/{id}", [CategoryController::class, 'update'])->name('categories.update');
     });
 
     Route::namespace("origins")->group(function () {
