@@ -7,4 +7,5 @@ interface CategoryRepositoryInterface
     public function getAllCategories();
     public function getCategoryById($id);
     public function createCategory(Array $categoryData);
+    public function updateCategory(int $id, Array $categoryData);
 }

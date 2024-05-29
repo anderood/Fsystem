@@ -26,4 +26,9 @@ class CategoryService implements CategoryServiceInterface
     {
         return $this->categoryRespository->createCategory($categoryData);
     }
+
+    public function updateCategory(int $id, array $categoryData)
+    {
+        return $this->categoryRespository->updateCategory($id, $categoryData);
+    }
 }
