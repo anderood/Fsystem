@@ -13,7 +13,7 @@
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('admin.home_admin') }}">Usuários</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('categories.home_categories') }}">Categorias</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('types.home_types') }}">Tipos</a></li>
-            <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('origins.home_origins') }}">Tipo de Movimentação</a></li>
+            <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('origins.home_origins') }}">Origens</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('controls.home_controls') }}">Cadastrar Balanço</a></li>
             <li class="menu-item"><i class="fas fa-file-alt"></i> <a href="#">Relatórios</a></li>
             <li class="menu-item"><i class="fas fa-cog"></i> <a href="#">Configurações</a></li>
