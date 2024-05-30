@@ -27,4 +27,9 @@ class TypeService implements TypeServiceInterface
     {
         return $this->typeRepository->createType($typeData);
     }
+
+    public function updateService(int $id, array $typeData)
+    {
+        return $this->typeRepository->updateType($id, $typeData);
+    }
 }

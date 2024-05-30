@@ -22,4 +22,15 @@ class TypeRepository implements TypeRepositoryInterface
     {
         return Types::create($typeData);
     }
+
+    public function updateType(int $id, array $typeData)
+    {
+        $types = Types::findOrFail($id);
+
+        $types->update($typeData);
+
+        $types->save();
+
+        return redirect()->route('types.update', ['id' => $id])->with('success', 'Tipo Atualizado com Sucesso');
+    }
 }
