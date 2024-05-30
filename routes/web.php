@@ -70,7 +70,8 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/types/", [TypeController::class, 'index'])->name('types.home_types');
         Route::get("/types/create", [TypeController::class, 'show'])->name('types.create_types');
         Route::post("/types/create", [TypeController::class, 'store']);
-        Route::get("/types/{id}", [TypeController::class, 'edit']);
+        Route::get("/types/{id}", [TypeController::class, 'edit'])->name('types.edit_types');
+        Route::put("/types/{id}", [TypeController::class, 'update'])->name('types.update');
     });
 
     Route::namespace("transactions")->group(function () {
