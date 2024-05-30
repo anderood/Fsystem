@@ -48,8 +48,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        $newType = $request->all();
-        return $this->typeService->createType($newType);
+        return $this->typeService->createType($request);
     }
 
     /**

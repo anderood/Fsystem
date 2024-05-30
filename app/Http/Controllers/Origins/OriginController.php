@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Origins;
 
 use App\Http\Controllers\Controller;
-use App\Models\Origin\Origin;
 use App\Services\Origins\OriginServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -11,7 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class OriginController extends Controller
+class OriginController extends Controller implements OriginControllerInterface
 {
     protected OriginServiceInterface $originService;
     public function __construct(OriginServiceInterface $originService)
@@ -48,8 +47,7 @@ class OriginController extends Controller
      */
     public function store(Request $request)
     {
-        $allOrigins = $request->all();
-        return $this->originService->createOrigin($allOrigins);
+        return $this->originService->createOrigin($request);
     }
 
     /**
@@ -58,7 +56,7 @@ class OriginController extends Controller
      * @param  \App\Models\Origin\Origin  $origin
      * @return Response
      */
-    public function show(Origin $origin)
+    public function show(Request $request)
     {
         //
     }
@@ -81,7 +79,7 @@ class OriginController extends Controller
      * @param  \App\Models\Origin\Origin  $origin
      * @return Response
      */
-    public function update(Request $request, Origin $origin)
+    public function update(Request $request)
     {
         //
     }
@@ -92,7 +90,7 @@ class OriginController extends Controller
      * @param  \App\Models\Origin\Origin  $origin
      * @return Response
      */
-    public function destroy(Origin $origin)
+    public function destroy(Request $request)
     {
         //
     }
