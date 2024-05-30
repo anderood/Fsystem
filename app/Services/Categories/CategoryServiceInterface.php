@@ -8,6 +8,6 @@ interface CategoryServiceInterface
 {
     public function getAllCategories();
     public function getCategoryById($id);
-    public function createCategory(Array $categoryData);
+    public function createCategory(Request $request);
     public function updateCategory(int $id, Array $categoryData);
 }

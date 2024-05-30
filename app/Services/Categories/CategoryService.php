@@ -22,9 +22,9 @@ class CategoryService implements CategoryServiceInterface
         return $this->categoryRespository->getCategoryById($id);
     }
 
-    public function createCategory(array $categoryData)
+    public function createCategory($request)
     {
-        return $this->categoryRespository->createCategory($categoryData);
+        return $this->categoryRespository->createCategory($request);
     }
 
     public function updateCategory(int $id, array $categoryData)

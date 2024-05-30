@@ -26,8 +26,7 @@ class CategoryController implements CategoryControllerInterface
 
     public function createCategory(Request $request)
     {
-        $newCategory = $request->all();
-        return $this->categoryService->createCategory($newCategory);
+        return $this->categoryService->createCategory($request);
     }
 
     public function edit($id)

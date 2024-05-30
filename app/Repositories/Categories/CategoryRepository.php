@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Categories;
 
+use App\Http\Requests\Categories\CategoryRequest;
 use App\Models\Category\Category;
 
 class CategoryRepository implements CategoryRepositoryInterface
@@ -17,8 +18,12 @@ class CategoryRepository implements CategoryRepositoryInterface
         return Category::find($id);
     }
 
-    public function createCategory(array $categoryData)
+    public function createCategory($request)
     {
+        $request->validate(CategoryRequest::rules());
+
+        $categoryData = $request->all();
+
         $category = Category::create($categoryData);
 
         return Category::find($category->id);
