@@ -32,4 +32,9 @@ class Member extends Model
     {
         return $this->hasOne(Transactions::class);
     }
+
+    public function getFullName()
+    {
+        return $this->first_name .' '. $this->last_name;
+    }
 }

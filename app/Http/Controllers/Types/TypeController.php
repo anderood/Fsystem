@@ -48,8 +48,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        $newType = $request->all();
-        return $this->typeService->createType($newType);
+        return $this->typeService->createType($request);
     }
 
     /**
@@ -66,11 +65,12 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Types  $types
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function edit($id)
     {
-        return $this->typeService->getTypeId($id);
+        $typesData = $this->typeService->getTypeId($id);
+        return view('types.edit_types', ['type' => $typesData]);
     }
 
     /**
@@ -80,9 +80,10 @@ class TypeController extends Controller
      * @param  \App\Models\Types  $types
      * @return Response
      */
-    public function update(Request $request, Types $types)
+    public function update($id, Request $request)
     {
-        //
+        $typesData = $request->all();
+        return $this->typeService->updateService($id, $typesData);
     }
 
     /**

@@ -39,7 +39,8 @@ Route::prefix('fsystem')->group(function () {
     Route::namespace("admin")->group(function () {
         Route::get("/users/", [UserController::class, 'index'])->name('admin.home_admin');
         Route::get("/users/create", [UserController::class, 'show'])->name('admin.create_admin');
-        Route::get("/users/{id}", [UserController::class, 'obterUserById'])->name('admin.list_user_admin');
+        Route::get("/users/{id}", [UserController::class, 'edit'])->name('admin.edit_admin');
+        Route::put("/users/{id}", [UserController::class, 'update'])->name('admin.update');
         Route::post("/users/create", [UserController::class, 'createUser']);
     });
 
@@ -55,7 +56,8 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/categories/", [CategoryController::class, 'index'])->name('categories.home_categories');
         Route::get("/categories/create", [CategoryController::class, 'show'])->name('categories.create_category');
         Route::post("/categories/create", [CategoryController::class, 'createCategory']);
-        Route::get("/categories/{id}", [CategoryController::class, 'getCategoryById']);
+        Route::get("/categories/{id}", [CategoryController::class, 'edit'])->name('categories.edit_category');
+        Route::put("/categories/{id}", [CategoryController::class, 'update'])->name('categories.update');
     });
 
     Route::namespace("origins")->group(function () {
@@ -69,7 +71,8 @@ Route::prefix('fsystem')->group(function () {
         Route::get("/types/", [TypeController::class, 'index'])->name('types.home_types');
         Route::get("/types/create", [TypeController::class, 'show'])->name('types.create_types');
         Route::post("/types/create", [TypeController::class, 'store']);
-        Route::get("/types/{id}", [TypeController::class, 'edit']);
+        Route::get("/types/{id}", [TypeController::class, 'edit'])->name('types.edit_types');
+        Route::put("/types/{id}", [TypeController::class, 'update'])->name('types.update');
     });
 
     Route::namespace("transactions")->group(function () {
