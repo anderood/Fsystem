@@ -4,7 +4,7 @@ namespace App\Repositories\Members;
 
 use App\Http\Requests\Members\CreateMemberRequest;
 use App\Models\Address;
-use App\Models\Member;
+use App\Models\Member\Member;
 use Illuminate\Validation\ValidationException;
 
 class MemberRepository implements MemberRepositoryInterface

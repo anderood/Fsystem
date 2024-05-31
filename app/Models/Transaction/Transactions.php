@@ -2,10 +2,10 @@
 
 namespace App\Models\Transaction;
 
-use App\Models\Member;
+use App\Models\Category\Category;
+use App\Models\Member\Member;
 use App\Models\Origin\Origin;
 use App\Models\Types;
-use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;

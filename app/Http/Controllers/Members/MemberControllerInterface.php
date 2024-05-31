@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 interface MemberControllerInterface
 {
     public function index();
-    public function getMemberById($id);
     public function show();
+    public function edit(int $id);
     public function createMember(Request $request);
 }
