@@ -57,9 +57,7 @@ class MemberRepository implements MemberRepositoryInterface
     public function updateMember(Request $request, int $id)
     {
         $member = Member::findOrFail($id);
-
         $member->fill($request->all());
-
         $member->save();
 
         return redirect()->route("members.update", ['id' => $id])->with("success", "Atualizado com sucesso!");
