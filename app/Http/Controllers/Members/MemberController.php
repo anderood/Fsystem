@@ -36,4 +36,9 @@ class MemberController implements MemberControllerInterface
         $memberData = $request->all();
         return $this->memberService->createMember($memberData);
     }
+
+    public function update(Request $request, int $id)
+    {
+        return $this->memberService->updateMember($request, $id);
+    }
 }

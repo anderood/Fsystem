@@ -3,6 +3,7 @@
 namespace App\Services\Members;
 
 use App\Repositories\Members\MemberRepositoryInterface;
+use Illuminate\Http\Request;
 
 class MemberService implements MemberServiceInterface
 {
@@ -25,5 +26,10 @@ class MemberService implements MemberServiceInterface
     public function createMember(array $memberData)
     {
         return $this->memberRepository->createMember($memberData);
+    }
+
+    public function updateMember(Request $request, int $id)
+    {
+        return $this->memberRepository->updateMember($request, $id);
     }
 }
