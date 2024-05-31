@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Member;
 
+use App\Models\Address;
 use App\Models\Transaction\Transactions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

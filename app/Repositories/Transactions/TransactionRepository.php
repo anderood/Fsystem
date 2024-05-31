@@ -4,7 +4,7 @@ namespace App\Repositories\Transactions;
 
 use App\Http\Requests\Transactions\CreateTransactionRequest;
 use App\Models\Category\Category;
-use App\Models\Member;
+use App\Models\Member\Member;
 use App\Models\Origin\Origin;
 use App\Models\Transaction\Transactions;
 use App\Models\Types;

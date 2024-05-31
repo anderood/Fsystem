@@ -19,9 +19,11 @@ class MemberController implements MemberControllerInterface
         return view('members.home_members', ['members' => $members]);
     }
 
-    public function getMemberById($id)
+    public function edit($id)
     {
-        return $this->memberService->getMemberById($id);
+        $member = $this->memberService->getMemberById($id);
+
+        return view('members.edit_members', ['member' => $member]);
     }
 
     public function show()
@@ -33,5 +35,10 @@ class MemberController implements MemberControllerInterface
     {
         $memberData = $request->all();
         return $this->memberService->createMember($memberData);
+    }
+
+    public function update(Request $request, int $id)
+    {
+        return $this->memberService->updateMember($request, $id);
     }
 }

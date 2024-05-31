@@ -4,7 +4,8 @@ namespace App\Repositories\Members;
 
 use App\Http\Requests\Members\CreateMemberRequest;
 use App\Models\Address;
-use App\Models\Member;
+use App\Models\Member\Member;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class MemberRepository implements MemberRepositoryInterface
@@ -51,5 +52,14 @@ class MemberRepository implements MemberRepositoryInterface
         ]);
 
         return Member::with('address')->find($member->id);
+    }
+
+    public function updateMember(Request $request, int $id)
+    {
+        $member = Member::findOrFail($id);
+        $member->fill($request->all());
+        $member->save();
+
+        return redirect()->route("members.update", ['id' => $id])->with("success", "Atualizado com sucesso!");
     }
 }

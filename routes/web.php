@@ -47,8 +47,9 @@ Route::prefix('fsystem')->group(function () {
     Route::namespace("members")->group(function () {
         Route::get("/members/", [MemberController::class, 'index'])->name('members.home_members');
         Route::get("/members/create", [MemberController::class, 'show'])->name('members.create_members');
-        Route::get("/members/{id}", [MemberController::class, 'getMemberById']);
         Route::post("/members/create", [MemberController::class, 'createMember']);
+        Route::get("/members/{id}", [MemberController::class, 'edit'])->name('members.edit_members');
+        Route::put("/members/{id}", [MemberController::class, 'update'])->name("members.update");
     });
 
     Route::namespace("categories")->group(function () {
