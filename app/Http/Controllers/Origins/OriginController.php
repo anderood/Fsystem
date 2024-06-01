@@ -65,11 +65,13 @@ class OriginController extends Controller implements OriginControllerInterface
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Origin\Origin  $origin
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function edit($id)
     {
-        return $this->originService->getOriginById($id);
+        $origin = $this->originService->getOriginById($id);
+
+        return view('origins.edit_origins', ['origin' => $origin]);
     }
 
     /**
