@@ -23,7 +23,7 @@ class UserController implements UserControllerInterface
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $user = $this->userService->getUserById($id);
         return view('admin.edit_admin', ['user' => $user]);
     }
 

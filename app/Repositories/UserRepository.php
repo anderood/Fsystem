@@ -15,7 +15,7 @@ class UserRepository implements UserRepositoryInterface
         return User::all();
     }
 
-    public function getById($id)
+    public function getUserById($id)
     {
         return User::findOrFail($id);
     }
