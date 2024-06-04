@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
 use App\Models\Member\Member;
+use App\Services\Member\MemberService;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
     private $memberService;
-    public function __construct()
+    public function __construct(MemberService $memberService)
     {
+        $this->memberService = $memberService;
     }
 
     /**
@@ -20,7 +22,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $allMembers = $this->memberService->allMembers();
+        return $allMembers;
     }
 
     /**

@@ -2,28 +2,34 @@
 
 namespace App\Services\Member;
 
+use App\Repositories\Member\MemberRepositoryInterface;
 use Illuminate\Http\Request;
 
 class MemberService implements MemberServiceInterface
 {
+    private $memberRepository;
+    public function __construct(MemberRepositoryInterface $memberRepository)
+    {
+        $this->memberRepository = $memberRepository;
+    }
 
     public function allMembers()
     {
-        // TODO: Implement allMembers() method.
+        return $this->memberRepository->allMembers();
     }
 
     public function getMemberById(int $id)
     {
-        // TODO: Implement getMemberById() method.
+        return $this->memberRepository->getMemberById($id);
     }
 
     public function createMember(Request $request)
     {
-        // TODO: Implement createMember() method.
+        return $this->memberRepository->createMember($request);
     }
 
     public function deleteMember(int $id)
     {
-        // TODO: Implement deleteMember() method.
+        return $this->memberRepository->deleteMember($id);
     }
 }
