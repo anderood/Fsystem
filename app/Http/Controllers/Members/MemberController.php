@@ -21,9 +21,9 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {die("TESTE");
         $allMembers = $this->memberService->allMembers();
-        return $allMembers;
+        die($allMembers);
     }
 
     /**
