@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Types;
 
 use App\Http\Controllers\Controller;
 use App\Models\Type\Type;
+use App\Services\Type\TypeServiceInterface;
 use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-
-    public function __construct()
+    protected $typeService;
+    public function __construct(TypeServiceInterface $TypeService)
     {
+        $this->typeService = $TypeService;
     }
 
     /**
@@ -20,7 +22,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return $this->typeService->allTypes();
     }
 
     /**
@@ -41,7 +43,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->typeService->createType($request);
     }
 
     /**
@@ -73,9 +75,9 @@ class TypeController extends Controller
      * @param  \App\Models\Type\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(Request $request, int $id)
     {
-        //
+        return $this->typeService->updateType($request, $id);
     }
 
     /**
@@ -84,8 +86,8 @@ class TypeController extends Controller
      * @param  \App\Models\Type\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $type)
+    public function destroy(int $id)
     {
-        //
+        return $this->typeService->deleteType($id);
     }
 }
