@@ -19,13 +19,17 @@ class TypeRepository implements TypeRepositoryInterface
 
     public function createType(Request $request)
     {
-        return Type::create($request);
+        return Type::create($request->all());
     }
 
     public function updateType(Request $request, int $id)
     {
         $type = Type::findOrFail($id);
-        return Type::update($request->all(), $type);
+        $typeData = $request->all();
+        $type->fill($typeData);
+        $type->save();
+
+        return $type;
     }
 
     public function deleteType(int $id)
