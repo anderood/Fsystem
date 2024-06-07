@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class TypeController extends Controller
 {
     protected $typeService;
+
     public function __construct(TypeServiceInterface $TypeService)
     {
         $this->typeService = $TypeService;
