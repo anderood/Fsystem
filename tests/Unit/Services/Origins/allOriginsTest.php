@@ -9,11 +9,19 @@ use PHPUnit\Framework\TestCase;
 
 class allOriginsTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
+    public function test_allOrigins_empty()
+    {
+        $mockRepository = Mockery::mock(OriginRepositoryInterface::class);
+
+        $mockRepository->shouldReceive('allOrigins')->once()->andReturn([]);
+
+        $originService = new OriginService($mockRepository);
+
+        $result = $originService->allOrigins();
+
+        $this->assertEquals([], $result);
+    }
+
     public function test_allOrigins()
     {
         $mockRepository = Mockery::mock(OriginRepositoryInterface::class);
