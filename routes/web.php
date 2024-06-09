@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Types\TypeController;
+use App\Http\Controllers\Origins\OriginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,9 @@ Route::get("/types", [TypeController::class, 'index']);
 Route::post("/types/create", [TypeController::class, 'store']);
 Route::put("/types/{id}/update", [TypeController::class, 'update']);
 Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy']);
+
+Route::get("/origins", [OriginController::class, 'index']);
+Route::post("/origins/create", [OriginController::class, 'store']);
+Route::put("/origins/{id}/update", [OriginController::class, 'update']);
+Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
 
