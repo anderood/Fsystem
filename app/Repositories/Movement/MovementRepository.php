@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Movement;
 
+use App\Models\Movement\Movement;
 use Illuminate\Http\Request;
 
 class MovementRepository implements MovementRepositoryInterface
@@ -9,26 +10,29 @@ class MovementRepository implements MovementRepositoryInterface
 
     public function allMovements()
     {
-        // TODO: Implement allMovements() method.
+        return Movement::all();
     }
 
     public function getMovementById(int $id)
     {
-        // TODO: Implement getMovementById() method.
+        return Movement::findOrFail($id);
     }
 
     public function createMovement(Request $request)
     {
-        // TODO: Implement createMovement() method.
+        return Movement::create($request->all());
     }
 
     public function updateMovement(Request $request, int $id)
     {
-        // TODO: Implement updateMovement() method.
+        $movement = Movement::findOrFail($id);
+        $movementRequest = $request->all();
+        $movement->update($movementRequest);
+        return $movement;
     }
 
     public function deleteMovement(int $id)
     {
-        // TODO: Implement deleteMovement() method.
+        return Movement::destroy($id);
     }
 }

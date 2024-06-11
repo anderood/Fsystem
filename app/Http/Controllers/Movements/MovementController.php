@@ -67,7 +67,7 @@ class MovementController extends Controller
      */
     public function edit(Movement $movement)
     {
-        return $this->movementService->updateMovement($request, $id);
+        //
     }
 
     /**
@@ -77,9 +77,9 @@ class MovementController extends Controller
      * @param  \App\Models\Movement\Movement  $movement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movement $movement)
+    public function update(Request $request, int $id)
     {
-        //
+        return $this->movementService->updateMovement($request, $id);
     }
 
     /**
@@ -88,7 +88,7 @@ class MovementController extends Controller
      * @param  \App\Models\Movement\Movement  $movement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movement $movement)
+    public function destroy(int $id)
     {
         return $this->movementService->deleteMovement($id);
     }
