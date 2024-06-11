@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\UserServiceProvider::class,
         App\Providers\MemberServiceProvider::class,
+        App\Providers\TypeServiceProvider::class,
+        App\Providers\OriginServiceProvider::class,
         App\Providers\MovementServiceProvider::class
 
     ],
