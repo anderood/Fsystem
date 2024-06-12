@@ -31,3 +31,8 @@ Route::post("/origins/create", [OriginController::class, 'store']);
 Route::put("/origins/{id}/update", [OriginController::class, 'update']);
 Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
 
+Route::get("/transactions", [OriginController::class, 'index']);
+Route::post("/transactions/create", [OriginController::class, 'store']);
+Route::put("/transactions/{id}/update", [OriginController::class, 'update']);
+Route::delete("/transactions/{id}/delete", [OriginController::class, 'destroy']);
+
