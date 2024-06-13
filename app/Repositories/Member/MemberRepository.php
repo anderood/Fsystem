@@ -27,4 +27,13 @@ class MemberRepository implements MemberRepositoryInterface
     {
         return Member::destroy($id);
     }
+
+    public function updateMember(Request $request, int $id)
+    {
+        $member = Member::findOrFail($id);
+        $request = $request->all();
+
+        return $member->fill($request);
+
+    }
 }
