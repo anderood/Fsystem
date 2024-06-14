@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Member;
 
+use App\Models\Address\Address;
 use App\Models\Member\Member;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,16 @@ class MemberRepository implements MemberRepositoryInterface
 
     public function createMember(Request $request)
     {
+        $addressMember = $request->only(
+            'zip_code',
+            'street',
+            'state',
+            'district',
+            'number',
+            'complement',
+        );
+
+        Address::create($addressMember);
         return Member::create($request->all());
     }
 
