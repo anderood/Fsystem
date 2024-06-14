@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
 use App\Models\Member\Member;
-use App\Services\Member\MemberService;
+use App\Services\Member\MemberServiceInterface;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
     private $memberService;
-    public function __construct(MemberService $memberService)
+    public function __construct(MemberServiceInterface $memberService)
     {
         $this->memberService = $memberService;
     }
