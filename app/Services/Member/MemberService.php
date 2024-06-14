@@ -32,4 +32,9 @@ class MemberService implements MemberServiceInterface
     {
         return $this->memberRepository->deleteMember($id);
     }
+
+    public function updateMember(Request $request, int $id)
+    {
+        return $this->memberRepository->updateMember($request, $id);
+    }
 }

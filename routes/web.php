@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get("/ping", function (){
-    return "pong";
+    return 'pong';
 });
 
 Route::get("/members", [MemberController::class, 'index']);
+Route::post("/members/create", [MemberController::class, 'store']);
+Route::put("/members/{id}/update", [MemberController::class, 'update']);
+Route::delete("/members/{id}/destroy", [MemberController::class, 'destroy']);
 
 Route::get("/types", [TypeController::class, 'index']);
 Route::post("/types/create", [TypeController::class, 'store']);

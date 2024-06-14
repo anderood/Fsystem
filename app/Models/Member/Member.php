@@ -2,7 +2,7 @@
 
 namespace App\Models\Member;
 
-use App\Models\Transaction\Transaction;
+use App\Models\Address\Address;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,8 +21,8 @@ class Member extends Model
         'observations'
     ];
 
-    public function transactions()
+    public function address()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->belongsTo(Address::class, 'address_id', 'id');
     }
 }
