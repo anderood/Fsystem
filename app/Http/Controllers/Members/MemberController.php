@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Members;
 
 use App\Http\Controllers\Controller;
 use App\Models\Member\Member;
-use App\Services\Member\MemberService;
+use App\Services\Member\MemberServiceInterface;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
 {
     private $memberService;
-    public function __construct(MemberService $memberService)
+    public function __construct(MemberServiceInterface $memberService)
     {
         $this->memberService = $memberService;
     }
@@ -43,7 +43,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->memberService->createMember($request);
     }
 
     /**
@@ -75,9 +75,9 @@ class MemberController extends Controller
      * @param  \App\Models\Member\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, int $id)
     {
-        //
+        return $this->memberService->updateMember($request, $id);
     }
 
     /**
@@ -86,8 +86,8 @@ class MemberController extends Controller
      * @param  \App\Models\Member\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(int $id)
     {
-        //
+        return $this->memberService->deleteMember($id);
     }
 }

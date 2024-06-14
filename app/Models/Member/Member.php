@@ -2,6 +2,7 @@
 
 namespace App\Models\Member;
 
+use App\Models\Address\Address;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,6 @@ class Member extends Model
 {
     use HasFactory;
 
-    protected $table = 'members';
     protected $fillable = [
         'id',
         'first_name',
@@ -19,4 +19,9 @@ class Member extends Model
         'address_id',
         'observations'
     ];
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'address_id', 'id');
+    }
 }
