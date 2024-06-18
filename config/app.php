@@ -178,6 +178,7 @@ return [
         App\Providers\MemberServiceProvider::class,
         App\Providers\TypeServiceProvider::class,
         App\Providers\OriginServiceProvider::class,
+        App\Providers\TransactionServiceProvider::class,
         App\Providers\MovementServiceProvider::class
 
     ],
