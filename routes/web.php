@@ -5,6 +5,7 @@ use App\Http\Controllers\Transactions\TransactionController;
 use App\Http\Controllers\Types\TypeController;
 use App\Http\Controllers\Origins\OriginController;
 use App\Http\Controllers\Movements\MovementController;
+use App\Http\Controllers\Users\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +47,11 @@ Route::get("/movements", [MovementController::class, 'index']);
 Route::post("/movements/create", [MovementController::class, 'store']);
 Route::put("/movements/{id}/update", [MovementController::class, 'update']);
 Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);
+
+Route::get("/users", [UserController::class, 'index']);
+Route::get("/users/{id}", [UserController::class, 'edit']);
+Route::post("/users/create", [UserController::class, 'store']);
+Route::put("/users/{id}/update", [UserController::class, 'update']);
+Route::delete("/users/{id}/destroy", [UserController::class, 'destroy']);
 
 
