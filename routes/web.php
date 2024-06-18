@@ -3,6 +3,7 @@
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Types\TypeController;
 use App\Http\Controllers\Origins\OriginController;
+use App\Http\Controllers\Movements\MovementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +34,9 @@ Route::get("/origins", [OriginController::class, 'index']);
 Route::post("/origins/create", [OriginController::class, 'store']);
 Route::put("/origins/{id}/update", [OriginController::class, 'update']);
 Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
+
+Route::get("/movements", [MovementController::class, 'index']);
+Route::post("/movements/create", [MovementController::class, 'store']);
+Route::put("/movements/{id}/update", [MovementController::class, 'update']);
+Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);
 
