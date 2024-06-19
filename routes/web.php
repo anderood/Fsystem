@@ -23,27 +23,32 @@ Route::get("/ping", function (){
 });
 
 Route::get("/members", [MemberController::class, 'index']);
+Route::get("/members/{id}", [MemberController::class, 'edit']);
 Route::post("/members/create", [MemberController::class, 'store']);
 Route::put("/members/{id}/update", [MemberController::class, 'update']);
 Route::delete("/members/{id}/destroy", [MemberController::class, 'destroy']);
 
 Route::get("/types", [TypeController::class, 'index']);
+Route::get("/types/{id}", [TypeController::class, 'edit']);
 Route::post("/types/create", [TypeController::class, 'store']);
 Route::put("/types/{id}/update", [TypeController::class, 'update']);
 Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy']);
 
 Route::get("/origins", [OriginController::class, 'index']);
+Route::get("/origins/{id}", [OriginController::class, 'edit']);
 Route::post("/origins/create", [OriginController::class, 'store']);
 Route::put("/origins/{id}/update", [OriginController::class, 'update']);
 Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
 
 
 Route::get("/transactions", [TransactionController::class, 'index']);
+Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
 Route::post("/transactions/create", [TransactionController::class, 'store']);
 Route::put("/transactions/{id}/update", [TransactionController::class, 'update']);
 Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destroy']);
 
 Route::get("/movements", [MovementController::class, 'index']);
+Route::get("/movements/{id}", [MovementController::class, 'edit']);
 Route::post("/movements/create", [MovementController::class, 'store']);
 Route::put("/movements/{id}/update", [MovementController::class, 'update']);
 Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);

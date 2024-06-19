@@ -65,9 +65,9 @@ class MovementController extends Controller
      * @param  \App\Models\Movement\Movement  $movement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movement $movement)
+    public function edit(int $id)
     {
-        //
+        return $this->movementService->getMovementById($id);
     }
 
     /**

@@ -63,9 +63,9 @@ class MemberController extends Controller
      * @param  \App\Models\Member\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(int $id)
     {
-        //
+        return $this->memberService->getMemberById($id);
     }
 
     /**

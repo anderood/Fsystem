@@ -64,9 +64,9 @@ class OriginController extends Controller
      * @param  \App\Models\Origin\Origin  $origin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Origin $origin)
+    public function edit(int $id)
     {
-        //
+        return $this->originService->getOriginById($id);
     }
 
     /**
