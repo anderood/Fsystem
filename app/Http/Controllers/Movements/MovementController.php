@@ -24,7 +24,8 @@ class MovementController extends Controller
      */
     public function index()
     {
-        return $this->movementService->allMovements();
+        $movements = $this->movementService->allMovements();
+        return view('movements.home_movements', ['movements' => $movements]);
     }
 
     /**
@@ -34,7 +35,7 @@ class MovementController extends Controller
      */
     public function create()
     {
-        //
+        return view('movements.create_movements');
     }
 
     /**
@@ -67,7 +68,7 @@ class MovementController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->movementService->getMovementById($id);
+//        return $this->movementService->getMovementById($id);
     }
 
     /**

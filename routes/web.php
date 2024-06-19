@@ -49,9 +49,10 @@ Route::post("/transactions/create", [TransactionController::class, 'store']);
 Route::put("/transactions/{id}/update", [TransactionController::class, 'update']);
 Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destroy']);
 
-Route::get("/movements", [MovementController::class, 'index']);
+Route::get("/movements", [MovementController::class, 'index'])->name('movements.home_movements');
 Route::get("/movements/{id}", [MovementController::class, 'edit']);
-Route::get("/movements/create", [MovementController::class, 'create']);
+Route::get("/movements/create", [MovementController::class, 'create'])->name('movements.create_movements');
+Route::post("/movements/create", [MovementController::class, 'create']);
 Route::post("/movements/create", [MovementController::class, 'store']);
 Route::put("/movements/{id}/update", [MovementController::class, 'update']);
 Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);

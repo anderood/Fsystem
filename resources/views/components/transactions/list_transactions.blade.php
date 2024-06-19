@@ -27,7 +27,7 @@
                 <td> {{ $transaction->date }}</td>
                 <td> {{ '$transaction->types->name' }}</td>
                 <td> {{ '$transaction->origins->name' }}</td>
-                <td> {{ '$transaction->categories->name' }}</td>
+                <td> {{ '$transaction->movements->name' }}</td>
                 <td><a href="/fsystem/transactions/{{$transaction->id}}">Editar</a></td>
             </tr>
         @endforeach

@@ -12,11 +12,11 @@
         </thead>
         <tbody>
 
-        @foreach($categories as $category)
+        @foreach($movements as $movement)
             <tr>
-                <td> {{ $category->name }}</td>
-                <td> {{ $category->description }}</td>
-                <td><a href="/fsystem/categories/{{$category->id}}">Editar</a></td>
+                <td> {{ $movement->name }}</td>
+                <td> {{ $movement->description }}</td>
+                <td><a href="/fsystem/movements/{{$movement->id}}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>
