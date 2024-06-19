@@ -68,7 +68,7 @@ class TransactionController extends Controller
      */
     public function edit(int $id)
     {
-        return view('transactions.create_transactions');
+        //
     }
 
     /**

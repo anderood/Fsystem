@@ -44,7 +44,6 @@ Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
 
 
 Route::get("/transactions", [TransactionController::class, 'index'])->name('transactions.home_transactions');
-Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
 Route::get("/transactions/create", [TransactionController::class, 'create'])->name('transactions.create_transactions');
 Route::post("/transactions/create", [TransactionController::class, 'store']);
 Route::put("/transactions/{id}/update", [TransactionController::class, 'update']);
