@@ -22,7 +22,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        return $this->memberService->allMembers();
+        $members = $this->memberService->allMembers();
+        return view('members.home_members', ['members' => $members]);
     }
 
     /**
@@ -32,7 +33,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('members.crete_members');
     }
 
     /**
@@ -43,7 +44,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->memberService->createMember($request);
+//        return $this->memberService->createMember($request);
     }
 
     /**

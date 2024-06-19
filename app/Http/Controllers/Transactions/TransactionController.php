@@ -24,7 +24,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return $this->transactionService->allTransactions();
+        $transactions = $this->transactionService->allTransactions();
+        return view('transactions.home_transactions', ['transactions' => $transactions]);
     }
 
     /**
@@ -34,7 +35,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view('transactions.create_transactions');
     }
 
     /**
@@ -67,7 +68,7 @@ class TransactionController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->transactionService->getTransactionById($id);
+        return view('transactions.create_transactions');
     }
 
     /**

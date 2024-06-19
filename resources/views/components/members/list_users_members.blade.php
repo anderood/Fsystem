@@ -15,7 +15,7 @@
         <tbody>
         @foreach($members as $member)
             <tr>
-                <td> {{ $member->getFullName() }}</td>
+                <td> nome completo</td>
                 <td> {{ $member->phone }}</td>
                 <td> {{ $member->email }}</td>
                 <td> {{ $member->dateOfBirth }}</td>

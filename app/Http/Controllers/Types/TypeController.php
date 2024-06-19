@@ -23,7 +23,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        return $this->typeService->allTypes();
+        $types = $this->typeService->allTypes();
+        return view('types.home_types', ['types' => $types]);
     }
 
     /**
@@ -33,7 +34,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('types.create_types');
     }
 
     /**

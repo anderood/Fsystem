@@ -23,7 +23,8 @@ class OriginController extends Controller
      */
     public function index()
     {
-        return $this->originService->allOrigins();
+        $origins = $this->originService->allOrigins();
+        return view('origins.home_origins', ['origins' => $origins]);
     }
 
     /**
@@ -33,7 +34,7 @@ class OriginController extends Controller
      */
     public function create()
     {
-        //
+        return view('origins.create_origins');
     }
 
     /**
