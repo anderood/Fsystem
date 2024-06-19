@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use InvalidArgumentException;
 use Mockery;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class deleteUser extends TestCase
 {
@@ -24,9 +23,9 @@ class deleteUser extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
 
-        $transactionService = new UserService($mockRepository);
+        $userService = new UserService($mockRepository);
 
-        $transactionService->deleteUser(1);
+        $userService->deleteUser(1);
     }
 
     public function test_deleteUser()
@@ -34,9 +33,9 @@ class deleteUser extends TestCase
         $mockRepository = Mockery::mock(UserRepositoryInterface::class);
         $mockRepository->shouldReceive('deleteUser')->with(1)->andReturn([]);
 
-        $transactionService = new UserService($mockRepository);
+        $userService = new UserService($mockRepository);
 
-        $return = $transactionService->deleteUser(1);
+        $return = $userService->deleteUser(1);
 
         $this->assertEquals([], $return);
     }
