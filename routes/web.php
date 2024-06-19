@@ -57,8 +57,9 @@ Route::post("/movements/create", [MovementController::class, 'store']);
 Route::put("/movements/{id}/update", [MovementController::class, 'update']);
 Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);
 
-Route::get("/users", [UserController::class, 'index']);
+Route::get("/users", [UserController::class, 'index'])->name('users.home_users');
 Route::get("/users/{id}", [UserController::class, 'edit']);
+Route::get("/users/create", [UserController::class, 'create'])->name('users.create_users');
 Route::post("/users/create", [UserController::class, 'store']);
 Route::put("/users/{id}/update", [UserController::class, 'update']);
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy']);

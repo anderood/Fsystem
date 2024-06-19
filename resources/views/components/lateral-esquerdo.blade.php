@@ -10,7 +10,7 @@
             <li class="menu-item"><i class="fas fa-tachometer-alt"></i> <a href="/fsystem">Dashboard</a></li>
             <li class="menu-item"><i class="fas fa-exchange-alt"></i> <a href="{{ route('transactions.home_transactions') }}">Transações</a></li>
             <li class="menu-item"><i class="fas fa-users"></i> <a href="{{ route('members.home_members') }}">Membros</a></li>
-            <li class="menu-item"><i class="fas fa-user"></i> <a href="#">Usuários</a></li>
+            <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('users.home_users') }}">Usuários</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="#">Categorias</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('types.home_types') }}">Tipos</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('origins.home_origins') }}">Origens</a></li>

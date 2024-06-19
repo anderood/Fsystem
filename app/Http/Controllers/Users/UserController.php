@@ -22,7 +22,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return $this->userService->allUsers();
+        $users = $this->userService->allUsers();
+        return view('users.home_users', ['users' => $users]);
     }
 
     /**
@@ -32,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create_users');
     }
 
     /**
