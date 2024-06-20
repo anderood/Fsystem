@@ -3,6 +3,7 @@
 namespace App\Models\Transaction;
 
 use App\Models\Member\Member;
+use App\Models\Movement\Movement;
 use App\Models\Origin\Origin;
 use App\Models\Type\Type;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -39,6 +40,6 @@ class Transaction extends Model
 
     public function movement()
     {
-//        return $this->belongsTo(Movement::class);
+        return $this->belongsTo(Movement::class);
     }
 }

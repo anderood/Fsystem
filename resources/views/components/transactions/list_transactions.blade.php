@@ -25,9 +25,9 @@
                 <td> {{ $transaction->title }}</td>
                 <td> {{ $transaction->amount }}</td>
                 <td> {{ $transaction->date }}</td>
-                <td> {{ '$transaction->types->name' }}</td>
-                <td> {{ '$transaction->origins->name' }}</td>
-                <td> {{ '$transaction->movements->name' }}</td>
+                <td> {{ $transaction->type->name }}</td>
+                <td> {{ $transaction->origin->name }}</td>
+                <td> {{ $transaction->movement->name }}</td>
                 <td><a href="{{ Route('transactions.edit', $transaction->id) }}">Editar</a></td>
             </tr>
         @endforeach
