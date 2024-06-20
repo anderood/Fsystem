@@ -67,7 +67,8 @@ class TypeController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->typeService->getTypeById($id);
+        $type = $this->typeService->getTypeById($id);
+        return view('types.edit_types', ['type' => $type]);
     }
 
     /**

@@ -11,6 +11,7 @@
 
         <h3>Editar Origens</h3>
         <form action="/fsystem/origins/{{$origin->id}}" method="post">
+        <form action="/fsystem/origins/{{$origin->id}}" method="post">
             @method('put')
             @csrf
             <div>

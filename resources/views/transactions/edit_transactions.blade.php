@@ -43,17 +43,17 @@
                 <div>
                     <select name="member_id">
                         <option value="">Nenhum</option>
-                        @if ( $transaction->member_id != null )
-                            @foreach($members as $member)
-                                <option value="{{ $transaction->members->id == $member->id ? $transaction->members->id : $member->id }}" {{ $transaction->members->id == $member->id ? 'selected' : ''}}>
-                                    {{ $transaction->members->id == $member->id ? $transaction->members->first_name : $member->first_name }}
-                                </option>
-                            @endforeach
-                        @else
-                            @foreach($members as $member)
-                                <option value="{{ $member->id }}">{{ $member->first_name }}</option>
-                            @endforeach
-                        @endif
+{{--                        @if ( $transaction->member_id != null )--}}
+{{--                            @foreach($members as $member)--}}
+{{--                                <option value="{{ $transaction->members->id == $member->id ? $transaction->members->id : $member->id }}" {{ $transaction->members->id == $member->id ? 'selected' : ''}}>--}}
+{{--                                    {{ $transaction->members->id == $member->id ? $transaction->members->first_name : $member->first_name }}--}}
+{{--                                </option>--}}
+{{--                            @endforeach--}}
+{{--                        @else--}}
+{{--                            @foreach($members as $member)--}}
+{{--                                <option value="{{ $member->id }}">{{ $member->first_name }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
                     </select>
                 </div>
             </div>
@@ -61,18 +61,18 @@
                 <label>Origem</label>
                 <div>
                     <select name="origin_id">
-                        @if($transaction->origin_id != null)
-                            @foreach($origins as $origin)
-                                <option value="{{ $transaction->origin_id  == $origin->id ? $transaction->origin_id : $origin->id }}"
-                                {{ $transaction->origin_id  == $origin->id ? 'selected' : '' }}>
-                                    {{  $transaction->origin_id == $origin->id ? $transaction->origins->name : $origin->name  }}
-                                </option>
-                            @endforeach
-                        @else
-                            @foreach($origins as $origin)
-                                <option value="{{ $origin->id }}">{{ $origin->name }}</option>
-                            @endforeach
-                        @endif
+{{--                        @if($transaction->origin_id != null)--}}
+{{--                            @foreach($origins as $origin)--}}
+{{--                                <option value="{{ $transaction->origin_id  == $origin->id ? $transaction->origin_id : $origin->id }}"--}}
+{{--                                {{ $transaction->origin_id  == $origin->id ? 'selected' : '' }}>--}}
+{{--                                    {{  $transaction->origin_id == $origin->id ? $transaction->origins->name : $origin->name  }}--}}
+{{--                                </option>--}}
+{{--                            @endforeach--}}
+{{--                        @else--}}
+{{--                            @foreach($origins as $origin)--}}
+{{--                                <option value="{{ $origin->id }}">{{ $origin->name }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
                     </select>
                 </div>
             </div>
@@ -80,18 +80,18 @@
                 <label>Categoria</label>
                 <div>
                     <select name="category_id">
-                        @if ($transaction->category_id != null)
-                            @foreach($categories as $category)
-                                <option value="{{ $transaction->category_id == $category->id ? $transaction->category_id : $category->id }}"
-                                    {{ $transaction->category_id == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        @else
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        @endif
+{{--                        @if ($transaction->category_id != null)--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                                <option value="{{ $transaction->category_id == $category->id ? $transaction->category_id : $category->id }}"--}}
+{{--                                    {{ $transaction->category_id == $category->id ? 'selected' : '' }}>--}}
+{{--                                    {{ $category->name }}--}}
+{{--                                </option>--}}
+{{--                            @endforeach--}}
+{{--                        @else--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                                <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
                     </select>
                 </div>
             </div>
@@ -99,14 +99,14 @@
                 <label>Tipo</label>
                 <div>
                     <select name="type_id">
-                        @if($transaction->type_id != null)
-                            @foreach($types as $type)
-                                <option value="{{ $transaction->type_id == $type->id ? $transaction->type_id : $type->id }}"
-                                {{ $transaction->type_id == $type->id ? 'selected' : '' }}>
-                                    {{ $transaction->type_id == $type->id ? $transaction->types->name : $type->name  }}
-                                </option>
-                            @endforeach
-                        @endif
+{{--                        @if($transaction->type_id != null)--}}
+{{--                            @foreach($types as $type)--}}
+{{--                                <option value="{{ $transaction->type_id == $type->id ? $transaction->type_id : $type->id }}"--}}
+{{--                                {{ $transaction->type_id == $type->id ? 'selected' : '' }}>--}}
+{{--                                    {{ $transaction->type_id == $type->id ? $transaction->types->name : $type->name  }}--}}
+{{--                                </option>--}}
+{{--                            @endforeach--}}
+{{--                        @endif--}}
                     </select>
                 </div>
             </div>

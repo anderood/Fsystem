@@ -33,7 +33,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('members.crete_members');
+        return view('members.create_members');
     }
 
     /**
@@ -44,7 +44,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-//        return $this->memberService->createMember($request);
+        return $this->memberService->createMember($request);
     }
 
     /**
@@ -66,7 +66,8 @@ class MemberController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->memberService->getMemberById($id);
+        $member = $this->memberService->getMemberById($id);
+        return view('members.edit_members', ['member' => $member]);
     }
 
     /**

@@ -67,7 +67,8 @@ class OriginController extends Controller
      */
     public function edit(int $id)
     {
-        return $this->originService->getOriginById($id);
+        $origin = $this->originService->getOriginById($id);
+        return view('origins.edit_origins', ['origin' => $origin]);
     }
 
     /**

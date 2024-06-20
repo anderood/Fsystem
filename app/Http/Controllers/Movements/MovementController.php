@@ -68,7 +68,8 @@ class MovementController extends Controller
      */
     public function edit(int $id)
     {
-//        return $this->movementService->getMovementById($id);
+        $movement = $this->movementService->getMovementById($id);
+        return view('movements.edit_movements', ['movement' => $movement]);
     }
 
     /**

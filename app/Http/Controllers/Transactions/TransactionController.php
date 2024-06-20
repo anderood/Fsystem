@@ -68,7 +68,8 @@ class TransactionController extends Controller
      */
     public function edit(int $id)
     {
-        //
+        $transaction = $this->transactionService->getTransactionById($id);
+        return view('transactions.edit_transactions', ['transaction' => $transaction]);
     }
 
     /**
