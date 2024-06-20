@@ -10,9 +10,7 @@ class Member extends Model
 {
     use HasFactory;
 
-    protected $table = 'members';
     protected $fillable = [
-        'id',
         'first_name',
         'last_name',
         'email',
@@ -24,5 +22,10 @@ class Member extends Model
     public function address()
     {
         return $this->belongsTo(Address::class, 'address_id', 'id');
+    }
+
+    public function getFullName()
+    {
+        return $this->first_name.' '.$this->last_name;
     }
 }
