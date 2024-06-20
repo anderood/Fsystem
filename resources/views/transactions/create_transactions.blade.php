@@ -40,9 +40,9 @@
                 <div>
                     <select name="member_id">
                         <option value="0">Nenhum</option>
-{{--                        @foreach($members as $member)--}}
-{{--                            <option value="{{ $member->id }}">{{ $member->first_name }}</option>--}}
-{{--                        @endforeach--}}
+                        @foreach($members as $member)
+                            <option value="{{ $member->id }}">{{ $member->first_name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -50,9 +50,9 @@
                 <label>Origem</label>
                 <div>
                     <select name="origin_id">
-{{--                        @foreach($origins as $origin)--}}
-{{--                            <option value="{{ $origin->id }}">{{ $origin->name }}</option>--}}
-{{--                        @endforeach--}}
+                        @foreach($origins as $origin)
+                            <option value="{{ $origin->id }}">{{ $origin->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                 <label>Categoria</label>
                 <div>
                     <select name="category_id">
-{{--                        @foreach($movements as $category)--}}
-{{--                            <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                        @endforeach--}}
+                        @foreach($movements as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -70,9 +70,9 @@
                 <label>Tipo</label>
                 <div>
                     <select name="type_id">
-{{--                        @foreach($types as $type)--}}
-{{--                            <option value="{{ $type->id }}">{{ $type->name }}</option>--}}
-{{--                        @endforeach--}}
+                        @foreach($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

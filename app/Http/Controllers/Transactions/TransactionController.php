@@ -3,8 +3,16 @@
 namespace App\Http\Controllers\Transactions;
 
 use App\Http\Controllers\Controller;
+use App\Models\Member\Member;
+use App\Models\Movement\Movement;
+use App\Models\Origin\Origin;
 use App\Models\Transaction\Transaction;
+use App\Models\Type\Type;
 use App\Services\Transaction\TransactionServiceInterface;
+use Doctrine\DBAL\Types\Types;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -31,11 +39,21 @@ class TransactionController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
-        return view('transactions.create_transactions');
+        $allMembers = Member::all();
+        $allTypes = Type::all();
+        $allOrigins = Origin::all();
+        $allMovements = Movement::all();
+
+        return view('transactions.create_transactions', [
+            'members'=> $allMembers,
+            'types'=> $allTypes,
+            'origins'=> $allOrigins,
+            'movements'=> $allMovements,
+        ]);
     }
 
     /**
