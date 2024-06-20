@@ -33,7 +33,7 @@ Route::get("/types", [TypeController::class, 'index'])->name('types.home_types')
 Route::get("/types/create", [TypeController::class, 'create'])->name('types.create_types');
 Route::get("/types/{id}", [TypeController::class, 'edit'])->name('types.edit');
 Route::post("/types/create", [TypeController::class, 'store'])->name('types.store');
-Route::put("/types/{id}/update", [TypeController::class, 'update']);
+Route::put("/types/{id}/update", [TypeController::class, 'update'])->name('types.update');
 Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy'])->name('types.delete');
 
 Route::get("/origins", [OriginController::class, 'index'])->name('origins.home_origins');

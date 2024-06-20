@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Tipo</h3>
-        <form action="{{ Route('types.store', $type->id) }}" method="post">
+        <form action="{{ Route('types.update', $type->id) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -37,7 +37,7 @@
                 <button type="submit">Atualizar</button>
             </div>
         </form>
-        <form action="/fsystem/types/{{$type->id}}/delete" method="post">
+        <form action="{{ Route('types.delete', $type->id) }}" method="post">
             @csrf
             @method('delete')
             <div class="btn-delete">
