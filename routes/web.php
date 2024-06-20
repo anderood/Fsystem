@@ -53,16 +53,16 @@ Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destr
 
 Route::get("/movements", [MovementController::class, 'index'])->name('movements.home_movements');
 Route::get("/movements/create", [MovementController::class, 'create'])->name('movements.create_movements');
-Route::get("/movements/{id}", [MovementController::class, 'edit'])->name('movements.edit');
 Route::post("/movements/create", [MovementController::class, 'store']);
-Route::put("/movements/{id}/update", [MovementController::class, 'update']);
+Route::get("/movements/{id}", [MovementController::class, 'edit'])->name('movements.edit');
+Route::put("/movements/{id}/update", [MovementController::class, 'update'])->name('movements.update');
 Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy'])->name('movements.delete');
 
 Route::get("/users", [UserController::class, 'index'])->name('users.home_users');
 Route::get("/users/create", [UserController::class, 'create'])->name('users.create_users');
-Route::get("/users/{id}", [UserController::class, 'edit'])->name('users.edit');
 Route::post("/users/create", [UserController::class, 'store']);
-Route::put("/users/{id}/update", [UserController::class, 'update']);
+Route::get("/users/{id}", [UserController::class, 'edit'])->name('users.edit');
+Route::put("/users/{id}/update", [UserController::class, 'update'])->name('users.update');
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.delete');
 
 

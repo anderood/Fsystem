@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Atualizar Usuario</h3>
-        <form action="{{ Route('users.edit', $user->id) }}" method="post">
+        <form action="{{ Route('users.update', $user->id) }}" method="post">
             @method('put')
             @csrf
             <div>

@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Atualizar Categoria</h3>
-        <form action="{{ Route('movements.edit', $movement->id) }}" method="post">
+        <form action="{{ Route('movements.update', $movement->id) }}" method="post">
             @method('put')
             @csrf
             <div>
