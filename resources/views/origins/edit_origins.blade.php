@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Origens</h3>
-        <form action="{{ Route('origins.edit', $origin->id ) }}" method="post">
+        <form action="{{ Route('origins.update', $origin->id ) }}" method="post">
             @method('put')
             @csrf
             <div>

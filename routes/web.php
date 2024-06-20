@@ -38,9 +38,9 @@ Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy'])->name('
 
 Route::get("/origins", [OriginController::class, 'index'])->name('origins.home_origins');
 Route::get("/origins/create", [OriginController::class, 'create'])->name('origins.create_origins');
-Route::get("/origins/{id}", [OriginController::class, 'edit'])->name('origins.edit');
 Route::post("/origins/create", [OriginController::class, 'store']);
-Route::put("/origins/{id}/update", [OriginController::class, 'update']);
+Route::get("/origins/{id}", [OriginController::class, 'edit'])->name('origins.edit');
+Route::put("/origins/{id}/update", [OriginController::class, 'update'])->name('origins.update');
 Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy'])->name('origins.delete');
 
 
