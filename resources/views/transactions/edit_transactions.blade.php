@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Transação</h3>
-        <form action="/fsystem/transactions/{{$transaction->id}}" method="post">
+        <form action="{{ Route('transactions.edit', $transaction->id) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -126,7 +126,7 @@
                 <button type="submit">Atualizar</button>
             </div>
         </form>
-        <form action="/fsystem/transactions/{{$transaction->id}}/delete" method="post">
+        <form action="{{ Route('transactions.delete', $transaction->id) }}" method="post">
             @csrf
             @method('delete')
             <div class="btn-delete">

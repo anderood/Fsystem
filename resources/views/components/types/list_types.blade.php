@@ -16,7 +16,7 @@
             <tr>
                 <td> {{ $type->name }}</td>
                 <td> {{ $type->description }}</td>
-                <td><a href="/fsystem/types/{{$type->id}}">Editar</a></td>
+                <td><a href={{ Route('types.edit', $type->id) }}>Editar</a></td>
             </tr>
         @endforeach
         </tbody>

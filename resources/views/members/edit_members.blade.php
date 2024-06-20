@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Membro</h3>
-        <form action="/fsystem/members/{{$member->id}}" method="post">
+        <form action="{{ Route('members.edit', $member->id) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -85,7 +85,7 @@
                 <button type="submit">Atualizar</button>
             </div>
         </form>
-        <form action="/fsystem/members/{{$member->id}}/delete" method="post">
+        <form action="{{ Route('members.delete', $member->id) }}" method="post">
             @csrf
             @method('delete')
             <div class="btn-delete">

@@ -10,8 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Origens</h3>
-        <form action="/fsystem/origins/{{$origin->id}}" method="post">
-        <form action="/fsystem/origins/{{$origin->id}}" method="post">
+        <form action="{{ Route('origins.edit', $origin->id ) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -38,7 +37,7 @@
                 <button type="submit">Atualizar</button>
             </div>
         </form>
-        <form action="/fsystem/origins/{{$origin->id}}/delete" method="post">
+        <form action="{{ Route('origins.delete', $origin->id ) }}" method="post">
             @csrf
             @method('delete')
             <div class="btn-delete">

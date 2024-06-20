@@ -19,7 +19,7 @@
                 <td> {{ $member->phone }}</td>
                 <td> {{ $member->email }}</td>
                 <td> {{ $member->dateOfBirth }}</td>
-                <td><a href="/fsystem/members/{{ $member->id }}">Editar</a></td>
+                <td><a href="{{ Route('members.edit', $member->id ) }}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

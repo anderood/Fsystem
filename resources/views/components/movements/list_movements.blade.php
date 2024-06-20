@@ -16,7 +16,7 @@
             <tr>
                 <td> {{ $movement->name }}</td>
                 <td> {{ $movement->description }}</td>
-                <td><a href="/fsystem/movements/{{$movement->id}}">Editar</a></td>
+                <td><a href="{{ Route('movements.edit', $movement->id) }}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

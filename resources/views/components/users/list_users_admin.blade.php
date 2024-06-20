@@ -18,7 +18,7 @@
                 <td> {{ $user->name }}</td>
                 <td> {{ $user->phone }}</td>
                 <td> {{ $user->email }}</td>
-                <td><a href="/fsystem/users/{{$user->id}}">Editar</a></td>
+                <td><a href="{{ Route('users.edit', $user->id) }}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

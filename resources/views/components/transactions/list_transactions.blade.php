@@ -28,7 +28,7 @@
                 <td> {{ '$transaction->types->name' }}</td>
                 <td> {{ '$transaction->origins->name' }}</td>
                 <td> {{ '$transaction->movements->name' }}</td>
-                <td><a href="/fsystem/transactions/{{$transaction->id}}">Editar</a></td>
+                <td><a href="{{ Route('transactions.edit', $transaction->id) }}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

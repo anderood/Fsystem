@@ -24,45 +24,45 @@ Route::get("/ping", function (){
 
 Route::get("/members", [MemberController::class, 'index'])->name('members.home_members');
 Route::get("/members/create", [MemberController::class, 'create'])->name('members.create_members');
-Route::get("/members/{id}", [MemberController::class, 'edit']);
+Route::get("/members/{id}", [MemberController::class, 'edit'])->name('members.edit');
 Route::post("/members/create", [MemberController::class, 'store']);
 Route::put("/members/{id}/update", [MemberController::class, 'update']);
-Route::delete("/members/{id}/destroy", [MemberController::class, 'destroy']);
+Route::delete("/members/{id}/destroy", [MemberController::class, 'destroy'])->name('members.delete');
 
 Route::get("/types", [TypeController::class, 'index'])->name('types.home_types');
 Route::get("/types/create", [TypeController::class, 'create'])->name('types.create_types');
-Route::get("/types/{id}", [TypeController::class, 'edit']);
-Route::post("/types/create", [TypeController::class, 'store']);
+Route::get("/types/{id}", [TypeController::class, 'edit'])->name('types.edit');
+Route::post("/types/create", [TypeController::class, 'store'])->name('types.store');
 Route::put("/types/{id}/update", [TypeController::class, 'update']);
-Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy']);
+Route::delete("/types/{id}/destroy", [TypeController::class, 'destroy'])->name('types.delete');
 
 Route::get("/origins", [OriginController::class, 'index'])->name('origins.home_origins');
 Route::get("/origins/create", [OriginController::class, 'create'])->name('origins.create_origins');
-Route::get("/origins/{id}", [OriginController::class, 'edit']);
+Route::get("/origins/{id}", [OriginController::class, 'edit'])->name('origins.edit');
 Route::post("/origins/create", [OriginController::class, 'store']);
 Route::put("/origins/{id}/update", [OriginController::class, 'update']);
-Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy']);
+Route::delete("/origins/{id}/delete", [OriginController::class, 'destroy'])->name('origins.delete');
 
 
 Route::get("/transactions", [TransactionController::class, 'index'])->name('transactions.home_transactions');
 Route::get("/transactions/create", [TransactionController::class, 'create'])->name('transactions.create_transactions');
-Route::get("/transactions/{id}", [TransactionController::class, 'edit']);
+Route::get("/transactions/{id}", [TransactionController::class, 'edit'])->name('transactions.edit');
 Route::post("/transactions/create", [TransactionController::class, 'store']);
 Route::put("/transactions/{id}/update", [TransactionController::class, 'update']);
-Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destroy']);
+Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destroy'])->name('transactions.delete');
 
 Route::get("/movements", [MovementController::class, 'index'])->name('movements.home_movements');
 Route::get("/movements/create", [MovementController::class, 'create'])->name('movements.create_movements');
-Route::get("/movements/{id}", [MovementController::class, 'edit']);
+Route::get("/movements/{id}", [MovementController::class, 'edit'])->name('movements.edit');
 Route::post("/movements/create", [MovementController::class, 'store']);
 Route::put("/movements/{id}/update", [MovementController::class, 'update']);
-Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy']);
+Route::delete("/movements/{id}/destroy", [MovementController::class, 'destroy'])->name('movements.delete');
 
 Route::get("/users", [UserController::class, 'index'])->name('users.home_users');
 Route::get("/users/create", [UserController::class, 'create'])->name('users.create_users');
-Route::get("/users/{id}", [UserController::class, 'edit']);
+Route::get("/users/{id}", [UserController::class, 'edit'])->name('users.edit');
 Route::post("/users/create", [UserController::class, 'store']);
 Route::put("/users/{id}/update", [UserController::class, 'update']);
-Route::delete("/users/{id}/destroy", [UserController::class, 'destroy']);
+Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.delete');
 
 

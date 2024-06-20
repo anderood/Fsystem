@@ -16,7 +16,7 @@
             <tr>
                 <td> {{ $origin->name }}</td>
                 <td> {{ $origin->description }}</td>
-                <td><a href="/fsystem/origins/{{$origin->id}}">Editar</a></td>
+                <td><a href="{{ Route('origins.edit', $origin->id ) }}">Editar</a></td>
             </tr>
         @endforeach
         </tbody>

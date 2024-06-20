@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Tipo</h3>
-        <form action="/fsystem/types/{{$type->id}}" method="post">
+        <form action="{{ Route('types.store', $type->id) }}" method="post">
             @method('put')
             @csrf
             <div>

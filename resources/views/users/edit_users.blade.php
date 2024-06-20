@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Atualizar Usuario</h3>
-        <form action="/fsystem/users/{{$user->id}}" method="post">
+        <form action="{{ Route('users.edit', $user->id) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -39,7 +39,7 @@
 {{--            </div>--}}
             <button type="submit">Atualizar</button>
         </form>
-        <form action="/fsystem/users/{{$user->id}}/delete" method="post">
+        <form action="{{ Route('users.delete', $user->id) }}" method="post">
             @csrf
             @method('delete')
             <div class="btn-delete">
