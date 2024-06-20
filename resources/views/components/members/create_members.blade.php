@@ -25,15 +25,8 @@
         </div>
         <div>
             <label>Ativo:</label>
-            <select name="isActive">
-                <option value="1">Sim</option>
-                <option value="0">Não</option>
-            </select>
-        </div>
-        <div>
-            <label>Membro Ativo:</label>
-            <select name="isMember">
-                <option value="1">Sim</option>
+            <select name="is_active">
+                <option selected value="1">Sim</option>
                 <option value="0">Não</option>
             </select>
         </div>
@@ -45,7 +38,7 @@
         <h2>Endereço</h2>
         <div>
             <label>CEP: </label>
-            <input type="text" name="zipcode" id="">
+            <input type="text" name="zip_code" id="">
         </div>
         <div>
             <label>Rua: </label>

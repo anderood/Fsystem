@@ -30,8 +30,16 @@ class MemberRepository implements MemberRepositoryInterface
             'complement',
         );
 
-        Address::create($addressMember);
-        return Member::create($request->all());
+        $address = Address::create($addressMember);
+
+        return Member::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->first_name,
+            'email' => $request->first_name,
+            'is_active' => $request->first_name,
+            'observations' => $request->first_name,
+            'address_id' => $address->id,
+        ]);
     }
 
     public function deleteMember(int $id)
