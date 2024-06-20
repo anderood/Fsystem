@@ -39,7 +39,7 @@
                 <label>Membros</label>
                 <div>
                     <select name="member_id">
-                        <option value="0">Nenhum</option>
+                        <option value="">Nenhum</option>
                         @foreach($members as $member)
                             <option value="{{ $member->id }}">{{ $member->first_name }}</option>
                         @endforeach

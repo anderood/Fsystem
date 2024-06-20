@@ -18,14 +18,13 @@ class CreateTransactionsTable extends Migration
             $table->string('title');
             $table->decimal('amount', 8, 2);
             $table->date('date');
-            $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('origin_id');
             $table->unsignedBigInteger('movement_id');
             $table->text('observation')->nullable();
             $table->timestamps();
 
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreignId('member_id')->nullable()->references('id')->on('members');
             $table->foreign('type_id')->references('id')->on('types');
             $table->foreign('origin_id')->references('id')->on('origins');
             $table->foreign('movement_id')->references('id')->on('movements');

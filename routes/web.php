@@ -48,7 +48,7 @@ Route::get("/transactions", [TransactionController::class, 'index'])->name('tran
 Route::get("/transactions/create", [TransactionController::class, 'create'])->name('transactions.create_transactions');
 Route::get("/transactions/{id}", [TransactionController::class, 'edit'])->name('transactions.edit');
 Route::post("/transactions/create", [TransactionController::class, 'store']);
-Route::put("/transactions/{id}/update", [TransactionController::class, 'update']);
+Route::put("/transactions/{id}/update", [TransactionController::class, 'update'])->name('transactions.update');
 Route::delete("/transactions/{id}/delete", [TransactionController::class, 'destroy'])->name('transactions.delete');
 
 Route::get("/movements", [MovementController::class, 'index'])->name('movements.home_movements');

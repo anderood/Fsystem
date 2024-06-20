@@ -81,13 +81,24 @@ class TransactionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Transaction\Transaction  $transaction
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Application|Factory|View
      */
     public function edit(int $id)
     {
+        $allMembers = Member::all();
+        $allTypes = Type::all();
+        $allOrigins = Origin::all();
+        $allMovements = Movement::all();
         $transaction = $this->transactionService->getTransactionById($id);
-        return view('transactions.edit_transactions', ['transaction' => $transaction]);
+
+        return view('transactions.edit_transactions', [
+            'transaction' => $transaction,
+            'types' => $allTypes,
+            'origins' => $allOrigins,
+            'movements' => $allMovements,
+            'members' => $allMembers,
+        ]);
     }
 
     /**
