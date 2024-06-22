@@ -26,6 +26,7 @@ class MemberRepository implements MemberRepositoryInterface
             'street',
             'state',
             'district',
+            'city',
             'number',
             'complement',
         );
@@ -34,25 +35,56 @@ class MemberRepository implements MemberRepositoryInterface
 
         return Member::create([
             'first_name' => $request->first_name,
-            'last_name' => $request->first_name,
-            'email' => $request->first_name,
-            'is_active' => $request->first_name,
-            'observations' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'dateOfBirth' => $request->dateOfBirth,
+            'email' => $request->email,
+            'is_active' => $request->is_active,
             'address_id' => $address->id,
+            'observations' => $request->first_name
         ]);
     }
 
     public function deleteMember(int $id)
     {
+        $member = Member::find($id);
+        Address::destroy($member->address_id);
         return Member::destroy($id);
     }
 
     public function updateMember(Request $request, int $id)
     {
         $member = Member::findOrFail($id);
-        $request = $request->all();
+        $address = Address::findOrFail($member->address_id);
 
-        return $member->fill($request);
+        $addressRequest = $request->only(
+            'zip_code',
+            'street',
+            'state',
+            'district',
+            'city',
+            'number',
+            'complement',
+        );
+
+        $address->fill($addressRequest);
+        $address->save();
+
+        $memberUpdate = $request->only([
+            'first_name',
+            'last_name' ,
+            'phone',
+            'dateOfBirth',
+            'email',
+            'is_active',
+            'address_id',
+            'observations'
+        ]);
+
+        $member->fill($memberUpdate);
+        $member->save();
+
+        return $member;
 
     }
 }

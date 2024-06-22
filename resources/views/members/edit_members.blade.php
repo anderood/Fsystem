@@ -10,7 +10,7 @@
         @include('components.successes.success')
 
         <h3>Editar Membro</h3>
-        <form action="{{ Route('members.edit', $member->id) }}" method="post">
+        <form action="{{ Route('members.update', $member->id) }}" method="post">
             @method('put')
             @csrf
             <div>
@@ -35,14 +35,7 @@
             </div>
             <div>
                 <label>Ativo:</label>
-                <select name="isActive">
-                    <option value="1">Sim</option>
-                    <option value="0">Não</option>
-                </select>
-            </div>
-            <div>
-                <label>Membro Ativo:</label>
-                <select name="isMember">
+                <select name="is_active">
                     <option value="1">Sim</option>
                     <option value="0">Não</option>
                 </select>
@@ -55,7 +48,7 @@
             <h2>Endereço</h2>
             <div>
                 <label>CEP: </label>
-                <input type="text" name="zipcode" value="{{ $member->address->zipcode }}">
+                <input type="text" name="zip_code" value="{{ $member->address->zip_code }}">
             </div>
             <div>
                 <label>Rua: </label>

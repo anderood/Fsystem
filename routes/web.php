@@ -26,7 +26,7 @@ Route::get("/members", [MemberController::class, 'index'])->name('members.home_m
 Route::get("/members/create", [MemberController::class, 'create'])->name('members.create_members');
 Route::get("/members/{id}", [MemberController::class, 'edit'])->name('members.edit');
 Route::post("/members/create", [MemberController::class, 'store']);
-Route::put("/members/{id}/update", [MemberController::class, 'update']);
+Route::put("/members/{id}/update", [MemberController::class, 'update'])->name('members.update');
 Route::delete("/members/{id}/destroy", [MemberController::class, 'destroy'])->name('members.delete');
 
 Route::get("/types", [TypeController::class, 'index'])->name('types.home_types');

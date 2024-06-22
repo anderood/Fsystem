@@ -18,6 +18,7 @@ class Address extends Model
         'state',
         'district',
         'number',
+        'city',
         'complement',
     ];
 

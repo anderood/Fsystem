@@ -13,6 +13,8 @@ class Member extends Model
     protected $fillable = [
         'first_name',
         'last_name',
+        'phone',
+        'dateOfBirth',
         'email',
         'is_active',
         'address_id',
