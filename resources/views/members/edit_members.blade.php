@@ -36,8 +36,8 @@
             <div>
                 <label>Ativo:</label>
                 <select name="is_active">
-                    <option value="1">Sim</option>
-                    <option value="0">Não</option>
+                    <option value="{{ $member->is_active == 1 ? $member->is_active : 1 }}" {{ $member->is_active == 1 ? 'selected' : '' }}>Sim</option>
+                    <option value="{{ $member->is_active == 0 ? $member->is_active: 0 }}" {{ $member->is_active == 0 ? 'selected' : '' }}>Não</option>
                 </select>
             </div>
             <div>
