@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Csvs\CSVController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Transactions\TransactionController;
 use App\Http\Controllers\Types\TypeController;
@@ -64,5 +65,8 @@ Route::post("/users/create", [UserController::class, 'store']);
 Route::get("/users/{id}", [UserController::class, 'edit'])->name('users.edit');
 Route::put("/users/{id}/update", [UserController::class, 'update'])->name('users.update');
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.delete');
+
+Route::get("/import", [CSVController::class, 'index']);
+Route::post("/import", [CSVController::class, 'store']);
 
 
