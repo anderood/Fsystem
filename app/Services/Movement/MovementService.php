@@ -41,6 +41,6 @@ class MovementService implements MovementServiceInterface
 
     public function findMovement(string $search)
     {
-        $this->movementRepository->findMovement($search);
+        return $this->movementRepository->findMovement($search);
     }
 }
