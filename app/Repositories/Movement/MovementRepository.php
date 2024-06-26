@@ -35,4 +35,10 @@ class MovementRepository implements MovementRepositoryInterface
     {
         return Movement::destroy($id);
     }
+
+    public function findMovement(string $search)
+    {
+        return Movement::where('name', 'like', '%' .$search. '%')->firstOrFail();
+        return Type::where('name', 'like', '%' . $search . '%')->firstOrFail();
+    }
 }

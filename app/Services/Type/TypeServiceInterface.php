@@ -16,4 +16,6 @@ interface TypeServiceInterface
     public function updateType(Request $request, int $id);
 
     public function deleteType(int $id);
+
+    public function findType(String $search);
 }

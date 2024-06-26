@@ -38,4 +38,9 @@ class OriginService implements OriginServiceInterface
     {
         return $this->originRepository->deleteOrigin($id);
     }
+
+    public function findOrigin(string $search)
+    {
+        return $this->originRepository->findOrigin($search);
+    }
 }

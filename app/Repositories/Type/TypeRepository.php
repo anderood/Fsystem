@@ -36,4 +36,9 @@ class TypeRepository implements TypeRepositoryInterface
     {
         return Type::destroy($id);
     }
+
+    public function findType(string $search)
+    {
+        return Type::where('name', 'like', '%' . $search . '%')->firstOrFail();
+    }
 }

@@ -3,11 +3,30 @@
 namespace App\Http\Controllers\Imports;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transaction\Transaction;
+use App\Services\Movement\MovementServiceInterface;
+use App\Services\Origin\OriginServiceInterface;
+use App\Services\Type\TypeServiceInterface;
 use Illuminate\Http\Request;
 
 class ImportController extends Controller
 {
+    protected $typeService;
+
+    protected $originService;
+
+    protected $movementService;
+
+    public function __construct(
+        TypeServiceInterface $typeService,
+        OriginServiceInterface $originService,
+        MovementServiceInterface $movementService
+    )
+    {
+        $this->typeService = $typeService;
+        $this->originService = $originService;
+        $this->movementService = $movementService;
+    }
+
     public function index()
     {
         return view('csv.layout-import');

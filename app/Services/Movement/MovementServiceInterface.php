@@ -15,4 +15,6 @@ interface MovementServiceInterface
     public function updateMovement(Request $request, int $id);
 
     public function deleteMovement(int $id);
+
+    public function findMovement(String $search);
 }

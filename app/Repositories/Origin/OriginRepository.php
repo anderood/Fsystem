@@ -37,4 +37,9 @@ class OriginRepository implements OriginRepositoryInterface
     {
         return Origin::destroy($id);
     }
+
+    public function findOrigin(string $search)
+    {
+        return Origin::where('name', 'like', '%' . $search . '%')->firstOrFail();
+    }
 }

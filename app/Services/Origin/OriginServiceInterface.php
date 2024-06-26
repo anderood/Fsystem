@@ -15,4 +15,6 @@ interface OriginServiceInterface
     public function updateOrigin(Request $request, int $id);
 
     public function deleteOrigin(int $id);
+
+    public function findOrigin(String $search);
 }

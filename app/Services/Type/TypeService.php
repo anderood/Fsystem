@@ -38,4 +38,9 @@ class TypeService implements TypeServiceInterface
     {
         return $this->typeRepository->deleteType($id);
     }
+
+    public function findType(string $search)
+    {
+        return $this->typeRepository->findType($search);
+    }
 }

@@ -38,4 +38,9 @@ class MovementService implements MovementServiceInterface
     {
         return $this->movementRepository->deleteMovement($id);
     }
+
+    public function findMovement(string $search)
+    {
+        $this->movementRepository->findMovement($search);
+    }
 }
