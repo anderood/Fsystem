@@ -3,28 +3,17 @@
 namespace App\Http\Controllers\Imports;
 
 use App\Http\Controllers\Controller;
-use App\Services\Movement\MovementServiceInterface;
-use App\Services\Origin\OriginServiceInterface;
-use App\Services\Type\TypeServiceInterface;
+use App\Services\Imports\ImportServiceInterface;
 use Illuminate\Http\Request;
 
 class ImportController extends Controller
 {
-    protected $typeService;
 
-    protected $originService;
+    protected $importService;
 
-    protected $movementService;
-
-    public function __construct(
-        TypeServiceInterface $typeService,
-        OriginServiceInterface $originService,
-        MovementServiceInterface $movementService
-    )
+    public function __construct(ImportServiceInterface $importService)
     {
-        $this->typeService = $typeService;
-        $this->originService = $originService;
-        $this->movementService = $movementService;
+        $this->importService = $importService;
     }
 
     public function index()
@@ -34,16 +23,8 @@ class ImportController extends Controller
 
     public function analysis(Request $request)
     {
-        $csvImports = [];
-        $file = $request->file('import_csv');
 
-        $rows = array_map('str_getcsv', file($file->getRealPath()));
-
-        array_shift($rows);
-
-        foreach ($rows as $row) {
-           $csvImports[] = $row;
-        }
+        $csvImports = $this->importService->import($request);
 
         return view('csv.edit-import', ['csvImports' => $csvImports]);
 

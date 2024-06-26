@@ -180,7 +180,8 @@ return [
         App\Providers\OriginServiceProvider::class,
         App\Providers\TransactionServiceProvider::class,
         App\Providers\MovementServiceProvider::class,
-        App\Providers\UserServiceProvider::class
+        App\Providers\UserServiceProvider::class,
+        App\Providers\ImportServiceProvider::class
     ],
 
     /*
