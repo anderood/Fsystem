@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Csvs;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction\Transaction;
 use Illuminate\Http\Request;
 
 class CSVController extends Controller
@@ -15,15 +16,27 @@ class CSVController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('import_csv');
-        $handle = fopen($file->path(), 'r');
 
-        $data = fgetcsv($handle);
+        $rows = array_map('str_getcsv', file($file->getRealPath()));
 
-        print_r($data);die();
-
-        foreach ($fileContents as $line) {
-            $data = str_getcsv($line);
-            var_dump($data);
+        array_shift($rows);
+        foreach ($rows as $row) {
+            Transaction::create([
+                'title' => $row[0],
+                'amount' => $row[1],
+                'date' => $row[2],
+                'member_id' => 6,
+                'type_id' => 4,
+                'origin_id' => 2,
+                'movement_id' => 1,
+                'observation' => $row[6],
+            ]);
         }
+
+    }
+
+    public function edit()
+    {
+        //
     }
 }

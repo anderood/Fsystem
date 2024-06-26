@@ -67,6 +67,7 @@ Route::put("/users/{id}/update", [UserController::class, 'update'])->name('users
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.delete');
 
 Route::get("/import", [CSVController::class, 'index']);
-Route::post("/import", [CSVController::class, 'store']);
+Route::post("/import", [CSVController::class, 'analysis'])->name('import');
+Route::get("/import/check", [CSVController::class, 'edit'])->name('edit-import');
 
 
