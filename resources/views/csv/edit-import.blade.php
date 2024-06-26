@@ -7,7 +7,6 @@
 @section('container-central')
     <section class="container-central">
         @include('components.errors.error')
-        <h2>Editar arquivos CSV</h2>
-
+        @include('components.imports.list_imports')
     </section>
 @endsection

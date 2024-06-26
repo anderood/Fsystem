@@ -10,6 +10,7 @@
         <h2>Importe arquivos CSV</h2>
         <form action="{{ Route('import') }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('put')
             <input type="file" name="import_csv" accept=".csv">
             <input type="submit" value="Importar CSV">
         </form>
