@@ -13,6 +13,8 @@ class AddMembersTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints('transactions_member_id_foreign');
+        Schema::dropIfExists('members');
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
