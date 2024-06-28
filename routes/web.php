@@ -67,7 +67,7 @@ Route::put("/users/{id}/update", [UserController::class, 'update'])->name('users
 Route::delete("/users/{id}/destroy", [UserController::class, 'destroy'])->name('users.delete');
 
 Route::get("/import", [ImportController::class, 'index']);
-Route::put("/import", [ImportController::class, 'analysis'])->name('import');
-Route::get("/import/check", [ImportController::class, 'edit'])->name('edit-import');
+Route::put("/import", [ImportController::class, 'create'])->name('import');
+Route::post("/import", [ImportController::class, 'store'])->name('import.store');
 
 

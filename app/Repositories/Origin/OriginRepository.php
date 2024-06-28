@@ -40,6 +40,6 @@ class OriginRepository implements OriginRepositoryInterface
 
     public function findOrigin(string $search)
     {
-        return Origin::where('name', 'like', '%' . $search . '%')->firstOrFail();
+        return Origin::where('name', 'like', '%' . $search . '%')->first();
     }
 }

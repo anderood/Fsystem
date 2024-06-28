@@ -12,7 +12,7 @@
             @csrf
             @method('put')
             <input type="file" name="import_csv" accept=".csv">
-            <input type="submit" value="Importar CSV">
+            <input type="submit" value="Carregar CSV">
         </form>
     </section>
 @endsection
