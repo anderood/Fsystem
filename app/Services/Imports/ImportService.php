@@ -52,30 +52,18 @@ class ImportService implements ImportServiceInterface
         return $csvImports;
     }
 
-    public function storeImport($data)
+    public function storeImport($csvData)
     {
-        $type_id = $data['type_id'];
+        array_shift($csvData);
 
-        if (!isset($type_id)) {
-            throw new \Exception("Campo Vazio");
-        }
+        $results = $this->convert_csvdata_in_array($csvData);
 
-        $csvData[] = [
-            'title' => $data['title'],
-            'amount' => $data['amount'],
-            'date' => $data['date'],
-            'type_id' => $this->checkIsNotNull($data['type_id'], 'type'),
-            'origin_id' => $this->checkIsNotNull($data['origin_id'], 'origin'),
-            'movement_id' => $this->checkIsNotNull($data['movement_id'], 'movement'),
-        ];
-
-//        die(dd($csvData));
-        Transaction::create($csvData[0]);
+        die(dd($results));
 
         return redirect()->back()->with('success', 'CSV importação iniciada com sucesso!');
     }
 
-    public function checkIsNotNull($search, $option)
+    private function checkIsNotNull($search, $option)
     {
         switch ($option) {
             case 'type':
@@ -119,5 +107,20 @@ class ImportService implements ImportServiceInterface
 
                 return $movement->id;
         }
+    }
+
+    private function convert_csvdata_in_array($csvData)
+    {
+        $csvArray = array();
+        $csvCount = count($csvData['title']);
+        $csvKeys = array_keys($csvData);
+
+        for ($i = 0; $i < $csvCount; $i++) {
+            foreach ($csvKeys as $key) {
+                $csvArray[$i][$key] = $csvData[$key][$i];
+            }
+        }
+
+        return $csvArray;
     }
 }
