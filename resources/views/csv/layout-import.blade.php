@@ -7,10 +7,10 @@
 @section('container-central')
     <section class="container-central">
         @include('components.errors.error')
+        @include('components.successes.success')
         <h2>Importe arquivos CSV</h2>
-        <form action="{{ Route('import') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ Route('import.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('put')
             <input type="file" name="import_csv" accept=".csv">
             <input type="submit" value="Carregar CSV">
         </form>

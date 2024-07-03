@@ -8,6 +8,7 @@ use App\Models\Transaction\Transaction;
 use App\Models\Type\Type;
 use App\Services\Movement\MovementServiceInterface;
 use App\Services\Origin\OriginServiceInterface;
+use App\Services\Transaction\TransactionServiceInterface;
 use App\Services\Type\TypeServiceInterface;
 
 class ImportService implements ImportServiceInterface
@@ -18,52 +19,40 @@ class ImportService implements ImportServiceInterface
 
     protected $movementService;
 
+    protected $transactionService;
+
     public function __construct(
         TypeServiceInterface $typeService,
         OriginServiceInterface $originService,
-        MovementServiceInterface $movementService
+        MovementServiceInterface $movementService,
+        TransactionServiceInterface $transactionService
     )
     {
         $this->typeService = $typeService;
         $this->originService = $originService;
         $this->movementService = $movementService;
+        $this->transactionService = $transactionService;
     }
-
-    public function import($request)
+    public function storeImport($request)
     {
-        $csvImports = [];
-        $file = $request->file('import_csv');
+        $csvData = $this->convert_csvdata_in_array($request);
 
-        $rows = array_map('str_getcsv', file($file->getRealPath()));
+        $this->check_array($csvData);
 
-        array_shift($rows);
-
-        foreach ($rows as $row) {
-            $csvImports[] = [
-                'title' => $row[0],
-                'amount' => $row[1],
-                'date' => $row[2],
-                'type_id' => $row[3],
-                'origin_id' => $row[4],
-                'movement_id' => $row[5],
-                'observation' => $row[6],
-            ];
+        foreach ($csvData as $index => $value) {
+            $csvData[$index]['amount'] = $this->convert_coin_to_decimal($value['amount']);
+            $csvData[$index]['date'] = $this->convert_date($value['date']);
+            $csvData[$index]['type_id'] = $this->create_fields($value['type_id'], 'type');
+            $csvData[$index]['origin_id'] = $this->create_fields($value['origin_id'], 'origin');
+            $csvData[$index]['movement_id'] = $this->create_fields($value['movement_id'], 'movement');
         }
-        return $csvImports;
+
+        $this->createTransaction($csvData);
+
+        return redirect()->back()->with('success', 'CSV importação realizada com sucesso!');
     }
 
-    public function storeImport($csvData)
-    {
-        array_shift($csvData);
-
-        $results = $this->convert_csvdata_in_array($csvData);
-
-        die(dd($results));
-
-        return redirect()->back()->with('success', 'CSV importação iniciada com sucesso!');
-    }
-
-    private function checkIsNotNull($search, $option)
+    private function create_fields($search, $option)
     {
         switch ($option) {
             case 'type':
@@ -109,18 +98,65 @@ class ImportService implements ImportServiceInterface
         }
     }
 
-    private function convert_csvdata_in_array($csvData)
+    private function convert_csvdata_in_array($csvData): array
     {
-        $csvArray = array();
-        $csvCount = count($csvData['title']);
-        $csvKeys = array_keys($csvData);
+        $csvImports = [];
+        $file = $csvData->file('import_csv');
 
-        for ($i = 0; $i < $csvCount; $i++) {
-            foreach ($csvKeys as $key) {
-                $csvArray[$i][$key] = $csvData[$key][$i];
-            }
+        $rows = array_map('str_getcsv', file($file->getRealPath()));
+
+        array_shift($rows);
+
+        foreach ($rows as $row) {
+            $csvImports[] = [
+                'title' => $row[0],
+                'amount' => $row[1],
+                'date' => $row[2],
+                'type_id' => $row[3],
+                'origin_id' => $row[4],
+                'movement_id' => $row[5],
+                'observation' => $row[6],
+            ];
         }
+        return $csvImports;
+    }
 
-        return $csvArray;
+    private function check_array($csvData)
+    {
+        if (!is_array($csvData)) {
+            throw new \InvalidArgumentException("Invalid csv data");
+        }
+    }
+
+    private function convert_date($csvData): string
+    {
+        return implode("-", array_reverse(explode("/", $csvData)));
+    }
+
+    private function convert_coin_to_decimal($amount)
+    {
+        $valorLimpo = trim(str_replace('R$', '', $amount));
+        $removeSpace = trim(str_replace(' ', '', $valorLimpo));
+
+        $valorReformulado = str_replace(",", ".", $removeSpace);
+
+        $novoValor = (float)$valorReformulado;
+
+        return $novoValor;
+    }
+
+    private function createTransaction($csvData)
+    {
+        foreach ($csvData as $value) {
+            Transaction::create([
+                'title' => $value['title'],
+                'amount' => $value['amount'],
+                'date' => $value['date'],
+                'type_id' => $value['type_id'],
+                'origin_id' => $value['origin_id'],
+                'movement_id' => $value['movement_id'],
+                'observation' => $value['observation'],
+            ]);
+        }
     }
 }

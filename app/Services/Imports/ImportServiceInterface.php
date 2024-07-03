@@ -6,7 +6,5 @@ use Illuminate\Http\Request;
 
 interface ImportServiceInterface
 {
-    public function import(Request $request);
-
-    public function storeImport(Array $import);
+    public function storeImport(Request $request);
 }
