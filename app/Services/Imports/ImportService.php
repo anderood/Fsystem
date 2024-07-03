@@ -49,7 +49,7 @@ class ImportService implements ImportServiceInterface
 
         $this->createTransaction($csvData);
 
-        return redirect()->back()->with('success', 'CSV importação realizada com sucesso!');
+        return redirect()->back()->with('success', 'Importação realizada com sucesso!');
     }
 
     private function create_fields($search, $option)
@@ -136,13 +136,13 @@ class ImportService implements ImportServiceInterface
     private function convert_coin_to_decimal($amount)
     {
         $valorLimpo = trim(str_replace('R$', '', $amount));
-        $removeSpace = trim(str_replace(' ', '', $valorLimpo));
 
-        $valorReformulado = str_replace(",", ".", $removeSpace);
+        $valorReformulado = str_replace(",", ".", $valorLimpo);
 
-        $novoValor = (float)$valorReformulado;
+        $result = preg_replace("/[^0-9.]/", "", $valorReformulado);
 
-        return $novoValor;
+        return $result;
+
     }
 
     private function createTransaction($csvData)
