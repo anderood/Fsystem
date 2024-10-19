@@ -79,12 +79,12 @@
             <div>
                 <label>Categoria</label>
                 <div>
-                    <select name="category_id">
-                        @if ($transaction->category_id != null)
-                            @foreach($categories as $category)
-                                <option value="{{ $transaction->category_id == $category->id ? $transaction->category_id : $category->id }}"
-                                    {{ $transaction->category_id == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
+                    <select name="movement_id">
+                        @if ($transaction->movement_id != null)
+                            @foreach($movements as $movement)
+                                <option value="{{ $transaction->movement_id == $movement->id ? $transaction->movement_id : $movement->id }}"
+                                    {{ $transaction->movement_id == $movement->id ? 'selected' : '' }}>
+                                    {{ $movement->name }}
                                 </option>
                             @endforeach
                         @else

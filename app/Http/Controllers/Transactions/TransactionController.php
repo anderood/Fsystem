@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Transactions;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TransactionRequest;
 use App\Models\Member\Member;
 use App\Models\Movement\Movement;
 use App\Models\Origin\Origin;
@@ -62,7 +63,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransactionRequest $request)
     {
         return $this->transactionService->createTransaction($request);
     }
@@ -108,7 +109,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, $id)
     {
         return $this->transactionService->updateTransaction($request, $id);
     }
