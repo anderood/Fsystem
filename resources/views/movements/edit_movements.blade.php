@@ -17,7 +17,7 @@
                 <label>Titulo</label>
                 <div>
                     <label>
-                        <input type="text" name="name" value="">
+                        <input type="text" name="name" value="{{ $movement->name }}">
                     </label>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <textarea
                             name="descriptions"
                             rows="4" cols="50">
-
+                            {{ $movement->description }}
                         </textarea>
                     </label>
                 </div>
