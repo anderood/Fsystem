@@ -13,7 +13,7 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
-    protected $userService;
+    protected UserServiceInterface $userService;
 
     public function __construct(UserServiceInterface $userService)
     {
@@ -23,7 +23,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -56,7 +56,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -67,7 +67,7 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function edit($id)
     {
@@ -78,11 +78,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UserRequest $request
+     * @param int $id
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id): Response
     {
         return $this->userService->updateUser($request, $id);
     }
@@ -91,9 +91,9 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
+    public function destroy($id): Response
     {
         return $this->userService->deleteUser($id);
     }
