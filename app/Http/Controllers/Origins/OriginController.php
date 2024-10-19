@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Origins;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OriginRequest;
 use App\Models\Origin\Origin;
 use App\Services\Origin\OriginServiceInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class OriginController extends Controller
 {
-    private $originService;
+    private OriginServiceInterface $originService;
 
     public function __construct(OriginServiceInterface $originService)
     {
@@ -19,7 +24,7 @@ class OriginController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -30,7 +35,7 @@ class OriginController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -40,10 +45,10 @@ class OriginController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param OriginRequest $request
+     * @return Origin
      */
-    public function store(Request $request)
+    public function store(OriginRequest $request): Origin
     {
         return $this->originService->createOrigin($request);
     }
@@ -51,8 +56,8 @@ class OriginController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Origin\Origin  $origin
-     * @return \Illuminate\Http\Response
+     * @param Origin $origin
+     * @return Response
      */
     public function show(Origin $origin)
     {
@@ -62,8 +67,8 @@ class OriginController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Origin\Origin  $origin
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function edit(int $id)
     {
@@ -74,11 +79,11 @@ class OriginController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Origin\Origin  $origin
-     * @return \Illuminate\Http\Response
+     * @param OriginRequest $request
+     * @param int $id
+     * @return Origin
      */
-    public function update(Request $request, int $id)
+    public function update(OriginRequest $request, int $id): Origin
     {
         return $this->originService->updateOrigin($request, $id);
     }
@@ -86,8 +91,8 @@ class OriginController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Origin\Origin  $origin
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function destroy(int $id)
     {
