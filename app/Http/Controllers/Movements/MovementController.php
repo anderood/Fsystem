@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\Movements;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MovementRequest;
 use App\Models\Movement\Movement;
 use App\Services\Movement\MovementServiceInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class MovementController extends Controller
 {
 
-    private $movementService;
+    private MovementServiceInterface $movementService;
 
     public function __construct(MovementServiceInterface $movementService)
     {
@@ -20,7 +25,7 @@ class MovementController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -31,7 +36,7 @@ class MovementController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -41,10 +46,10 @@ class MovementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param MovementRequest $request
+     * @return Movement
      */
-    public function store(Request $request)
+    public function store(MovementRequest $request): Movement
     {
         return $this->movementService->createMovement($request);
     }
@@ -52,8 +57,8 @@ class MovementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Movement\Movement  $movement
-     * @return \Illuminate\Http\Response
+     * @param Movement $movement
+     * @return Response
      */
     public function show(Movement $movement)
     {
@@ -63,8 +68,8 @@ class MovementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Movement\Movement  $movement
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Application|Factory|View
      */
     public function edit(int $id)
     {
@@ -75,11 +80,11 @@ class MovementController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Movement\Movement  $movement
-     * @return \Illuminate\Http\Response
+     * @param MovementRequest $request
+     * @param int $id
+     * @return Movement
      */
-    public function update(Request $request, int $id)
+    public function update(MovementRequest $request, int $id): Movement
     {
         return $this->movementService->updateMovement($request, $id);
     }
@@ -87,10 +92,10 @@ class MovementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Movement\Movement  $movement
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
-    public function destroy(int $id)
+    public function destroy(int $id): Response
     {
         return $this->movementService->deleteMovement($id);
     }
