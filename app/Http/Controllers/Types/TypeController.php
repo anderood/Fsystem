@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Types;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TypeRequest;
 use App\Models\Type\Type;
 use App\Services\Type\TypeServiceInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TypeController extends Controller
 {
-    protected $typeService;
+    protected TypeServiceInterface $typeService;
 
     public function __construct(TypeServiceInterface $TypeService)
     {
@@ -19,7 +24,7 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -30,7 +35,7 @@ class TypeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -40,10 +45,10 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param TypeRequest $request
+     * @return Type
      */
-    public function store(Request $request)
+    public function store(TypeRequest $request): Type
     {
         return $this->typeService->createType($request);
     }
@@ -51,8 +56,8 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Type\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param Type $type
+     * @return Response
      */
     public function show(Type $type)
     {
@@ -62,8 +67,8 @@ class TypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Type\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Application|Factory|View
      */
     public function edit(int $id)
     {
@@ -74,11 +79,11 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Type\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param TypeRequest $request
+     * @param int $id
+     * @return Type
      */
-    public function update(Request $request, int $id)
+    public function update(TypeRequest $request, int $id): Type
     {
         return $this->typeService->updateType($request, $id);
     }
@@ -86,10 +91,10 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Type\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
-    public function destroy(int $id)
+    public function destroy(int $id): Response
     {
         return $this->typeService->deleteType($id);
     }
