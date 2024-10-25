@@ -44,7 +44,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function getTransactionByTypeId(int $id)
     {
-        return Transaction::where('type_id', $id);
+        return Transaction::where('type_id', $id)->count();
     }
 
     public function getTransactionByMovementId(int $id)

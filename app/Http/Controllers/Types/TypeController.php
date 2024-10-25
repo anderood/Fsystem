@@ -100,7 +100,6 @@ class TypeController extends Controller
      */
     public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        $this->typeService->deleteType($id);
-        return redirect("/types")->with('success', "Cadastro removido com Sucesso!");
+        return $this->typeService->deleteType($id);
     }
 }
