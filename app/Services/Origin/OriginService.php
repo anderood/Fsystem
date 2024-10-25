@@ -3,15 +3,25 @@
 namespace App\Services\Origin;
 
 use App\Repositories\Origin\OriginRepositoryInterface;
+use App\Repositories\Transaction\TransactionRepositoryInterface;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class OriginService implements OriginServiceInterface
 {
-    private $originRepository;
+    private OriginRepositoryInterface $originRepository;
 
-    public function __construct(OriginRepositoryInterface $originRepository)
+    private TransactionRepositoryInterface $transactionRepository;
+
+    public function __construct(
+        OriginRepositoryInterface $originRepository,
+        TransactionRepositoryInterface $transactionRepository
+    )
     {
         $this->originRepository = $originRepository;
+        $this->transactionRepository = $transactionRepository;
     }
 
     public function allOrigins()
@@ -34,8 +44,16 @@ class OriginService implements OriginServiceInterface
         return $this->originRepository->updateOrigin($request, $id);
     }
 
-    public function deleteOrigin(int $id)
+    public function deleteOrigin(int $id): Redirector|Application|RedirectResponse
     {
-        return $this->originRepository->deleteOrigin($id);
+        $origin = $this->transactionRepository->getTransactionByOriginId($id);
+
+        if ($origin > 0) {
+            return back()->with('error', "Item não pode ser removido");
+        }
+
+        $this->originRepository->deleteOrigin($id);
+
+        return redirect("/origins")->with('success', "Cadastro removido com Sucesso!");
     }
 }

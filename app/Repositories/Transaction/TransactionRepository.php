@@ -39,7 +39,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function getTransactionByOriginId(int $id)
     {
-        return Transaction::where('origin_id', $id);
+        return Transaction::where('origin_id', $id)->count();
     }
 
     public function getTransactionByTypeId(int $id)

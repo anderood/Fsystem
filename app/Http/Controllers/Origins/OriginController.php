@@ -100,7 +100,6 @@ class OriginController extends Controller
      */
     public function destroy(int $id): Redirector|Application|RedirectResponse
     {
-        $this->originService->deleteOrigin($id);
-        return redirect("/origins")->with('success', "Cadastro removido com Sucesso!");
+        return $this->originService->deleteOrigin($id);
     }
 }
