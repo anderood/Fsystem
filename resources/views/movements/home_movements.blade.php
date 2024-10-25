@@ -6,6 +6,7 @@
 
 @section('container-central')
     <section class="container-central">
+        @include('components.successes.success')
         <section class="container-central-header-botao">
             <div class="row">
                 <a href="{{ route('movements.create_movements') }}">Nova Categoria</a>

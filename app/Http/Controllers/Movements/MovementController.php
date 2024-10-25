@@ -47,11 +47,12 @@ class MovementController extends Controller
      * Store a newly created resource in storage.
      *
      * @param MovementRequest $request
-     * @return Movement
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(MovementRequest $request): Movement
+    public function store(MovementRequest $request): \Illuminate\Http\RedirectResponse
     {
-        return $this->movementService->createMovement($request);
+        $this->movementService->createMovement($request);
+        return redirect('/movements')->with('success', 'Criado com Sucesso!');
     }
 
     /**
