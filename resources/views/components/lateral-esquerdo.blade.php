@@ -7,7 +7,7 @@
 <div class="row">
     <div class="container-esquerdo-menu">
         <ul>
-            <li class="menu-item"><i class="fas fa-tachometer-alt"></i> <a href="/">Dashboard</a></li>
+            <li class="menu-item"><i class="fas fa-tachometer-alt"></i> <a href="{{ route('dashboard.home_dash') }}">Dashboard</a></li>
             <li class="menu-item"><i class="fas fa-exchange-alt"></i> <a href="{{ route('transactions.home_transactions') }}">Transações</a></li>
             <li class="menu-item"><i class="fas fa-users"></i> <a href="{{ route('members.home_members') }}">Membros</a></li>
             <li class="menu-item"><i class="fas fa-user"></i> <a href="{{ route('users.home_users') }}">Usuários</a></li>
@@ -25,7 +25,7 @@
 <div class="row">
     <div class="container-esquerdo-rodape">
         <ul>
-            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </ul>
     </div>
 </div>
