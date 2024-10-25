@@ -6,7 +6,7 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.successes.success')
+        @include('components.messages.index')
         <section class="container-central-header-botao">
             <div class="row">
                 <a href="{{ route('users.create_users') }}">Novo Usuario</a>

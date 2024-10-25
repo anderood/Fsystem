@@ -1,13 +1,12 @@
 @extends('layouts.layout-master')
 
 @section('container-esquerdo')
-@include('components.lateral-esquerdo')
+    @include('components.lateral-esquerdo')
 @endsection
 
 @section('container-central')
     <section class="container-central">
-        @include('components.errors.error')
-        @include('components.successes.success')
+        @include('components.messages.index')
 
         <h3>Editar Transação</h3>
         <form action="{{ Route('transactions.update', $transaction->id) }}" method="post">
@@ -45,7 +44,8 @@
                         <option value="">Nenhum</option>
                         @if ( $transaction->member_id != null )
                             @foreach($members as $member)
-                                <option value="{{ $transaction->member->id == $member->id ? $transaction->member->id : $member->id }}" {{ $transaction->member->id == $member->id ? 'selected' : ''}}>
+                                <option
+                                    value="{{ $transaction->member->id == $member->id ? $transaction->member->id : $member->id }}" {{ $transaction->member->id == $member->id ? 'selected' : ''}}>
                                     {{ $transaction->member->id == $member->id ? $transaction->member->first_name : $member->first_name }}
                                 </option>
                             @endforeach
@@ -63,8 +63,9 @@
                     <select name="origin_id">
                         @if($transaction->origin_id != null)
                             @foreach($origins as $origin)
-                                <option value="{{ $transaction->origin_id  == $origin->id ? $transaction->origin_id : $origin->id }}"
-                                {{ $transaction->origin_id  == $origin->id ? 'selected' : '' }}>
+                                <option
+                                    value="{{ $transaction->origin_id  == $origin->id ? $transaction->origin_id : $origin->id }}"
+                                    {{ $transaction->origin_id  == $origin->id ? 'selected' : '' }}>
                                     {{  $transaction->origin_id == $origin->id ? $transaction->origin->name : $origin->name  }}
                                 </option>
                             @endforeach
@@ -82,7 +83,8 @@
                     <select name="movement_id">
                         @if ($transaction->movement_id != null)
                             @foreach($movements as $movement)
-                                <option value="{{ $transaction->movement_id == $movement->id ? $transaction->movement_id : $movement->id }}"
+                                <option
+                                    value="{{ $transaction->movement_id == $movement->id ? $transaction->movement_id : $movement->id }}"
                                     {{ $transaction->movement_id == $movement->id ? 'selected' : '' }}>
                                     {{ $movement->name }}
                                 </option>
@@ -101,8 +103,9 @@
                     <select name="type_id">
                         @if($transaction->type_id != null)
                             @foreach($types as $type)
-                                <option value="{{ $transaction->type_id == $type->id ? $transaction->type_id : $type->id }}"
-                                {{ $transaction->type_id == $type->id ? 'selected' : '' }}>
+                                <option
+                                    value="{{ $transaction->type_id == $type->id ? $transaction->type_id : $type->id }}"
+                                    {{ $transaction->type_id == $type->id ? 'selected' : '' }}>
                                     {{ $transaction->type_id == $type->id ? $transaction->type->name : $type->name  }}
                                 </option>
                             @endforeach

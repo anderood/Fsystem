@@ -7,7 +7,7 @@
 @section('container-central')
     <section class="container-central">
         <h3>Cria Transações</h3>
-        @include('components.errors.error')
+        @include('components.messages.index')
         <form action="" method="post">
             @csrf
 

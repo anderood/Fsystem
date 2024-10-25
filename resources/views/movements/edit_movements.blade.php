@@ -6,8 +6,7 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.errors.error')
-        @include('components.successes.success')
+        @include('components.messages.index')
 
         <h3>Atualizar Categoria</h3>
         <form action="{{ Route('movements.update', $movement->id) }}" method="post">

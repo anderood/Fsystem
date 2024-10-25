@@ -6,8 +6,7 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.errors.error')
-        @include('components.successes.success')
+        @include('components.messages.index')
 
         <h3>Editar Tipo</h3>
         <form action="{{ Route('types.update', $type->id) }}" method="post">

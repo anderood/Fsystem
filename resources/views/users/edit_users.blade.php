@@ -6,8 +6,7 @@
 
 @section('container-central')
     <section class="container-central">
-        @include('components.errors.error')
-        @include('components.successes.success')
+        @include('components.messages.index')
 
         <h3>Atualizar Usuario</h3>
         <form action="{{ Route('users.update', $user->id) }}" method="post">
@@ -33,10 +32,10 @@
                 <label>Observação</label>
                 <input type="text" name="observations" value="{{ $user->observations }}">
             </div>
-{{--            <div>--}}
-{{--                <label>Senha:</label>--}}
-{{--                <input type="password" name="password" value="{{ $user->password }}">--}}
-{{--            </div>--}}
+            {{--            <div>--}}
+            {{--                <label>Senha:</label>--}}
+            {{--                <input type="password" name="password" value="{{ $user->password }}">--}}
+            {{--            </div>--}}
             <button type="submit">Atualizar</button>
         </form>
         <form action="{{ Route('users.delete', $user->id) }}" method="post">

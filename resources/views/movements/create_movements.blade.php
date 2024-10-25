@@ -7,7 +7,7 @@
 @section('container-central')
     <section class="container-central">
         <h1>Criar Movimentação</h1>
-        @include('components.errors.error')
+        @include('components.messages.index')
         <form action="" method="post">
             @csrf
             <div>
