@@ -9,8 +9,10 @@ use App\Services\Type\TypeServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class TypeController extends Controller
 {
@@ -46,11 +48,12 @@ class TypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param TypeRequest $request
-     * @return Type
+     * @return RedirectResponse|Redirector|Application
      */
-    public function store(TypeRequest $request): Type
+    public function store(TypeRequest $request): Application|RedirectResponse|Redirector
     {
-        return $this->typeService->createType($request);
+        $this->typeService->createType($request);
+        return redirect("/types")->with('success', 'Criado com Sucesso!');
     }
 
     /**
