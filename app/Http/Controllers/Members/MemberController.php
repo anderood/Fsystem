@@ -96,10 +96,11 @@ class MemberController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(int $id): Response
+    public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        return $this->memberService->deleteMember($id);
+        $this->memberService->deleteMember($id);
+        return redirect("/members")->with('success', "Cadastro removido com Sucesso!");
     }
 }

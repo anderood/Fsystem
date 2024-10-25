@@ -123,11 +123,12 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Transaction $transaction
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): Redirector|Application|RedirectResponse
     {
-        return $this->transactionService->deleteTransaction($id);
+        $this->transactionService->deleteTransaction($id);
+        return redirect("/transactions")->with('success', "Cadastro removido com Sucesso!");
     }
 }

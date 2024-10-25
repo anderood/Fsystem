@@ -96,10 +96,11 @@ class TypeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(int $id): Response
+    public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        return $this->typeService->deleteType($id);
+        $this->typeService->deleteType($id);
+        return redirect("/types")->with('success', "Cadastro removido com Sucesso!");
     }
 }

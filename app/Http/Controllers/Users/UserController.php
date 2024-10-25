@@ -94,11 +94,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy($id): Response
+    public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        return $this->userService->deleteUser($id);
+        $this->userService->deleteUser($id);
+        return redirect("/users")->with('success', "Cadastro removido com Sucesso!");
     }
 }

@@ -96,10 +96,11 @@ class OriginController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Redirector|RedirectResponse
      */
-    public function destroy(int $id)
+    public function destroy(int $id): Redirector|Application|RedirectResponse
     {
-        return $this->originService->deleteOrigin($id);
+        $this->originService->deleteOrigin($id);
+        return redirect("/origins")->with('success', "Cadastro removido com Sucesso!");
     }
 }
