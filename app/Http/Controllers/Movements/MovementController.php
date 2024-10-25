@@ -9,6 +9,7 @@ use App\Services\Movement\MovementServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -47,9 +48,9 @@ class MovementController extends Controller
      * Store a newly created resource in storage.
      *
      * @param MovementRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(MovementRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(MovementRequest $request): RedirectResponse
     {
         $this->movementService->createMovement($request);
         return redirect('/movements')->with('success', 'Criado com Sucesso!');
