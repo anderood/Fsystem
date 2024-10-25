@@ -8,8 +8,10 @@ use App\Services\User\UserServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class UserController extends Controller
 {
@@ -45,11 +47,12 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      *
      * @param UserRequest $request
-     * @return Response
+     * @return RedirectResponse|Redirector|Application
      */
-    public function store(UserRequest $request): Response
+    public function store(UserRequest $request): Application|RedirectResponse|Redirector
     {
-        return $this->userService->createUser($request);
+        $this->userService->createUser($request);
+        return redirect("/users")->with('success', "Cadastro realizado com Sucesso!");
     }
 
     /**
