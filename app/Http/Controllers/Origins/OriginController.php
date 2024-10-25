@@ -9,8 +9,10 @@ use App\Services\Origin\OriginServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class OriginController extends Controller
 {
@@ -37,7 +39,7 @@ class OriginController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create()
+    public function create(): Factory|View|Application
     {
         return view('origins.create_origins');
     }
@@ -46,11 +48,12 @@ class OriginController extends Controller
      * Store a newly created resource in storage.
      *
      * @param OriginRequest $request
-     * @return Origin
+     * @return RedirectResponse|Redirector|Application
      */
-    public function store(OriginRequest $request): Origin
+    public function store(OriginRequest $request): Application|RedirectResponse|Redirector
     {
-        return $this->originService->createOrigin($request);
+        $this->originService->createOrigin($request);
+        return redirect("/origins")->with("success", "Cadastrado com Sucesso!");
     }
 
     /**
