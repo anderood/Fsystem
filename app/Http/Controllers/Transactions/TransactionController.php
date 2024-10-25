@@ -14,7 +14,10 @@ use Doctrine\DBAL\Types\Types;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class TransactionController extends Controller
 {
@@ -42,7 +45,7 @@ class TransactionController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function create()
+    public function create(): Factory|View|Application
     {
         $allMembers = Member::all();
         $allTypes = Type::all();
@@ -60,12 +63,14 @@ class TransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param TransactionRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(TransactionRequest $request)
     {
-        return $this->transactionService->createTransaction($request);
+        $this->transactionService->createTransaction($request);
+
+        return redirect("/transactions")->with("success", "Criado com Sucesso!");
     }
 
     /**
