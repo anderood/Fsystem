@@ -9,8 +9,10 @@ use App\Services\Member\MemberServiceInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class MemberController extends Controller
 {
@@ -46,11 +48,12 @@ class MemberController extends Controller
      * Store a newly created resource in storage.
      *
      * @param MemberRequest $request
-     * @return Response
+     * @return RedirectResponse|Redirector|Application
      */
-    public function store(MemberRequest $request): Response
+    public function store(MemberRequest $request): Application|RedirectResponse|Redirector
     {
-        return $this->memberService->createMember($request);
+        $this->memberService->createMember($request);
+        return redirect("/members")->with('success', "Cadastro realizado com Sucesso!");
     }
 
     /**
