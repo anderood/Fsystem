@@ -15,4 +15,12 @@ interface TransactionRepositoryInterface
     public function updateTransaction(Request $request, int $id);
 
     public function deleteTransaction(int $id);
+
+    public function getTransactionByOriginId(int $id);
+
+    public function getTransactionByTypeId(int $id);
+
+    public function getTransactionByMovementId(int $id);
+
+    public function getTransactionByMemberId(int $id);
 }

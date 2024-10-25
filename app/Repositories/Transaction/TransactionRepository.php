@@ -36,4 +36,24 @@ class TransactionRepository implements TransactionRepositoryInterface
     {
         return Transaction::destroy($id);
     }
+
+    public function getTransactionByOriginId(int $id)
+    {
+        return Transaction::where('origin_id', $id);
+    }
+
+    public function getTransactionByTypeId(int $id)
+    {
+        return Transaction::where('type_id', $id);
+    }
+
+    public function getTransactionByMovementId(int $id)
+    {
+        return Transaction::where('movement_id', $id)->count();
+    }
+
+    public function getTransactionByMemberId(int $id)
+    {
+        return Transaction::where('member_id', $id);
+    }
 }

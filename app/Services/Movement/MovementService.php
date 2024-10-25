@@ -3,15 +3,21 @@
 namespace App\Services\Movement;
 
 use App\Repositories\Movement\MovementRepositoryInterface;
+use App\Repositories\Transaction\TransactionRepositoryInterface;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class MovementService implements MovementServiceInterface
 {
-    private $movementRepository;
+    protected MovementRepositoryInterface $movementRepository;
 
-    public function __construct(MovementRepositoryInterface $movementRepository)
+    protected TransactionRepositoryInterface $transactionRepository;
+
+
+    public function __construct(MovementRepositoryInterface $movementRepository, TransactionRepositoryInterface $transactionRepository)
     {
         $this->movementRepository = $movementRepository;
+        $this->transactionRepository = $transactionRepository;
     }
 
     public function allMovements()
@@ -34,8 +40,16 @@ class MovementService implements MovementServiceInterface
         return $this->movementRepository->updateMovement($request, $id);
     }
 
-    public function deleteMovement(int $id)
+    public function deleteMovement(int $id): RedirectResponse
     {
-        return $this->movementRepository->deleteMovement($id);
+        $qtdMovement = $this->transactionRepository->getTransactionByMovementId($id);
+
+        if ($qtdMovement > 0) {
+            return back()->with('error', "Item não pode ser removido");
+        }
+
+        $this->movementRepository->deleteMovement($id);
+
+        return redirect("/movements")->with('success', "Cadastro removido com Sucesso!");
     }
 }

@@ -101,7 +101,6 @@ class MovementController extends Controller
      */
     public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        $this->movementService->deleteMovement($id);
-        return redirect("/movements")->with('success', "Cadastro removido com Sucesso!");
+        return $this->movementService->deleteMovement($id);
     }
 }

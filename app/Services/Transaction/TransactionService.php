@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TransactionService implements TransactionServiceInterface
 {
-    private $transactionRepository;
+    private TransactionRepositoryInterface $transactionRepository;
 
     public function __construct(TransactionRepositoryInterface $transactionRepository)
     {
