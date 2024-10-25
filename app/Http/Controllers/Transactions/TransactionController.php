@@ -76,7 +76,7 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transaction\Transaction  $transaction
+     * @param Transaction $transaction
      * @return \Illuminate\Http\Response
      */
     public function show(Transaction $transaction)
@@ -110,19 +110,20 @@ class TransactionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction\Transaction  $transaction
-     * @return \Illuminate\Http\Response
+     * @param TransactionRequest $request
+     * @param $id
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(TransactionRequest $request, $id)
+    public function update(TransactionRequest $request, $id): Redirector|Application|RedirectResponse
     {
-        return $this->transactionService->updateTransaction($request, $id);
+        $this->transactionService->updateTransaction($request, $id);
+        return redirect("/transactions")->with('success', "Cadastro atualizado com Sucesso!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transaction\Transaction  $transaction
+     * @param Transaction $transaction
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)

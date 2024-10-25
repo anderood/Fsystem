@@ -71,9 +71,9 @@ class OriginController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function edit(int $id)
+    public function edit(int $id): Factory|View|Application
     {
         $origin = $this->originService->getOriginById($id);
         return view('origins.edit_origins', ['origin' => $origin]);
@@ -84,11 +84,12 @@ class OriginController extends Controller
      *
      * @param OriginRequest $request
      * @param int $id
-     * @return Origin
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(OriginRequest $request, int $id): Origin
+    public function update(OriginRequest $request, int $id): Application|RedirectResponse|Redirector
     {
-        return $this->originService->updateOrigin($request, $id);
+        $this->originService->updateOrigin($request, $id);
+        return redirect("/origins")->with('success', "Cadastro atualizado com Sucesso!");
     }
 
     /**

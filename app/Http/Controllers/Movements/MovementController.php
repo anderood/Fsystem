@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class MovementController extends Controller
 {
@@ -84,11 +85,12 @@ class MovementController extends Controller
      *
      * @param MovementRequest $request
      * @param int $id
-     * @return Movement
+     * @return Redirector|Application|RedirectResponse
      */
-    public function update(MovementRequest $request, int $id): Movement
+    public function update(MovementRequest $request, int $id): Application|RedirectResponse|Redirector
     {
-        return $this->movementService->updateMovement($request, $id);
+        $this->movementService->updateMovement($request, $id);
+        return redirect("/movements")->with('success', "Cadastro atualizado com Sucesso!");
     }
 
     /**

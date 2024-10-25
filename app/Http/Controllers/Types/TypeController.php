@@ -84,11 +84,12 @@ class TypeController extends Controller
      *
      * @param TypeRequest $request
      * @param int $id
-     * @return Type
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(TypeRequest $request, int $id): Type
+    public function update(TypeRequest $request, int $id): Application|RedirectResponse|Redirector
     {
-        return $this->typeService->updateType($request, $id);
+        $this->typeService->updateType($request, $id);
+        return redirect("/types")->with('success', "Cadastro atualizado com Sucesso!");
     }
 
     /**
