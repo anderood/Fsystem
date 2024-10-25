@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashController;
 use App\Http\Controllers\Members\MemberController;
 use App\Http\Controllers\Transactions\TransactionController;
 use App\Http\Controllers\Types\TypeController;
@@ -24,10 +25,8 @@ Route::get("/ping", function (){
 
 Route::middleware(['auth'])->group(function(){
 
-    Route::get("/", function (){
-
-    });
-
+    Route::get("/", [DashController::class, 'index'])->name('dashboard.home_dash');
+  
     Route::get("/members", [MemberController::class, 'index'])->name('members.home_members');
     Route::get("/members/create", [MemberController::class, 'create'])->name('members.create_members');
     Route::get("/members/{id}", [MemberController::class, 'edit'])->name('members.edit');
