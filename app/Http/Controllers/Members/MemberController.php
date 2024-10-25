@@ -84,11 +84,12 @@ class MemberController extends Controller
      *
      * @param MemberRequest $request
      * @param int $id
-     * @return Member
+     * @return Application|Redirector|RedirectResponse
      */
-    public function update(MemberRequest $request, int $id): Member
+    public function update(MemberRequest $request, int $id): Application|RedirectResponse|Redirector
     {
-        return $this->memberService->updateMember($request, $id);
+        $this->memberService->updateMember($request, $id);
+        return redirect("/members")->with('success', "Cadastro atualizado com Sucesso!");
     }
 
     /**
