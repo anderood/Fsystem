@@ -100,7 +100,6 @@ class MemberController extends Controller
      */
     public function destroy(int $id): Application|RedirectResponse|Redirector
     {
-        $this->memberService->deleteMember($id);
-        return redirect("/members")->with('success', "Cadastro removido com Sucesso!");
+        return $this->memberService->deleteMember($id);
     }
 }

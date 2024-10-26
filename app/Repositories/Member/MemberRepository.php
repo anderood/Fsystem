@@ -87,4 +87,11 @@ class MemberRepository implements MemberRepositoryInterface
         return $member;
 
     }
+
+    public function softDeleteMember(int $id): void
+    {
+        $member = Member::find($id);
+        $member->delete();
+        return;
+    }
 }

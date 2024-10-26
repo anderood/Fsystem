@@ -54,6 +54,6 @@ class TransactionRepository implements TransactionRepositoryInterface
 
     public function getTransactionByMemberId(int $id)
     {
-        return Transaction::where('member_id', $id);
+        return Transaction::where('member_id', $id)->count();
     }
 }

@@ -15,4 +15,6 @@ interface MemberRepositoryInterface
     public function updateMember(Request $request, int $id);
 
     public function deleteMember(int $id);
+
+    public function softDeleteMember(int $id);
 }
