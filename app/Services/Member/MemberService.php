@@ -64,4 +64,9 @@ class MemberService implements MemberServiceInterface
     {
         return $this->memberRepository->softDeleteMember($id);
     }
+
+    public function allMembersWithTrashed()
+    {
+        return $this->memberRepository->allMembersWithTrashed();
+    }
 }

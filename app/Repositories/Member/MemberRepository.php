@@ -5,6 +5,7 @@ namespace App\Repositories\Member;
 use App\Models\Address\Address;
 use App\Models\Member\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class MemberRepository implements MemberRepositoryInterface
 {
@@ -93,5 +94,10 @@ class MemberRepository implements MemberRepositoryInterface
         $member = Member::find($id);
         $member->delete();
         return;
+    }
+
+    public function allMembersWithTrashed(): array|\Illuminate\Database\Eloquent\Collection|Collection
+    {
+        return Member::withTrashed()->get();
     }
 }

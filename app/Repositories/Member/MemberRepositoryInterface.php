@@ -17,4 +17,8 @@ interface MemberRepositoryInterface
     public function deleteMember(int $id);
 
     public function softDeleteMember(int $id);
+
+    public function allMembersWithTrashed();
+
+
 }

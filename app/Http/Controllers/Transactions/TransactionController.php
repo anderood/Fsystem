@@ -9,7 +9,11 @@ use App\Models\Movement\Movement;
 use App\Models\Origin\Origin;
 use App\Models\Transaction\Transaction;
 use App\Models\Type\Type;
+use App\Services\Member\MemberServiceInterface;
+use App\Services\Movement\MovementServiceInterface;
+use App\Services\Origin\OriginServiceInterface;
 use App\Services\Transaction\TransactionServiceInterface;
+use App\Services\Type\TypeServiceInterface;
 use Doctrine\DBAL\Types\Types;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -22,11 +26,29 @@ use Illuminate\Routing\Redirector;
 class TransactionController extends Controller
 {
 
-    private $transactionService;
+    private TransactionServiceInterface $transactionService;
 
-    public function __construct(TransactionServiceInterface $transactionService)
+    private MemberServiceInterface $memberService;
+
+    private TypeServiceInterface $typeService;
+
+    private OriginServiceInterface $originService;
+
+    private MovementServiceInterface $movementService;
+
+    public function __construct(
+        TransactionServiceInterface $transactionService,
+        MemberServiceInterface $memberService,
+        TypeServiceInterface $typeService,
+        OriginServiceInterface $originService,
+        MovementServiceInterface $movementService
+    )
     {
         $this->transactionService = $transactionService;
+        $this->memberService = $memberService;
+        $this->typeService = $typeService;
+        $this->originService = $originService;
+        $this->movementService = $movementService;
     }
 
     /**
@@ -47,10 +69,10 @@ class TransactionController extends Controller
      */
     public function create(): Factory|View|Application
     {
-        $allMembers = Member::all();
-        $allTypes = Type::all();
-        $allOrigins = Origin::all();
-        $allMovements = Movement::all();
+        $allMembers = $this->memberService->allMembers();
+        $allTypes = $this->typeService->allTypes();
+        $allOrigins = $this->originService->allOrigins();
+        $allMovements = $this->movementService->allMovements();
 
         return view('transactions.create_transactions', [
             'members'=> $allMembers,
@@ -90,12 +112,12 @@ class TransactionController extends Controller
      * @param int $id
      * @return Application|Factory|View
      */
-    public function edit(int $id)
+    public function edit(int $id): Factory|View|Application
     {
-        $allMembers = Member::all();
-        $allTypes = Type::all();
-        $allOrigins = Origin::all();
-        $allMovements = Movement::all();
+        $allMembers = $this->memberService->allMembersWithTrashed();
+        $allTypes = $this->typeService->allTypes();
+        $allOrigins = $this->originService->allOrigins();
+        $allMovements = $this->movementService->allMovements();
         $transaction = $this->transactionService->getTransactionById($id);
 
         return view('transactions.edit_transactions', [
